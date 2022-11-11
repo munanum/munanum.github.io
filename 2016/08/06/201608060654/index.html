@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>原生JS实现图片懒加载 | 木南的個人網站 - MuNan&#39;s Personal Website | 人成各 今非昨 — 唐琬</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="JavaScript,性能优化,懒加载">
+    <link rel="shortcut icon" href="/img/5cb23cd0-2f82-44dc-9671-0bbe928e324e.ico">
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="/css/style.css?v=undefined">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":null,"repo":null,"oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/b940cf6d-92e4-4ecf-bc32-590cbba0f93f.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/6954c1c6-3b8b-4960-b87e-c0c834c15c8a.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">木南</h5>
+          <a href="mailto:c08cf6b8@outlook.com" title="c08cf6b8@outlook.com" class="mail">
+            
+              <span>c</span>
+            
+              <span>0</span>
+            
+              <span>8</span>
+            
+              <span>c</span>
+            
+              <span>f</span>
+            
+              <span>6</span>
+            
+              <span>b</span>
+            
+              <span>8</span>
+            
+              <span>@</span>
+            
+              <span>o</span>
+            
+              <span>u</span>
+            
+              <span>t</span>
+            
+              <span>l</span>
+            
+              <span>o</span>
+            
+              <span>o</span>
+            
+              <span>k</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/munanum" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主頁
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories/%E9%9A%A8%E7%AD%86"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分類
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags/%E9%9A%A8%E7%AD%86"  >
+                <i class="icon icon-lg icon-tags"></i>
+                標籤
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                歸檔
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>原生JS实现图片懒加载</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/a057c731-d78c-499a-8233-8309e92a3e4c.png" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">原生JS实现图片懒加载</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-08-05T22:54:36.000Z" itemprop="datePublished" class="page-time">
+  2016-08-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a></li></ul></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-201608060654"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">原生JS实现图片懒加载</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-08-06 06:54:36" datetime="2016-08-05T22:54:36.000Z"  itemprop="datePublished">2016-08-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a></li></ul></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <h2 id="图片懒加载介绍"><a href="#图片懒加载介绍" class="headerlink" title="图片懒加载介绍"></a>图片懒加载介绍</h2><p>什么是<strong>懒加载</strong>？懒加载其实就是<strong>按需加载</strong>或者说是<strong>条件加载</strong>，是前端一种优化性能的方式。比如访问一个页面，里面有很多图片（也可以是视频等其他资源）。如果这些图片全部加载出来，不仅要在短时间内发出大量请求而且还要进行渲染，这是很消耗时间的。此外，在渲染过程中会阻塞浏览器继续向下解析，影响用户体验。所以，最佳的模式是访问一个页面的时候当图片出现在可视区域内的时候（或者距离可视区域一定距离的时候）再去加载而不是一开始就加载全部图片。当需要加载的时候再发出图片请求，避免网页初始化时请求拥堵以及过多渲染阻塞线程。</p>
+<h2 id="图片懒加载原理"><a href="#图片懒加载原理" class="headerlink" title="图片懒加载原理"></a>图片懒加载原理</h2><p><strong>img</strong>标签有一个属性是<strong>src</strong>，用来表示图片的地址，当这个属性的值不为空时，浏览器就会根据这个属性值发出请求；如果这个属性值为空，则不会发出请求。根据这个原理，将图片地址赋值给<strong>img</strong>标签的<strong>data-src</strong>属性，而<strong>src</strong>属性值设为空或者设为一个默认图片的路径。</p>
+<p>获取<strong>img</strong>标签到浏览器顶部的距离，当这个距离等于某个值或在某个范围内时（开发者自己决定，一般以浏览器窗口的可视区域高度为参考标准。），将<strong>data-src</strong>的属性值赋值给<strong>src</strong>属性。</p>
+<h2 id="图片懒加载实现"><a href="#图片懒加载实现" class="headerlink" title="图片懒加载实现"></a>图片懒加载实现</h2><h3 id="getBoundingClientRect"><a href="#getBoundingClientRect" class="headerlink" title="getBoundingClientRect"></a>getBoundingClientRect</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>图片懒加载<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">      * &#123;</span><br><span class="line">        margin: 0;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      li &#123;</span><br><span class="line">        width: 50%;</span><br><span class="line">        height: 500px;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"1.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"2.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"3.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"4.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"5.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"6.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"7.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"8.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"9.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> imgArr = <span class="built_in">document</span>.querySelectorAll(<span class="string">'img'</span>)</span></span><br><span class="line"><span class="javascript">    imgArr = <span class="built_in">Array</span>.from(imgArr) <span class="comment">// 将类数组对象转化为数组</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> imgLazyload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">const</span> lazyDistance = <span class="number">20</span> <span class="comment">// 图片提前加载的距离</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">      <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; imgArr.length; index++) &#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">const</span> imgDOM = imgArr[index]</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="comment">// 获取图片上边框到浏览器可视区域顶部的距离</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">const</span> imgDOMtop = imgDOM.getBoundingClientRect().top</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="comment">// 获取浏览器可视区域的高度</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">const</span> clientHeight =</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.documentElement.clientHeight || <span class="built_in">window</span>.innerHeight</span></span><br><span class="line"></span><br><span class="line">        if (imgDOMtop - clientHeight &lt;= lazyDistance) &#123;</span><br><span class="line">          imgDOM.src = imgDOM.dataset.src</span><br><span class="line"></span><br><span class="line"><span class="actionscript">          <span class="comment">// 已经加载的图片从数组中移除从而避免重复操作</span></span></span><br><span class="line">          imgArr.splice(index, 1)</span><br><span class="line"></span><br><span class="line">          /* </span><br><span class="line">            数组中移除一个元素后，被移除元素后面的元素向前移动一位。</span><br><span class="line">            如果“index”不减少一个单位，则会跳过原本在被移除元素后面的那个元素。</span><br><span class="line">             */</span><br><span class="line">          index -= 1</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">// 当页面滚动的时候触发图片懒加载逻辑</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>, () =&gt; &#123;</span></span><br><span class="line">      imgLazyload()</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">// 页面加载完成后首屏加载一次</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, () =&gt; &#123;</span></span><br><span class="line">      imgLazyload()</span><br><span class="line">    &#125;)</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（以上代码粘贴到 html 文件中即可运行体验效果）</p>
+<h3 id="IntersectionObserver"><a href="#IntersectionObserver" class="headerlink" title="IntersectionObserver"></a>IntersectionObserver</h3><p>上述方法是通过绑定“<strong>scroll</strong>”事件实现的，当页面滚动时，判断被观察元素上边框与视口顶部的距离从而判断被观察元素是否在视口内。但是<strong>scroll</strong>事件触发过于频繁，很影响页面的流畅性，甚至会出现卡顿现象。幸运的是，有一个新的接口<strong>IntersectionObserver</strong>，既可以观察元素是否在视口内又完美地解决了上述问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> observer = <span class="keyword">new</span> IntersectionObserver(callback, option)</span><br><span class="line"></span><br><span class="line">observer.observe(<span class="built_in">document</span>.querySelector(<span class="string">'#domId'</span>))</span><br><span class="line">observer.unobserve(<span class="built_in">document</span>.querySelector(<span class="string">'#domId'</span>))</span><br><span class="line">observer.disconnect()</span><br></pre></td></tr></table></figure>
+
+<p><strong>IntersectionObserver</strong>是浏览器提供的原生构造函数，接受两个参数，第一个参数是回调函数，另外一个是可选配置参数。该构造函数的返回值是一个观察器实例。<strong>observe</strong>用来指定被观察的元素，如果要观察多个元素，需要多次调用这个方法。只要被观察元素的可见性发生变化，就会执行观察器的回调函数（回调函数会在被观察元素刚刚进入视口或者<strong>完全</strong>离开视口时触发）。<strong>unobserve</strong>用来取消对元素的观察，用法与<strong>observe</strong>相同。<strong>disconnect</strong>用来关闭观察器。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>图片懒加载<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">      * &#123;</span><br><span class="line">        margin: 0;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      li img &#123;</span><br><span class="line">        width: 50%;</span><br><span class="line">        height: 200px;</span><br><span class="line">        margin-bottom: 2000px;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"1.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"2.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"3.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"4.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"5.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"6.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"7.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"8.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-src</span>=<span class="string">"9.jpg"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> imgArr = <span class="built_in">document</span>.querySelectorAll(<span class="string">'img'</span>)</span></span><br><span class="line"><span class="javascript">    imgArr = <span class="built_in">Array</span>.from(imgArr) <span class="comment">// 将类数组对象转化为数组</span></span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">// 初始化一个实例</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> observer = <span class="keyword">new</span> IntersectionObserver(<span class="function">(<span class="params">changes</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="actionscript">      <span class="comment">// changes是一个数组，被观察元素的可见性若是发生变化，该元素的信息就会存入数组中。</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; changes.length; index++) &#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">const</span> changer = changes[index]</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="comment">// console.log(changer.time); // 被观察元素可见性发生变化时的时间，是一个以毫秒为单位的时间戳。</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// console.log(changer.target); // 可见性发生变化的目标元素</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// console.log(changer.rootBounds); // 根元素矩形区域的信息，默认根元素是浏览器视口。</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// console.log(changer.boundingClientRect); // 目标元素矩形区域的信息</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// console.log(changer.intersectionRect); // 目标元素与根元素（默认根元素是浏览器视口）交叉区域的信息</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// console.log(changer.intersectionRatio); // 目标元素的可见比例，即intersectionRect占boundingClientRect的比例。</span></span></span><br><span class="line"></span><br><span class="line">        if (changer.intersectionRatio &gt; 0) &#123;</span><br><span class="line"><span class="actionscript">          <span class="keyword">const</span> targetDOM = changer.target</span></span><br><span class="line"></span><br><span class="line">          targetDOM.src = targetDOM.dataset.src</span><br><span class="line"></span><br><span class="line"><span class="actionscript">          <span class="comment">// 对已经出现在视口的元素取消观察</span></span></span><br><span class="line">          observer.unobserve(targetDOM)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; imgArr.length; index++) &#123;</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">const</span> imgDOM = imgArr[index]</span></span><br><span class="line"></span><br><span class="line">      observer.observe(imgDOM)</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（以上代码粘贴到 html 文件中即可运行体验效果）</p>
+<p><strong>IntersectionObserver</strong>的第二个参数是一个配置对象。其可以有以下属性：</p>
+<ul>
+<li><p><strong>threshold</strong>：默认值为<code>[0]</code>，表示<strong>intersectionRatio == 0</strong>时回调函数会被触发。当然，开发人员也可以设置为<code>[0, 0.5, 1]</code>，表示<strong>intersectionRatio</strong>等于 0、0.5、1 时回调函数会被触发。</p>
+</li>
+<li><p><strong>root</strong>：默认情况下，被观察元素的可见性变化是相对于浏览器视口的，既以浏览器视口为参考系的。该属性的作用就是修改被观察元素的参考视口。</p>
+</li>
+<li><p><strong>rootMargin</strong>：这个属性用来给<strong>root</strong>元素设置<strong>margin</strong>值，使用方法与<strong>CSS</strong>中的<strong>margin</strong>属性一样。运行上面的两个案例会发现，在第一个案例中，图片标签将要出现在视口内时就开始加载图片，另一个案例恰恰相反，图片标签出现在视口后才开始加载图片（被观察元素只有与<strong>root</strong>元素有交叉（交集）时才会触发回调函数），并未达到预加载效果。给<strong>root</strong>元素设置<strong>rootMargin</strong>属性后，被观察元素只要与<strong>root</strong>元素外边距有交叉（交集）时就会触发回调函数，达到了未进入视口前就开始加载的效果。</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> observer = <span class="keyword">new</span> IntersectionObserver(callback, &#123;</span><br><span class="line">  threshold: [<span class="number">0</span>, <span class="number">0.5</span>, <span class="number">1</span>],</span><br><span class="line">  root: <span class="built_in">document</span>.querySelector(<span class="string">'#domId'</span>),</span><br><span class="line">  rootMargin: <span class="string">'0 0 20px 0'</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：如果被观察元素不是<strong>root</strong>元素的子节点，即使被观察元素出现在浏览器视口内，也不会触发回调函数。</p>
+</blockquote>
+<p><strong>IntersectionObserver</strong>是一个<strong>异步</strong>接口，其回调函数只有在浏览器线程空闲的时候才会执行，如果浏览器当前的任务队列中有待处理的任务，其回调函数是不会被执行的。</p>
+<p>参考链接：<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect</a></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        轉載注明出處，原文地址：<a href="/2016/08/06/201608060654/" target="_blank" rel="external">https://munan.wiki/2016/08/06/201608060654/</a>
+        
+    </div>
+    <footer>
+        <a href="https://munan.wiki">
+            <img src="/img/6954c1c6-3b8b-4960-b87e-c0c834c15c8a.png" alt="木南">
+            木南
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">性能优化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%87%92%E5%8A%A0%E8%BD%BD/" rel="tag">懒加载</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://munan.wiki/2016/08/06/201608060654/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《原生JS实现图片懒加载》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/08/06/201608060654/&via=https://munan.wiki" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://munan.wiki/2016/08/06/201608060654/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2016/08/28/201608282022/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">URL重定向</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2016/08/02/201608020650/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">常见“同源策略”问题解决方案</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图片懒加载介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">图片懒加载介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图片懒加载原理"><span class="post-toc-number">2.</span> <span class="post-toc-text">图片懒加载原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图片懒加载实现"><span class="post-toc-number">3.</span> <span class="post-toc-text">图片懒加载实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#getBoundingClientRect"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">getBoundingClientRect</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#IntersectionObserver"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">IntersectionObserver</span></a></li></ol></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        請我喝可樂吧(●ˇ∀ˇ●)🥤
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/69c8aa0f-f453-4dfb-90fd-d902862a397e.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/69c8aa0f-f453-4dfb-90fd-d902862a397e.jpg" data-alipay="/img/1afbf165-2495-4b8a-ba6f-6dff9220bb46.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                木南 &copy; 2016 - 2022
+            </span>
+        		
+           	
+            
+            
+            
+            
+
+            
+                
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://munan.wiki/2016/08/06/201608060654/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《原生JS实现图片懒加载》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/08/06/201608060654/&via=https://munan.wiki" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://munan.wiki/2016/08/06/201608060654/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aQW7DMAwF0dz/0uk2QGtnPikXEDVeBYZt6W0YUuTrha/3x3V1n1yfb/3+fXVn2SVDhoxtGXxh/kz/Dl9XhgwZ5zCuItj9pztbIWGd7E2GDBkyeALXD69kXRkyZMjgAbdTXZKgLEOGDBm1IpYcwN1vi7/7YC0uQ4aMDRk8aP7/70f6GzJkyNiKUWtApsXnqvB6uSsZMmSMZvAAl2L4N/n9L6vIkCFjNKOTFNaakWlxuyDnlSFDxuaMWojkwxP3aV/tyO/yf0OGDBnjGGlpSsIfb0By0pe1ZMiQMZrBC9FaqrcqNKOvyZAhYygjXT4doajdiQ/gZMiQcQAjbUmmz/RD9pcvyJAhYzSj1hggx2G18Mrz2QUtTBkyZGzCSFsCKaMfoINpERkyZAxlpK/VCtr+qGvx/0GGDBkjGGnoJMf3aTHMt45SQxkyZAxl1DZaG/niCWjwpAwZMg5gkNDJByZ44pgesaFhCxkyZIxj8CK20+bsNyCDd2XIkDGU8QSAhO/OmMUf68qQIeMwBm9YPrfRuAyWIUPGAYx0eIuXsk+niTJkyJjNeIcXL1zTw7tac1SGDBknMPjFD+vReESpeK61RWXIkDGDUQuy6Vsk1KbJZdxBlSFDxuaMNPCR47Pa88XQL0OGDBlgW7yR2TmSWzYQJkOGjAMYtTSuVk+j1oUMGTIOYKSH9WnJytufxfELGTJkjGbw0rG2OVKCkqYCb6DKkCFjEOMHYeCyUG/vF+sAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=undefined"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=undefined"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="/js/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=undefined"></script>
+<script type="text/javascript" src="/js/blog.js?v=undefined"></script>
+
+<!-- third-party -->
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=undefined"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<!-- <script async src="/js/busuanzi.pure.mini.js"></script> -->
+
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="/js/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '(づ￣ 3￣)づ點我吧!';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '(。・∀・)ノ咦~歡迎你!';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+
+    
+</body>
+</html>

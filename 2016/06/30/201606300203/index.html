@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>移动端适配（上） | 木南的個人網站 - MuNan&#39;s Personal Website | 人成各 今非昨 — 唐琬</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="rem">
+    <link rel="shortcut icon" href="/img/5cb23cd0-2f82-44dc-9671-0bbe928e324e.ico">
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="/css/style.css?v=undefined">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":null,"repo":null,"oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/b940cf6d-92e4-4ecf-bc32-590cbba0f93f.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/6954c1c6-3b8b-4960-b87e-c0c834c15c8a.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">木南</h5>
+          <a href="mailto:c08cf6b8@outlook.com" title="c08cf6b8@outlook.com" class="mail">
+            
+              <span>c</span>
+            
+              <span>0</span>
+            
+              <span>8</span>
+            
+              <span>c</span>
+            
+              <span>f</span>
+            
+              <span>6</span>
+            
+              <span>b</span>
+            
+              <span>8</span>
+            
+              <span>@</span>
+            
+              <span>o</span>
+            
+              <span>u</span>
+            
+              <span>t</span>
+            
+              <span>l</span>
+            
+              <span>o</span>
+            
+              <span>o</span>
+            
+              <span>k</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/munanum" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主頁
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories/%E9%9A%A8%E7%AD%86"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分類
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags/%E9%9A%A8%E7%AD%86"  >
+                <i class="icon icon-lg icon-tags"></i>
+                標籤
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                歸檔
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>移动端适配（上）</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/a057c731-d78c-499a-8233-8309e92a3e4c.png" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">移动端适配（上）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-06-29T18:03:13.000Z" itemprop="datePublished" class="page-time">
+  2016-06-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/CSS/">CSS</a></li></ul></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-201606300203"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">移动端适配（上）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-06-30 02:03:13" datetime="2016-06-29T18:03:13.000Z"  itemprop="datePublished">2016-06-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/CSS/">CSS</a></li></ul></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作为一名前端码农（“工程师”这个称号太高大上，我还用不起。）如果不会移动端适配就别说自己是搞前端的。毕竟 PC 独霸天下的时代已经过去了，现在移动端这股浪潮谁也阻止不了。话不多说，下面是我个人总结的一些移动端适配的方法。</p>
+<h2 id="百分比"><a href="#百分比" class="headerlink" title="百分比"></a>百分比</h2><p>百分比布局是比较早的适配方式，因为<code>CSS2.0</code>时代就已经支持这个方法。其作用可以使页面随着屏幕宽度（或者浏览器宽度）改变而自适应。使用时要注意<code>高度设置百分比时，要求其父类元素有明确高度</code>。</p>
+<p><strong>例如：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">style</span>=<span class="string">"height: 100%;"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">"height: 100%;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"height: 100%; width:100%; bacground-color: #b71c1c;"</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- html标签高度等于浏览器当前高度乘100% --&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- body标签高度等于html标签前高度乘100% --&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- div标签高度等于body标签前高度乘100% --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h2><p>rem（root em）是一个新单位其大小等于<code>html标签的字体大小</code>。除了 IE8 及更早版本外所有浏览器均已支持 rem。</p>
+<p><strong>例如：</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>; <span class="comment">/* 此时1rem等于16px */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因此只要让 html 标签字体大小随着屏幕大小改变而改变，那么页面中使用 rem 设置宽高的盒子也会随着屏幕大小改变而改变。<br>常用的的方法有两种。</p>
+<h3 id="Media-Queries-法"><a href="#Media-Queries-法" class="headerlink" title="Media Queries 法"></a>Media Queries 法</h3><p>利用媒体查询，根据屏幕大小动态设置 html 标签的字体大小（缺点是只能查询一些常规的屏幕，无法适配所有屏幕。）。</p>
+<p><strong>例如：</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">321px</span>) <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">375px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">11px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">376px</span>) <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">414px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">415px</span>) <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">639px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">15px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">640px</span>) <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">719px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">720px</span>) <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">749px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">22.5px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">750px</span>) <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">799px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">23.5px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">800px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">25px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="脚本动态更新法"><a href="#脚本动态更新法" class="headerlink" title="脚本动态更新法"></a>脚本动态更新法</h3><p>利用 JS，当屏幕大小改变时动态设置 html 标签字体大小。</p>
+<p><strong>例如：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">;<span class="function">(<span class="params">(doc, win</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> docElement = doc.documentElement,</span><br><span class="line">    resizeEvent =</span><br><span class="line">      <span class="string">'orientationchange'</span> <span class="keyword">in</span> <span class="built_in">window</span> ? <span class="string">'orientationchange'</span> : <span class="string">'resize'</span>,</span><br><span class="line">    recalc = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> clientWidth = docElement.clientWidth <span class="comment">/* clientWidth为屏幕的宽度 */</span></span><br><span class="line">      <span class="keyword">if</span> (!clientWidth) <span class="keyword">return</span></span><br><span class="line">      docElement.style.fontSize = <span class="number">20</span> * (clientWidth / <span class="number">375</span>) + <span class="string">'px'</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  recalc()</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!doc.addEventListener) <span class="keyword">return</span></span><br><span class="line">  win.addEventListener(resizeEvent, recalc, <span class="literal">false</span>)</span><br><span class="line">&#125;)(<span class="built_in">document</span>, <span class="built_in">window</span>)</span><br></pre></td></tr></table></figure>
+
+<p>由于提供的设计稿基本都是以 iphone6/7/8（物理像素宽度 750px,逻辑像素宽度 375px,dpr 为 2。）为参考的，所以计算 rem 时除以 375。</p>
+<blockquote>
+<p>注意：此段代码必须放在 head 标签中，而且必须放在所有 css 代码之前。如果页面一开始渲染没有首先执行此段代码，则后续会按照 html 标签默认字体大小进行渲染。而且在渲染完成后执行此段代码会引起回流，造成页面卡顿闪屏现象。</p>
+</blockquote>
+<h3 id="lib-flexible"><a href="#lib-flexible" class="headerlink" title="lib-flexible"></a>lib-flexible</h3><p>由于<strong>viewpor</strong>t 单位得到众多浏览器的兼容，<a href="https://github.com/amfe/lib-flexible/" target="_blank" rel="noopener" title="lib-flexible">lib-flexible</a>这个过渡方案已经可以放弃使用，不管是现在的版本还是以前的版本，都存有一定的问题。</p>
+<p><strong>源码：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span> <span class="title">flexible</span>(<span class="params">window, document</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> docEl = <span class="built_in">document</span>.documentElement</span><br><span class="line">  <span class="keyword">var</span> dpr = <span class="built_in">window</span>.devicePixelRatio || <span class="number">1</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">setBodyFontSize</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.body) &#123;</span><br><span class="line">      <span class="built_in">document</span>.body.style.fontSize = <span class="number">12</span> * dpr + <span class="string">'px'</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">document</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, setBodyFontSize)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  setBodyFontSize()</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">setRemUnit</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> rem = docEl.clientWidth / <span class="number">10</span></span><br><span class="line">    docEl.style.fontSize = rem + <span class="string">'px'</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  setRemUnit()</span><br><span class="line"></span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, setRemUnit)</span><br><span class="line"></span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'pageshow'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e.persisted) &#123;</span><br><span class="line">      setRemUnit()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (dpr &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> fakeBody = <span class="built_in">document</span>.createElement(<span class="string">'body'</span>)</span><br><span class="line">    <span class="keyword">var</span> testElement = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">    testElement.style.border = <span class="string">'.5px solid transparent'</span></span><br><span class="line">    fakeBody.appendChild(testElement)</span><br><span class="line">    docEl.appendChild(fakeBody)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (testElement.offsetHeight === <span class="number">1</span>) &#123;</span><br><span class="line">      docEl.classList.add(<span class="string">'hairlines'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    docEl.removeChild(fakeBody)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)(<span class="built_in">window</span>, <span class="built_in">document</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Flex-Box"><a href="#Flex-Box" class="headerlink" title="Flex Box"></a>Flex Box</h2><p>直接看阮一峰老师的吧：<br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener" title="Flex 布局教程：语法篇">Flex 布局教程：语法篇</a><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener" title="Flex 布局教程：实例篇">Flex 布局教程：实例篇</a><br><a href="http://www.ruanyifeng.com/blog/2018/10/flexbox-form.html" target="_blank" rel="noopener" title="Flexbox 布局的最简单表单">Flexbox 布局的最简单表单</a></p>
+<p><a href="/2019/01/22/201901220840/" title="移动端适配（下）">移动端适配（下）</a>。</p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        轉載注明出處，原文地址：<a href="/2016/06/30/201606300203/" target="_blank" rel="external">https://munan.wiki/2016/06/30/201606300203/</a>
+        
+    </div>
+    <footer>
+        <a href="https://munan.wiki">
+            <img src="/img/6954c1c6-3b8b-4960-b87e-c0c834c15c8a.png" alt="木南">
+            木南
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rem/" rel="tag">rem</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://munan.wiki/2016/06/30/201606300203/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《移动端适配（上）》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/06/30/201606300203/&via=https://munan.wiki" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://munan.wiki/2016/06/30/201606300203/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2016/07/02/201607020832/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">深入浅出meta标签</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2016/06/20/201606201932/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">学习markdown语法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#百分比"><span class="post-toc-number">2.</span> <span class="post-toc-text">百分比</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#rem"><span class="post-toc-number">3.</span> <span class="post-toc-text">rem</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Media-Queries-法"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Media Queries 法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#脚本动态更新法"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">脚本动态更新法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#lib-flexible"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">lib-flexible</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Flex-Box"><span class="post-toc-number">4.</span> <span class="post-toc-text">Flex Box</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        請我喝可樂吧(●ˇ∀ˇ●)🥤
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/69c8aa0f-f453-4dfb-90fd-d902862a397e.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/69c8aa0f-f453-4dfb-90fd-d902862a397e.jpg" data-alipay="/img/1afbf165-2495-4b8a-ba6f-6dff9220bb46.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                木南 &copy; 2016 - 2022
+            </span>
+        		
+           	
+            
+            
+            
+            
+
+            
+                
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://munan.wiki/2016/06/30/201606300203/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《移动端适配（上）》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/06/30/201606300203/&via=https://munan.wiki" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://munan.wiki/2016/06/30/201606300203/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3aQXLCMAwF0N7/0nSmWwr8L4dOsZ9XTAh2XhZCtvT1FY/bz7j/fH/P85HM9mj+CwYGBsbHMtqFn//q/turrjxaCwMD4xxGEmSj6eKQ+miGPLhjYGBgtAncSkjFwMDAuDbgtpj8WwwMDIznjHxTOksT86O3t+/FMTAwPpCxUhh49+c/qm9gYGD8Y8atHHlYnK07fCoMDIytGW27Q5LS5Wlfmxq+CMcYGBibMpJjr1kyt0LKXysGBsYJjHzhd+CverkYGBgnMJLw1247k43rSnB/uInFwMDYjrGUhI0aLNrGjuTlYmBgnMlYaadYv9K2gGBgYJzASBZoWyVm5czZKhgYGGcy8hJjUgpdmSGaBwMD4wBG3nLRbjWTJrCVEI+BgXEOY+Wgf3ZA1iaOL8AYGBiHMWZJWxumZ+ljEXAxMDA2YrQby3axlSO2+m8AAwNjU0a+1cxLj0mzxUrh4Zf7MTAwtmbkj9gu0AbZC36LgYGxKePag7Bk+VlK+uI6BgbGAYwkmWuP2NrNap6evtjEYmBgbMdIAl9bJZyF2pU0EQMDY2/GrRwrbRazdoroSA4DA2NrRj7yZq9ZAJ0VTTEwMM5hzIJsXkhoU8xhmxoGBsYBjOe3JiF11n4xC/oYGBgY+WO1jaezgkT0gjAwMDBGj9umlW1ZoqjHYmBgbMFoGx3akkC7MV6qxGJgYGzHmB3ftwXIq8L3EgYDA+PzGN/s/xkGP+YOUAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=undefined"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=undefined"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="/js/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=undefined"></script>
+<script type="text/javascript" src="/js/blog.js?v=undefined"></script>
+
+<!-- third-party -->
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=undefined"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<!-- <script async src="/js/busuanzi.pure.mini.js"></script> -->
+
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="/js/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '(づ￣ 3￣)づ點我吧!';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '(。・∀・)ノ咦~歡迎你!';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+
+    
+</body>
+</html>

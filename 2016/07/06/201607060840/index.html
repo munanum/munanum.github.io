@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>移动端适配（下） | 木南的個人網站 - MuNan&#39;s Personal Website | 人成各 今非昨 — 唐琬</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="viewport">
+    <link rel="shortcut icon" href="/img/5cb23cd0-2f82-44dc-9671-0bbe928e324e.ico">
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="/css/style.css?v=undefined">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":null,"repo":null,"oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/b940cf6d-92e4-4ecf-bc32-590cbba0f93f.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/6954c1c6-3b8b-4960-b87e-c0c834c15c8a.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">木南</h5>
+          <a href="mailto:c08cf6b8@outlook.com" title="c08cf6b8@outlook.com" class="mail">
+            
+              <span>c</span>
+            
+              <span>0</span>
+            
+              <span>8</span>
+            
+              <span>c</span>
+            
+              <span>f</span>
+            
+              <span>6</span>
+            
+              <span>b</span>
+            
+              <span>8</span>
+            
+              <span>@</span>
+            
+              <span>o</span>
+            
+              <span>u</span>
+            
+              <span>t</span>
+            
+              <span>l</span>
+            
+              <span>o</span>
+            
+              <span>o</span>
+            
+              <span>k</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/munanum" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主頁
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories/%E9%9A%A8%E7%AD%86"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分類
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags/%E9%9A%A8%E7%AD%86"  >
+                <i class="icon icon-lg icon-tags"></i>
+                標籤
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                歸檔
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>移动端适配（下）</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/a057c731-d78c-499a-8233-8309e92a3e4c.png" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">移动端适配（下）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-07-06T00:40:33.000Z" itemprop="datePublished" class="page-time">
+  2016-07-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/CSS/">CSS</a></li></ul></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-201607060840"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">移动端适配（下）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-07-06 08:40:33" datetime="2016-07-06T00:40:33.000Z"  itemprop="datePublished">2016-07-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/CSS/">CSS</a></li></ul></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>承接<a href="/2019/01/10/201901101503/" title="移动端适配（上）">移动端适配（上）</a>，这次主要写<strong>“viewport”缩放</strong>适配方式。这是淘宝使用的方法，实现原理是将页面放大 dpr（devicePixelRatio）倍，然后 viewport 设置为 1/dpr。例如 iphone6/7/8 的 dpr 为 2，则页面整体放大 2 倍，1px(css 单位)在 iphone6/7/8 下默认显示为 2px(物理像素)。将 viewport 设置为 1/2，这样页面整体缩回原始大小。这样页面显示时的宽度就会等于设备逻辑像素大小（device-width）。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="物理像素"><a href="#物理像素" class="headerlink" title="物理像素"></a>物理像素</h3><p>物理像素（physical pixel）既设备像素，用于表示显示屏中一个最微小的方格。每个方格由操作系统控制颜色和亮度。方格越微小，画面越细腻。</p>
+<h3 id="逻辑像素"><a href="#逻辑像素" class="headerlink" title="逻辑像素"></a>逻辑像素</h3><p>逻辑像素也称为设备独立像素（density-independent pixel）或者虚拟像素，独立于设备用于逻辑上衡量像素的单位。</p>
+<h3 id="设备像素比"><a href="#设备像素比" class="headerlink" title="设备像素比"></a>设备像素比</h3><p>设备像素比（device pixel ratio）简称为<strong>dpr</strong>，其大小是物理像素与逻辑像素的比值。执行代码<code>window.devicePixelRatio</code>可获取到当前设备的<strong>dpr</strong>。</p>
+<figure class="image-box">
+                <a rel=移动端适配（下） href="multidevice.png" title="" data-fancybox="images"><img src="multidevice.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+
+<p>（以苹果设备为例，绿、红、黄各部分分别表示各设备的物理像素、逻辑像素、设备像素比。图片来自<a href="https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions/" target="_blank" rel="noopener" title="PaintCode">PaintCode</a>。）</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>以<strong>iPhone6</strong>为例，其物理像素、逻辑像素、设备像素比分别为 750×1334、375×667、2。这也造成了<strong>1px</strong>的边框在 iPhone6 上显示为<strong>2px</strong>的宽度。以下为解决方法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- dpr等于1时使用 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- dpr等于2时使用 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"initial-scale=0.333333, maximum-scale=0.333333, minimum-scale=0.333333, user-scalable=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- dpr等于3时使用 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"initial-scale=0.25, maximum-scale=0.25, minimum-scale=0.25, user-scalable=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- dpr等于4时使用 --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其思想是根据设备的<strong>dpr</strong>值相应改变<code>&lt;meta&gt;</code>标签中<strong>viewport</strong>的值（当然你也可以通过脚本动态生成该标签）。</p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        轉載注明出處，原文地址：<a href="/2016/07/06/201607060840/" target="_blank" rel="external">https://munan.wiki/2016/07/06/201607060840/</a>
+        
+    </div>
+    <footer>
+        <a href="https://munan.wiki">
+            <img src="/img/6954c1c6-3b8b-4960-b87e-c0c834c15c8a.png" alt="木南">
+            木南
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/viewport/" rel="tag">viewport</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://munan.wiki/2016/07/06/201607060840/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《移动端适配（下）》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/07/06/201607060840/&via=https://munan.wiki" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://munan.wiki/2016/07/06/201607060840/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2016/07/20/201607200640/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">深入浅出HTTP协议（上）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2016/07/02/201607020832/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">深入浅出meta标签</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">2.</span> <span class="post-toc-text">基本概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#物理像素"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">物理像素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逻辑像素"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">逻辑像素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设备像素比"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">设备像素比</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">解决方法</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        請我喝可樂吧(●ˇ∀ˇ●)🥤
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/69c8aa0f-f453-4dfb-90fd-d902862a397e.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/69c8aa0f-f453-4dfb-90fd-d902862a397e.jpg" data-alipay="/img/1afbf165-2495-4b8a-ba6f-6dff9220bb46.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                木南 &copy; 2016 - 2022
+            </span>
+        		
+           	
+            
+            
+            
+            
+
+            
+                
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://munan.wiki/2016/07/06/201607060840/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《移动端适配（下）》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/07/06/201607060840/&via=https://munan.wiki" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://munan.wiki/2016/07/06/201607060840/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aQY7DQAgF0dz/0pntSDO260MnUtPllRUlNi8LBDSvF77ei67fT/t7f/XJskuGDBnbMviL719JfsU/4bHJkCHjHMZVBiMpknz/IQhAeohZhgwZMvB3Oum19l4ZMmTIqCXf+9KTJGUZMmTIqDWxndnXfQlIkviyXlyGDBkbMnhY37//yPmGDBkytmLUDiDJEI0cKqTp9fKNMmTIGM3oNKLpYSdqREvxyJAh40wGX7PgbWr6zBQmQ4aMcxh8/WtV2Vcb+T0kXBkyZIxj3KfdtBDkB5CcFBSXMmTIGMrojNh4U9pJzehpMmTIGMogj04zN0nH6XjuoYmVIUPGaEYaUDr67w/g+BNkyJAxlUEKsrVDMV4gkqhkyJBxAiMtvDorFHwYx1viYv0oQ4aMrRid0Xx6GNkpOoNeXIYMGeMYaaJMwyVJFnXYnWULGTJkbM7oDOVJcOl4Ll2zkCFDxjmMTntZKy55Cg6WLWTIkDGUUQuFg2slYOsMVoYMGaMZtUKQj+/Xrln883YZMmQcwOCjtLRo+8Qi7IKJoAwZMjZkcBgfltXScVomypAhYzbjHV5rS8NO84z+PxkyZIxg8Cs9huwk2VWtrwwZMiYx0iSbrmKk5WO6aiZDhoxzGGniS5czastn5I+QIUOGDB5o/8iB4xckXBkyZBzAWNWUpo3x4oQrQ4aMrRjpsL62zsXTKD9akCFDxgkM3jry+7QFTQHFQ00ZMmTsx/gBoFYD8Suoh/AAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=undefined"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=undefined"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="/js/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=undefined"></script>
+<script type="text/javascript" src="/js/blog.js?v=undefined"></script>
+
+<!-- third-party -->
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=undefined"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<!-- <script async src="/js/busuanzi.pure.mini.js"></script> -->
+
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="/js/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '(づ￣ 3￣)づ點我吧!';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '(。・∀・)ノ咦~歡迎你!';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+
+    
+</body>
+</html>

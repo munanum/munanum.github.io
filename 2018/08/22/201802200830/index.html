@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>使用Node和OAuth2.0构建一个简单的REST API | 木南的個人網站 - MuNan&#39;s Personal Website | 人成各 今非昨 — 唐琬</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="REST API">
+    <link rel="shortcut icon" href="/img/5cb23cd0-2f82-44dc-9671-0bbe928e324e.ico">
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="/css/style.css?v=undefined">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":null,"repo":null,"oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/b940cf6d-92e4-4ecf-bc32-590cbba0f93f.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/6954c1c6-3b8b-4960-b87e-c0c834c15c8a.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">木南</h5>
+          <a href="mailto:c08cf6b8@outlook.com" title="c08cf6b8@outlook.com" class="mail">
+            
+              <span>c</span>
+            
+              <span>0</span>
+            
+              <span>8</span>
+            
+              <span>c</span>
+            
+              <span>f</span>
+            
+              <span>6</span>
+            
+              <span>b</span>
+            
+              <span>8</span>
+            
+              <span>@</span>
+            
+              <span>o</span>
+            
+              <span>u</span>
+            
+              <span>t</span>
+            
+              <span>l</span>
+            
+              <span>o</span>
+            
+              <span>o</span>
+            
+              <span>k</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/munanum" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主頁
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories/%E9%9A%A8%E7%AD%86"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分類
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags/%E9%9A%A8%E7%AD%86"  >
+                <i class="icon icon-lg icon-tags"></i>
+                標籤
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                歸檔
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>使用Node和OAuth2.0构建一个简单的REST API</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/a057c731-d78c-499a-8233-8309e92a3e4c.png" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">使用Node和OAuth2.0构建一个简单的REST API</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-08-22T00:30:24.000Z" itemprop="datePublished" class="page-time">
+  2018-08-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Node/">Node</a></li></ul></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-201802200830"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">使用Node和OAuth2.0构建一个简单的REST API</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-08-22 08:30:24" datetime="2018-08-22T00:30:24.000Z"  itemprop="datePublished">2018-08-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Node/">Node</a></li></ul></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <p>JavaScript 在网络上无处不在。基本上每个网页都或多或少包含一些 JavaScript 代码，即使没有，你的浏览器或许也装了一些拓展附件，这些拓展附件能够将一部分 JavaScript 代码注入网页中。2018 年依旧如此。</p>
+<p>JavaScript 也可以在浏览器之外使用，从托管网络服务器到控制 RC 汽车或者运行一个成熟的操作系统。有些时候你想要两台服务器互相通信，无论是本地网络还是互联网上。</p>
+<p>今天，我会向你展示怎样使用 node.js 创建一个 REST API，同时使用 OAuth2.0 维护它，以防止未经授权的请求。REST API 遍布整个网络，但是如果没有合适的工具那么就需要大量的模板代码。我会向你展示怎样使用两个神奇的工具，这两个工具能使工作更轻松，包括用 OKta 实现客户端凭证流（翻译“Client Credentials Flow”这个词组时自己认怂了，只好用百度翻译了 😂。），它能不使用用户上下文而将两台机器安全地连接在一起。</p>
+<h2 id="构建一个-REST-类型的-Node-API-服务器"><a href="#构建一个-REST-类型的-Node-API-服务器" class="headerlink" title="构建一个 REST 类型的 Node API 服务器"></a>构建一个 REST 类型的 Node API 服务器</h2><p>通过使用<a href="https://expressjs.com/" target="_blank" rel="noopener" title="Express JavaScript library">Express JavaScript library</a>能够让创建 Node 网络服务器更加简单。创建一个文件夹用来包含你的服务器项目。</p>
+<blockquote>
+<p>$ mkdir rest-api</p>
+</blockquote>
+<p>Node 使用<strong>package.json</strong>文件来管理依赖项并且规范（感觉“define”翻译成“规范”更合适。）你的项目。使用<code>npm init</code>命令创建一个，（执行这个命令后）会问你一些问题，这些问题是用来帮你初始化这个项目。截止到现在，你能够使用标准的 JS 来强制规范你的编码，并且将其用作测试。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> rest-api</span><br><span class="line"></span><br><span class="line">$ npm init</span><br><span class="line">This utility will walk you through creating a package.json file.</span><br><span class="line">It only covers the most common items, and tries to guess sensible defaults.</span><br><span class="line"></span><br><span class="line">See `npm <span class="built_in">help</span> json` <span class="keyword">for</span> definitive documentation on these fields</span><br><span class="line">and exactly what they <span class="keyword">do</span>.</span><br><span class="line"></span><br><span class="line">Use `npm install &lt;pkg&gt;` afterwards to install a package and</span><br><span class="line">save it as a dependency <span class="keyword">in</span> the package.json file.</span><br><span class="line"></span><br><span class="line">Press ^C at any time to quit.</span><br><span class="line">package name: (rest-api)</span><br><span class="line">version: (1.0.0)</span><br><span class="line">description: A parts catalog</span><br><span class="line">entry point: (index.js)</span><br><span class="line"><span class="built_in">test</span> <span class="built_in">command</span>: standard</span><br><span class="line">git repository:</span><br><span class="line">keywords:</span><br><span class="line">author:</span><br><span class="line">license: (ISC)</span><br><span class="line">About to write to /Users/Braden/code/rest-api/package.json:</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"rest-api"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">"A parts catalog"</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"standard"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Is this OK? (yes)</span><br></pre></td></tr></table></figure>
+
+<p>默认的（文件）入口是<strong>index.js</strong>，所以你应该用这个名称创建一个新文件。下面的代码给你提供了一个相当基础的服务器（案例），它只是监听了本机（127.0.0.1）3000 端口，但是没有做任何其他事情。</p>
+<p><strong>index.js 文件内容：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>)</span><br><span class="line"><span class="keyword">const</span> &#123; promisify &#125; = <span class="built_in">require</span>(<span class="string">'util'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line">app.use(bodyParser.json())</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> startServer = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> port = process.env.SERVER_PORT || <span class="number">3000</span></span><br><span class="line">  <span class="keyword">await</span> promisify(app.listen).bind(app)(port)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Listening on port <span class="subst">$&#123;port&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">startServer()</span><br></pre></td></tr></table></figure>
+
+<p>(分号是自己添加的，绝大多数情况下没有分号程序不会报错，但有一些特殊情况没了会报错，还是养成添加分号的习惯吧。)</p>
+<p><strong>util</strong>模块中的<strong>promisify</strong>功能让你传入一个具有（传统）回调功能的函数，而返回给你一个 Promise 式的回调函数，Promise 是异步处理的新标准。这也同样让我们使用最近比较新的<strong>async/await</strong>语法，能够使代码更优雅。</p>
+<p>为了使其运行起来，你需要装上你在文件开头<strong>require</strong>的依赖包。通过使用<code>npm intall</code>安装他们。依赖信息将会自动保存到你的<strong>package.json</strong>文件，并将依赖包安装到本地<strong>node_modules</strong>文件夹中。</p>
+<p><strong>注意：</strong>你不应该将<strong>node_modules</strong>（文件夹及其内容）提交到资源管理器中，因为它会很快变大（占据空间），（再者）<strong>package.json</strong>文件（已经）保存了你使用的每一个依赖包的确切版本，如果你在另一台计算机上安装它，会得到相同的代码。</p>
+<blockquote>
+<p>$ npm install <a href="mailto:express@4.16.3">express@4.16.3</a> util@0.11.0</p>
+</blockquote>
+<p>对于一些快速更新的依赖包（我猜是这个意思。），安装<strong>standard</strong>作为<strong>dev</strong>依赖项，然后运行起来以确保正常。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save-dev standard@11.0.1</span><br><span class="line">$ npm <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line">&gt; rest-api@1.0.0 <span class="built_in">test</span> /Users/bmk/code/okta/apps/rest-api</span><br><span class="line">&gt; standard</span><br></pre></td></tr></table></figure>
+
+<p>如果一切正常，你不应该看到在<strong>&gt; standard</strong>这一行有任何输出内容。如果报错，可能是这个样子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line">&gt; rest-api@1.0.0 <span class="built_in">test</span> /Users/bmk/code/okta/apps/rest-api</span><br><span class="line">&gt; standard</span><br><span class="line"></span><br><span class="line">standard: Use JavaScript Standard Style (https://standardjs.com)</span><br><span class="line">standard: Run `standard --fix` to automatically fix some problems.</span><br><span class="line">  /Users/Braden/code/rest-api/index.js:3:7: Expected consistent spacing</span><br><span class="line">  /Users/Braden/code/rest-api/index.js:3:18: Unexpected trailing comma.</span><br><span class="line">  /Users/Braden/code/rest-api/index.js:3:18: A space is required after <span class="string">','</span>.</span><br><span class="line">  /Users/Braden/code/rest-api/index.js:3:38: Extra semicolon.</span><br><span class="line">npm ERR! Test failed.  See above <span class="keyword">for</span> more details.</span><br></pre></td></tr></table></figure>
+
+<p>既然你的代码已经准备好而且依赖包已经安装好，你可以通过<code>node .</code>（命令）运行你的服务。（** . <strong>指的是查看当前文件夹，检查</strong>package.json<strong>文件找到此目录中要使用的主文件是</strong>index.js**。）：</p>
+<blockquote>
+<p>$ node .</p>
+</blockquote>
+<p>为了测试服务是否正在运行，你可以使用<code>curl</code>命令。（由于）没有 ENDPOINTS（“ENDPOINTS”只可意会不可言传，不知如何翻译。），所以会返回一个错误：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ curl localhost:3000 -i HTTP/1.1 404 Not Found X-Powered-By: Express</span><br><span class="line">Content-Security-Policy: default-src 'self' X-Content-Type-Options: nosniff</span><br><span class="line">Content-Type: text/html; charset=utf-8 Content-Length: 139 Date: Thu, 16 Aug</span><br><span class="line">2018 01:34:53 GMT Connection: keep-alive</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Error<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pre</span>&gt;</span>Cannot GET /<span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>尽管报了一个错误，但依旧是好消息。你还没有设置任何 ENDPOINTS，所以 Express 返回一个 404 错误。如果你的服务根本没有运行，则会得到如下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl localhost:3000 -i</span><br><span class="line">curl: (7) Failed to connect to localhost port 3000: Connection refused</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-Node、Express、Sequelize-和-Epilogue-构建-REST-类型的-API"><a href="#使用-Node、Express、Sequelize-和-Epilogue-构建-REST-类型的-API" class="headerlink" title="使用 Node、Express、Sequelize 和 Epilogue 构建 REST 类型的 API"></a>使用 Node、Express、Sequelize 和 Epilogue 构建 REST 类型的 API</h2><p>既然你已经有了一个能够工作的 Express 服务器，那么就可以添加一个 REST API。事实上这比你想象的容易得多。使用<a href="http://docs.sequelizejs.com/" target="_blank" rel="noopener" title="Sequelize">Sequelize</a>规范数据库模式是我见过的最简单的方法，而使用<a href="https://github.com/dchester/epilogue" target="_blank" rel="noopener" title="Epilogue">Epilogue</a>创建 REST API ENDPOINTS 几乎达到了零样板。</p>
+<p>你需要添加这些依赖包到你的项目中。<strong>Sequelize</strong>需要知道怎样与数据库进行通信。现在，使用<strong>SQLite</strong>，因为它能让我们快速启动和运行。</p>
+<blockquote>
+<p>$ npm install <a href="mailto:sequelize@4.38.0">sequelize@4.38.0</a> epilogue@0.7.1 <a href="mailto:sqlite3@4.0.2">sqlite3@4.0.2</a></p>
+</blockquote>
+<p>用下面的代码创建一个<strong>database.js</strong>文件。我会接下来更详细地解释每一部分。</p>
+<p><strong>database.js 文件内容：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Sequelize = <span class="built_in">require</span>(<span class="string">'sequelize'</span>)</span><br><span class="line"><span class="keyword">const</span> epilogue = <span class="built_in">require</span>(<span class="string">'epilogue'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> database = <span class="keyword">new</span> Sequelize(&#123;</span><br><span class="line">  dialect: <span class="string">'sqlite'</span>,</span><br><span class="line">  storage: <span class="string">'./test.sqlite'</span>,</span><br><span class="line">  operatorsAliases: <span class="literal">false</span>,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Part = database.define(<span class="string">'parts'</span>, &#123;</span><br><span class="line">  partNumber: Sequelize.STRING,</span><br><span class="line">  modelNumber: Sequelize.STRING,</span><br><span class="line">  name: Sequelize.STRING,</span><br><span class="line">  description: Sequelize.TEXT,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> initializeDatabase = <span class="keyword">async</span> (app) =&gt; &#123;</span><br><span class="line">  epilogue.initialize(&#123; app, <span class="attr">sequelize</span>: database &#125;)</span><br><span class="line"></span><br><span class="line">  epilogue.resource(&#123;</span><br><span class="line">    model: Part,</span><br><span class="line">    endpoints: [<span class="string">'/parts'</span>, <span class="string">'/parts/:id'</span>],</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">await</span> database.sync()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = initializeDatabase</span><br></pre></td></tr></table></figure>
+
+<p>现在你只需要导入这个文件到你的主应用程序并运行初始化功能。在你的<strong>index.js</strong>文件中添加如下内容。</p>
+<p><strong>index.js 文件内容：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@@ <span class="number">-2</span>,<span class="number">10</span> +<span class="number">2</span>,<span class="number">14</span> @@ <span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; promisify &#125; = <span class="built_in">require</span>(<span class="string">'util'</span>);</span><br><span class="line"></span><br><span class="line">+<span class="keyword">const</span> initializeDatabase = <span class="built_in">require</span>(<span class="string">'./database'</span>);</span><br><span class="line">+</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line">app.use(bodyParser.json());</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> startServer = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">+  <span class="keyword">await</span> initializeDatabase(app);</span><br><span class="line">+</span><br><span class="line"> <span class="keyword">const</span> port = process.env.SERVER_PORT || <span class="number">3000</span>;</span><br><span class="line"> <span class="keyword">await</span> promisify(app.listen).bind(app)(port);</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">`Listening on port <span class="subst">$&#123;port&#125;</span>`</span>);</span><br><span class="line"> ...</span><br></pre></td></tr></table></figure>
+
+<p>你现在能测试语法错误，如果一切正常运行这个程序：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="built_in">test</span> &amp;&amp; node .</span><br><span class="line"></span><br><span class="line">&gt; rest-api@1.0.0 <span class="built_in">test</span> /Users/bmk/code/okta/apps/rest-api</span><br><span class="line">&gt; standard</span><br><span class="line"></span><br><span class="line">Executing (default): CREATE TABLE IF NOT EXISTS `parts` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `partNumber` VARCHAR(255), `modelNu</span><br><span class="line">mber` VARCHAR(255), `name` VARCHAR(255), `description` TEXT, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);</span><br><span class="line">Executing (default): PRAGMA INDEX_LIST(`parts`)</span><br><span class="line">Listening on port 3000</span><br></pre></td></tr></table></figure>
+
+<p>在另一个终端中，你能测试这是否真实有效（我使用<a href="https://github.com/trentm/json" target="_blank" rel="noopener" title="json CLI">json CLI</a>来格式化 JSON 响应，用<code>npm install --global json</code>进行全局安装。）：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">$ curl localhost:3000/parts</span><br><span class="line">[]</span><br><span class="line"></span><br><span class="line">$ curl localhost:3000/parts -X POST -d '&#123;</span><br><span class="line">  "partNumber": "abc-123",</span><br><span class="line">  "modelNumber": "xyz-789",</span><br><span class="line">  "name": "Alphabet Soup",</span><br><span class="line">  "description": "Soup with letters and numbers in it"</span><br><span class="line">&#125;' -H 'content-type: application/json' -s0 | json</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"id"</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">"partNumber"</span>: <span class="string">"abc-123"</span>,</span><br><span class="line">  <span class="attr">"modelNumber"</span>: <span class="string">"xyz-789"</span>,</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"Alphabet Soup"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"Soup with letters and numbers in it"</span>,</span><br><span class="line">  <span class="attr">"updatedAt"</span>: <span class="string">"2018-08-16T02:22:09.446Z"</span>,</span><br><span class="line">  <span class="attr">"createdAt"</span>: <span class="string">"2018-08-16T02:22:09.446Z"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$ curl localhost:3000/parts -s0 | json</span><br><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"id"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"partNumber"</span>: <span class="string">"abc-123"</span>,</span><br><span class="line">    <span class="attr">"modelNumber"</span>: <span class="string">"xyz-789"</span>,</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"Alphabet Soup"</span>,</span><br><span class="line">    <span class="attr">"description"</span>: <span class="string">"Soup with letters and numbers in it"</span>,</span><br><span class="line">    <span class="attr">"createdAt"</span>: <span class="string">"2018-08-16T02:22:09.446Z"</span>,</span><br><span class="line">    <span class="attr">"updatedAt"</span>: <span class="string">"2018-08-16T02:22:09.446Z"</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="Node-API-工作原理"><a href="#Node-API-工作原理" class="headerlink" title="Node API 工作原理"></a>Node API 工作原理</h3><p>如果你着急看后面的可以跳过本部分，但我保证你会有收获。</p>
+<p><strong>Sequelize</strong>函数会创建一个数据库。这是你配置详细信息的地方，例如你要用 SQL 的什么规范。现在，使用 SQLite 快速启动和运行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> database = <span class="keyword">new</span> Sequelize(&#123;</span><br><span class="line">  dialect: <span class="string">'sqlite'</span>,</span><br><span class="line">  storage: <span class="string">'./test.sqlite'</span>,</span><br><span class="line">  operatorsAliases: <span class="literal">false</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>一旦你创建了数据库，就可以使用<strong>database.define</strong>文件为每一个表定义模式。创建一个名为<strong>parts</strong>的表，其中包含了一些有用的字段以跟踪 PARTS。默认情况下，当你创建或者更新一个 row 时，Sequelize 会自动创建更新<strong>id</strong>、<strong>createdAt</strong>和<strong>updatedAt</strong>字段。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Part = database.define(<span class="string">'parts'</span>, &#123;</span><br><span class="line">  partNumber: Sequelize.STRING,</span><br><span class="line">  modelNumber: Sequelize.STRING,</span><br><span class="line">  name: Sequelize.STRING,</span><br><span class="line">  description: Sequelize.TEXT,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>Epilogue 需要连接 Express 中的<strong>app</strong>变量才能添加 ENDPOINTS。然而，<strong>app</strong>变量是在另外一个文件定义的。解决这个问题的一个方法是 export（导出）一个函数，这个函数包含 app 变量并对其进行处理。在另一个（使用 app 变量的）文件中，你可以 import（导入）这个脚本，像<code>initializeDatabase(app)</code>一样运行它。</p>
+<p>Epilogue 需要用<strong>app</strong>和<strong>database</strong>进行初始化。然后定义你想要使用的 REST ENDPOINTS。<strong>resource</strong>函数会包括<strong>GET</strong>、<strong>POST</strong>、<strong>PUT</strong>、<strong>DELETE</strong>功能的 ENDPOINTS，主要用来自动执行的。</p>
+<p>为了准确创建数据库，你需要运行<strong>database.sync()</strong>，这将返回一个 Promise 对象。在启动服务器之前，你需要等待它结束。</p>
+<p><strong>module.exports</strong>命令表示<strong>initializeDatabase</strong>函数可以被其他文件导入。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> initializeDatabase = <span class="keyword">async</span> (app) =&gt; &#123;</span><br><span class="line">  epilogue.initialize(&#123; app, <span class="attr">sequelize</span>: database &#125;)</span><br><span class="line"></span><br><span class="line">  epilogue.resource(&#123;</span><br><span class="line">    model: Part,</span><br><span class="line">    endpoints: [<span class="string">'/parts'</span>, <span class="string">'/parts/:id'</span>],</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">await</span> database.sync()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = initializeDatabase</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-OAuth2-0-来保护你的-Node-Express-REST-API"><a href="#使用-OAuth2-0-来保护你的-Node-Express-REST-API" class="headerlink" title="使用 OAuth2.0 来保护你的 Node + Express REST API"></a>使用 OAuth2.0 来保护你的 Node + Express REST API</h2><p>现在你已经启动了一个 REST API 并且运行起来，假设你想要一个特定的应用程序从远程位置使用它。如果你把它按原样放在互联网上，那么任何人都可以随意添加、修改或者删除部件。</p>
+<p>为了避免这种情况，你可以使用 OAuth2.0 客户端凭据流。这是一种让两个服务器相互通信而不需要用户上下文的方法。两台服务器必须达成协议才能使用第三方授权服务器。假设有两个服务器，A 和 B，以及一个授权服务器，服务器 A 托管 REST API，服务器 B 希望访问这个 API。</p>
+<ul>
+<li>服务器 B 向授权服务器发送一个密钥以验证身份并且同时请求一个临时令牌（temporary token）。</li>
+<li>然后服务器 B 像往常一样使用（consume）REST API，但随着请求一起发送令牌。</li>
+<li>服务器 A 向授权服务器请求一些可用于验证（verify）令牌的元数据（metadata）。</li>
+<li>服务器 A 验证服务器 B 的请求。<ul>
+<li>如果有效（valid），将会发送成功的响应。</li>
+<li>如果令牌无效（invalid），则发送错误信息，并且不会泄露（leaked）敏感信息（sensitive information）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="创建一个授权服务器"><a href="#创建一个授权服务器" class="headerlink" title="创建一个授权服务器"></a>创建一个授权服务器</h3><p>这里是开始使用 Okta 的地方。Okta 能够充当一个授权服务器用来保护你的数据。你可能会问自己“为什么用 Okta？”。那是因为，使用 Okta（不仅）构建一个 REST 应用程序相当炫酷，（而且）构建一个安全的 REST 应用程序更炫酷。要实现这些，你需要添加身份验证（authentication ），以便用户在查看/修改（viewing/modifying）之前必须登录。Okta 的目标是使<a href="https://developer.okta.com/product/user-management/" target="_blank" rel="noopener" title="身份管理">身份管理</a>（identity management）比你往常使用的更简单、更安全而且更具有扩展性（scalable）。Okta 是一种云服务，允许开发者创建、编辑和安全存储用户账户和用户账户数据，并将它们与一个或者多个应用程序连接。我们的 API 使你能够：</p>
+<ul>
+<li><a href="https://developer.okta.com/product/authentication/" target="_blank" rel="noopener" title="验证">验证</a>（authenticate）和<a href="https://developer.okta.com/product/authorization/" target="_blank" rel="noopener" title="授权">授权</a>（authorize）用户；</li>
+<li>存储有关用户的数据；</li>
+<li>执行（perform）基于密码和<a href="https://developer.okta.com/authentication-guide/social-login/" target="_blank" rel="noopener" title="社交登录">社交登录</a>；</li>
+<li>通过<a href="https://developer.okta.com/use_cases/mfa/" target="_blank" rel="noopener" title="多因素身份验证">多因素身份验证</a>（multi-factor authentication）确保应用程序的安全；</li>
+<li>如需了解更多，请查看<a href="https://developer.okta.com/documentation/" target="_blank" rel="noopener" title="产品文档">产品文档</a>。</li>
+</ul>
+<p>如果你还没有，请<a href="https://developer.okta.com/signup/" target="_blank" rel="noopener" title="注册一个永久免费的账户">注册一个永久免费的账户</a>并且开始吧！</p>
+<p>创建账户后，登陆开发人员控制台，导航到<strong>API</strong>，然后转到<strong>Authorization Servers</strong>选项，点击指向默认服务器的链接。</p>
+<p>从<strong>Settings</strong>选项中，复制<strong>Issuer</strong>字段。你需要将此保存到你的 Node 应用程序可以读取的地方。在项目中，创建一个名为<strong>.env</strong>的文件，如下所示：</p>
+<p><strong>.env 文件内容：</strong></p>
+<p><code>ISSUER=https://{yourOktaDomain}/oauth2/default</code></p>
+<p><strong>ISSUER</strong>的值应该是设置页<strong>Issuer URI</strong>字段的值。</p>
+<figure class="image-box">
+                <a rel=使用Node和OAuth2.0构建一个简单的REST API href="issuer-afa0da4b4f632196092a4da8f243f3bec37615602dc5b62e8e34546fd1018333.png" title="" data-fancybox="images"><img src="issuer-afa0da4b4f632196092a4da8f243f3bec37615602dc5b62e8e34546fd1018333.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+
+<p><strong>注意：</strong>通常情况下，你不应该把<strong>.env</strong>文件存储在源代码管理器（source control）中。这允许多个项目使用相同的源代码（source code），而不需要单独的分叉（fork）。它可以确保你的安全信息不会被公开（尤其是你将要把源代码作为开源代码发布时）。</p>
+<p>接下来，导航到<strong>Scopes</strong>选项卡，点击<strong>Add Scope</strong>按钮并为你的 REST API 创建一个作用域（scope）。你需要给它起个名字（比如<code>parts_manager</code>），如果你愿意你可以给它一个描述（介绍）。</p>
+<figure class="image-box">
+                <a rel=使用Node和OAuth2.0构建一个简单的REST API href="adding-scope-f3ecb3b4eec06d616a130400245843c0de2dd52a54b2fdcff7449a10a2ce75ed.png" title="" data-fancybox="images"><img src="adding-scope-f3ecb3b4eec06d616a130400245843c0de2dd52a54b2fdcff7449a10a2ce75ed.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+
+<p>你还应该将作用域名称添加到<strong>.env</strong>文件中，这样代码就可以访问它。</p>
+<p><strong>.env 文件内容：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ISSUER&#x3D;https:&#x2F;&#x2F;&#123;yourOktaDomain&#125;&#x2F;oauth2&#x2F;default</span><br><span class="line">SCOPE&#x3D;parts_manager</span><br></pre></td></tr></table></figure>
+
+<p>现在你需要创建一个客户端。导航到<strong>Applications</strong>，然后点击<strong>Add Application</strong>，选择<strong>Service</strong>，然后点击<strong>Next</strong>。输入你的服务名称（例如<strong>Parts Manager</strong>），然后点击<strong>Done</strong>。</p>
+<p>这将带你到一个具有你的客户凭据（credentials）的页面。这些是服务器 B（将使用 RESTAPI 的服务器）进行身份验证所需的凭据。对于本例，客户机和服务器代码在同一个存储库中，因此继续将此数据添加到<strong>.env</strong>文件中。确保用此页中的值替换<strong>{yourClientId}</strong>和<strong>{yourClientSecret}</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CLIENT_ID&#x3D;&#123;yourClientId&#125;</span><br><span class="line">CLIENT_SECRET&#x3D;&#123;yourClientSecret&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建中间件验证-Express-中的令牌"><a href="#创建中间件验证-Express-中的令牌" class="headerlink" title="创建中间件验证 Express 中的令牌"></a>创建中间件验证 Express 中的令牌</h3><p>在 Express 中，你可以添加将在每个端点之前运行的中间件。然后，你可以添加元数据、设置头、记录一些信息，甚至提前取消请求并发送错误消息。在这种情况下，你需要创建一些中间件来验证客户机发送的令牌。如果令牌有效，它将继续到 REST API 并返回适当的响应（appropriate response）。如果令牌无效，它将改为响应一条错误消息，以便只有授权的计算机可以访问。</p>
+<p>为了验证令牌，可以使用 Okta 的中间件。你还需要一个名为<a href="https://github.com/motdotla/dotenv" target="_blank" rel="noopener" title="dotenv">dotenv</a>的工具来加载环境变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install dotenv@6.0.0 @okta&#x2F;jwt-verifier@0.0.12</span><br></pre></td></tr></table></figure>
+
+<p>现在创建一个名为<strong>auth.js</strong>的文件，该文件将导出中间件：</p>
+<p><strong>auth.js 文件内容：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> OktaJwtVerifier = <span class="built_in">require</span>(<span class="string">'@okta/jwt-verifier'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> oktaJwtVerifier = <span class="keyword">new</span> OktaJwtVerifier(&#123; <span class="attr">issuer</span>: process.env.ISSUER &#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="keyword">async</span> (req, res, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; authorization &#125; = req.headers</span><br><span class="line">    <span class="keyword">if</span> (!authorization) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'You must send an Authorization header'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> [authType, token] = authorization.trim().split(<span class="string">' '</span>)</span><br><span class="line">    <span class="keyword">if</span> (authType !== <span class="string">'Bearer'</span>) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Expected a Bearer token'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> &#123; claims &#125; = <span class="keyword">await</span> oktaJwtVerifier.verifyAccessToken(token)</span><br><span class="line">    <span class="keyword">if</span> (!claims.scp.includes(process.env.SCOPE)) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Could not verify the proper scope'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    next()</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    next(error.message)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个函数首先检查<strong>authorization</strong>是否在请求中，否则抛出错误。如果它存在，它应该看起来像<strong>Bearer {token}</strong>，其中<strong>{token}</strong>是<a href="https://www.jsonwebtoken.io/" target="_blank" rel="noopener" title="JWT">JWT</a>字符串。如果（请求）头不是以<strong>bearer</strong>开头将会引发另一个错误。然后我们把令牌发送给<a href="https://www.jsonwebtoken.io/" target="_blank" rel="noopener" title="Okta的JWT验证器">Okta 的 JWT 验证器</a>以验证令牌。如果令牌无效，JWT 验证器将抛出一个错误。否则，它将返回包含一些信息的对象。然后你可以验证它是否包含你期望的作用域。</p>
+<p>如果一切都成功了，它将调用（call）不带任何参数（parameters）的<strong>next()</strong>函数。它告诉 Express 可以转到链中的<strong>下一个</strong>函数（另一个中间件或最后一个 ENDPOINT）。如果你传递一个字符串给下一个函数，Express 会将其视为一个错误，该错误将传递回客户机，并且不会在链中继续。</p>
+<p>你仍然需要导入这个函数并将其作为中间件添加到应用程序中。你也同样需要在 index 文件头部加载<strong>dotenv</strong>，以保证来自<strong>.env</strong>的环境变量加载到你的应用程序中。对<strong>index.js</strong>做出以下更改。</p>
+<p><strong>index.js 文件内容：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@@ <span class="number">-1</span>,<span class="number">11</span> +<span class="number">1</span>,<span class="number">14</span> @@</span><br><span class="line">+<span class="built_in">require</span>(<span class="string">'dotenv'</span>).config();</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; promisify &#125; = <span class="built_in">require</span>(<span class="string">'util'</span>);</span><br><span class="line"></span><br><span class="line">+<span class="keyword">const</span> authMiddleware = <span class="built_in">require</span>(<span class="string">'./auth'</span>);</span><br><span class="line"><span class="keyword">const</span> initializeDatabase = <span class="built_in">require</span>(<span class="string">'./database'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line">app.use(bodyParser.json());</span><br><span class="line">+app.use(authMiddleware);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> startServer = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">await</span> initializeDatabase(app);</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+
+<p>要测试请求是否被正确阻止，请尝试再次运行它…</p>
+<blockquote>
+<p>$ npm test &amp;&amp; node .</p>
+</blockquote>
+<p>…然后在另一个终端中运行一些<strong>curl</strong>命令来测试：</p>
+<p>需要授权头</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ curl localhost:3000/parts</span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Error<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pre</span>&gt;</span>You must send an Authorization header<span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>授权头中需要无记名令牌（Bearer token）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ curl localhost:3000/parts -H 'Authorization: Basic asdf:1234'</span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Error<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pre</span>&gt;</span>Expected a Bearer token<span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>令牌有效</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ curl localhost:3000/parts -H 'Authorization: Bearer asdf'</span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Error<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pre</span>&gt;</span>Jwt cannot be parsed<span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-Node-创建测试客户端"><a href="#使用-Node-创建测试客户端" class="headerlink" title="使用 Node 创建测试客户端"></a>使用 Node 创建测试客户端</h3><p>你现在已经为没有有效令牌的人禁用了对应用程序的访问，但是你如何获取令牌并使用它？我将向你展示如何用 Node 编写一个简单的客户机，这也将帮助你测试有效的令牌是否有效。</p>
+<blockquote>
+<p>$ npm install <a href="mailto:btoa@1.2.1">btoa@1.2.1</a> request-promise@4.2.2</p>
+</blockquote>
+<p><strong>client.js 文件内容：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'dotenv'</span>).config()</span><br><span class="line"><span class="keyword">const</span> request = <span class="built_in">require</span>(<span class="string">'request-promise'</span>)</span><br><span class="line"><span class="keyword">const</span> btoa = <span class="built_in">require</span>(<span class="string">'btoa'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; ISSUER, CLIENT_ID, CLIENT_SECRET, SCOPE &#125; = process.env</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [, , uri, method, body] = process.argv</span><br><span class="line"><span class="keyword">if</span> (!uri) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Usage: node client &#123;url&#125; [&#123;method&#125;] [&#123;jsonData&#125;]'</span>)</span><br><span class="line">  process.exit(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> sendAPIRequest = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> token = btoa(<span class="string">`<span class="subst">$&#123;CLIENT_ID&#125;</span>:<span class="subst">$&#123;CLIENT_SECRET&#125;</span>`</span>)</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> auth = <span class="keyword">await</span> request(&#123;</span><br><span class="line">      uri: <span class="string">`<span class="subst">$&#123;ISSUER&#125;</span>/v1/token`</span>,</span><br><span class="line">      json: <span class="literal">true</span>,</span><br><span class="line">      method: <span class="string">'POST'</span>,</span><br><span class="line">      headers: &#123;</span><br><span class="line">        authorization: <span class="string">`Basic <span class="subst">$&#123;token&#125;</span>`</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      form: &#123;</span><br><span class="line">        grant_type: <span class="string">'client_credentials'</span>,</span><br><span class="line">        scope: SCOPE,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> request(&#123;</span><br><span class="line">      uri,</span><br><span class="line">      method,</span><br><span class="line">      body,</span><br><span class="line">      headers: &#123;</span><br><span class="line">        authorization: <span class="string">`<span class="subst">$&#123;auth.token_type&#125;</span> <span class="subst">$&#123;auth.access_token&#125;</span>`</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(response)</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Error: <span class="subst">$&#123;error.message&#125;</span>`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sendAPIRequest()</span><br></pre></td></tr></table></figure>
+
+<p>这里的代码将来自<strong>.env</strong>文件中的变量加载到环境中，然后从 Node 中获取变量。Node 将环境变量存储在<strong>process.env</strong>文件中（<strong>process</strong>是一个全局变量，包含一系列有用的变量和函数。）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'dotenv'</span>).config()</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">const</span> &#123; ISSUER, CLIENT_ID, CLIENT_SECRET, SCOPE &#125; = process.env</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来，由于这将从命令行运行，你可以再次使用<strong>process</strong>来获取用<strong>process.argv</strong>传入的参数。这将为你提供一个数组，其中包含传入的所有参数。前两个逗号（commas）前面没有变量名，因为前两个逗号在本例中并不重要；它们只是通向<strong>node</strong>的路径和脚本的名称（<strong>client</strong>或<strong>client.js</strong>）。</p>
+<p>URL 是必需的，它将包括 ENDPOINT，但方法和 JSON 数据是可选的（optional）。默认的方法是<strong>GET</strong>，所以如果你只是提取数据，你可以忽略掉它。在这种情况下，你也不需要任何有效载荷（payload）。如果参数看起来不正确，那么这将退出程序，并显示错误消息和退出代码** 1 **来表示错误。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [, , uri, method, body] = process.argv</span><br><span class="line"><span class="keyword">if</span> (!uri) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Usage: node client &#123;url&#125; [&#123;method&#125;] [&#123;jsonData&#125;]'</span>)</span><br><span class="line">  process.exit(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Node 当前不允许在主线程中（main thread）<strong>await</strong>，因此要使用简洁的<strong>async/await</strong>语法，你不得不创建一个函数，然后调用它。</p>
+<p>If an error occurs in any of the awaited functions（如果在任何<strong>awaited</strong>函数中发生错误）,the <strong>try/catch</strong> they’ll be printed out to the screen.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sendAPIRequest = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">`Error: <span class="subst">$&#123;error.message&#125;</span>`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sendAPIRequest()</span><br></pre></td></tr></table></figure>
+
+<p>这是客户端向授权服务器发送令牌请求的地方。为了使用授权服务器本身进行授权，你需要使用 Basic Auth。Basic Auth 与浏览器在获得一个要求用户名和密码的内置弹出窗口时使用的相同。假设（say）你的用户名是<strong>AzureDiamond</strong>，密码是<strong>hunter2</strong>。你的浏览器将它们与冒号（英文冒号）连接在一起，然后用 base64（这是 btoa 函数所做的）对它们进行编码（encode），以获得<strong>QXp1cmVEaWFtb25kOmh1bnRlcjI=</strong>。然后发送<strong>Basic QXp1cmVEaWFtb25kOmh1bnRlcjI=</strong>授权头。然后，服务器可以使用 base64 解码（decode）令牌以获取用户名和密码。</p>
+<p>传统的授权（原文是“Basic authorization”。）本质上（inherently ）不安全，因为它很容易解码，这就是为什么<strong>https</strong>对于防止中间人攻击（a man-in-the-middle attack）很重要的原因。在这里，客户机 ID（client ID）和客户机 Secret（client secret）分别是用户名和密码，这也是为什么你的<strong>CLIENT_ID</strong>和<strong>CLIENT_SECRET</strong>要保密的原因。</p>
+<p>对于 OAuth2.0，你还需要指定（specify）授权类型（grant type），在本例中，它是<strong>client_credentials</strong>，因为你计划在两台计算机之间进行对话。你还需要指定作用域。这里可以添加许多其他选项，但这是我们演示所需的全部内容。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> token = btoa(<span class="string">`<span class="subst">$&#123;CLIENT_ID&#125;</span>:<span class="subst">$&#123;CLIENT_SECRET&#125;</span>`</span>)</span><br><span class="line"><span class="keyword">const</span> auth = <span class="keyword">await</span> request(&#123;</span><br><span class="line">  uri: <span class="string">`<span class="subst">$&#123;ISSUER&#125;</span>/v1/token`</span>,</span><br><span class="line">  json: <span class="literal">true</span>,</span><br><span class="line">  method: <span class="string">'POST'</span>,</span><br><span class="line">  headers: &#123;</span><br><span class="line">    authorization: <span class="string">`Basic <span class="subst">$&#123;token&#125;</span>`</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  form: &#123;</span><br><span class="line">    grant_type: <span class="string">'client_credentials'</span>,</span><br><span class="line">    scope: SCOPE,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>一旦你通过了身份验证（authenticated），将获得一个访问令牌，你可以将其发送到你的 REST API，它看起来应该类似于<strong>Bearer eyJra…HboUg</strong>（实际令牌比这个长得多，可能大约有 800 个字符。）。令牌包含了你向 REST API 证明你是谁、令牌何时到期所需的所有信息，以及各种其他信息，如请求的作用域、颁发者（issuer）和用于请求令牌的客户端 ID。</p>
+<p>然后将来自 REST API 的响应打印到屏幕上。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> request(&#123;</span><br><span class="line">  uri,</span><br><span class="line">  method,</span><br><span class="line">  body,</span><br><span class="line">  headers: &#123;</span><br><span class="line">    authorization: <span class="string">`<span class="subst">$&#123;auth.token_type&#125;</span> <span class="subst">$&#123;auth.access_token&#125;</span>`</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(response)</span><br></pre></td></tr></table></figure>
+
+<p>现在去测试一下。再次使用<code>npm test &amp;&amp; node .</code>启动应用程序，然后尝试以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">$ node client http://localhost:3000/parts | json</span><br><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="string">"id"</span>: 1,</span><br><span class="line">    <span class="string">"partNumber"</span>: <span class="string">"abc-123"</span>,</span><br><span class="line">    <span class="string">"modelNumber"</span>: <span class="string">"xyz-789"</span>,</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"Alphabet Soup"</span>,</span><br><span class="line">    <span class="string">"description"</span>: <span class="string">"Soup with letters and numbers in it"</span>,</span><br><span class="line">    <span class="string">"createdAt"</span>: <span class="string">"2018-08-16T02:22:09.446Z"</span>,</span><br><span class="line">    <span class="string">"updatedAt"</span>: <span class="string">"2018-08-16T02:22:09.446Z"</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">$ node client http://localhost:3000/parts post <span class="string">'&#123;</span></span><br><span class="line"><span class="string">  "partNumber": "ban-bd",</span></span><br><span class="line"><span class="string">  "modelNumber": 1,</span></span><br><span class="line"><span class="string">  "name": "Banana Bread",</span></span><br><span class="line"><span class="string">  "description": "Bread made from bananas"</span></span><br><span class="line"><span class="string">&#125;'</span> | json</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"id"</span>: 2,</span><br><span class="line">  <span class="string">"partNumber"</span>: <span class="string">"ban-bd"</span>,</span><br><span class="line">  <span class="string">"modelNumber"</span>: <span class="string">"1"</span>,</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"Banana Bread"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">"Bread made from bananas"</span>,</span><br><span class="line">  <span class="string">"updatedAt"</span>: <span class="string">"2018-08-17T00:23:23.341Z"</span>,</span><br><span class="line">  <span class="string">"createdAt"</span>: <span class="string">"2018-08-17T00:23:23.341Z"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$ node client http://localhost:3000/parts | json</span><br><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="string">"id"</span>: 1,</span><br><span class="line">    <span class="string">"partNumber"</span>: <span class="string">"abc-123"</span>,</span><br><span class="line">    <span class="string">"modelNumber"</span>: <span class="string">"xyz-789"</span>,</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"Alphabet Soup"</span>,</span><br><span class="line">    <span class="string">"description"</span>: <span class="string">"Soup with letters and numbers in it"</span>,</span><br><span class="line">    <span class="string">"createdAt"</span>: <span class="string">"2018-08-16T02:22:09.446Z"</span>,</span><br><span class="line">    <span class="string">"updatedAt"</span>: <span class="string">"2018-08-16T02:22:09.446Z"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="string">"id"</span>: 2,</span><br><span class="line">    <span class="string">"partNumber"</span>: <span class="string">"ban-bd"</span>,</span><br><span class="line">    <span class="string">"modelNumber"</span>: <span class="string">"1"</span>,</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"Banana Bread"</span>,</span><br><span class="line">    <span class="string">"description"</span>: <span class="string">"Bread made from bananas"</span>,</span><br><span class="line">    <span class="string">"createdAt"</span>: <span class="string">"2018-08-17T00:23:23.341Z"</span>,</span><br><span class="line">    <span class="string">"updatedAt"</span>: <span class="string">"2018-08-17T00:23:23.341Z"</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">$ node client http://localhost:3000/parts/1 delete | json</span><br><span class="line">&#123;&#125;</span><br><span class="line"></span><br><span class="line">$ node client http://localhost:3000/parts | json</span><br><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="string">"id"</span>: 2,</span><br><span class="line">    <span class="string">"partNumber"</span>: <span class="string">"ban-bd"</span>,</span><br><span class="line">    <span class="string">"modelNumber"</span>: <span class="string">"1"</span>,</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"Banana Bread"</span>,</span><br><span class="line">    <span class="string">"description"</span>: <span class="string">"Bread made from bananas"</span>,</span><br><span class="line">    <span class="string">"createdAt"</span>: <span class="string">"2018-08-17T00:23:23.341Z"</span>,</span><br><span class="line">    <span class="string">"updatedAt"</span>: <span class="string">"2018-08-17T00:23:23.341Z"</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>（到此翻译完了，以上翻译内容结合本人理解，如有问题请留言。）</p>
+<p>原文链接：<a href="https://developer.okta.com/blog/2018/08/21/build-secure-rest-api-with-node?utm_source=com.alibaba.android.rimet&amp;utm_medium=social&amp;utm_oi=1037865074043592704" target="_blank" rel="noopener">https://developer.okta.com/blog/2018/08/21/build-secure-rest-api-with-node?utm_source=com.alibaba.android.rimet&amp;utm_medium=social&amp;utm_oi=1037865074043592704</a></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        轉載注明出處，原文地址：<a href="/2018/08/22/201802200830/" target="_blank" rel="external">https://munan.wiki/2018/08/22/201802200830/</a>
+        
+    </div>
+    <footer>
+        <a href="https://munan.wiki">
+            <img src="/img/6954c1c6-3b8b-4960-b87e-c0c834c15c8a.png" alt="木南">
+            木南
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/REST-API/" rel="tag">REST API</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://munan.wiki/2018/08/22/201802200830/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用Node和OAuth2.0构建一个简单的REST API》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2018/08/22/201802200830/&via=https://munan.wiki" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://munan.wiki/2018/08/22/201802200830/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2020/02/20/202002200630/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">SQL</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2016/08/28/201608282022/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">URL重定向</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构建一个-REST-类型的-Node-API-服务器"><span class="post-toc-number">1.</span> <span class="post-toc-text">构建一个 REST 类型的 Node API 服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-Node、Express、Sequelize-和-Epilogue-构建-REST-类型的-API"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用 Node、Express、Sequelize 和 Epilogue 构建 REST 类型的 API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Node-API-工作原理"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Node API 工作原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-OAuth2-0-来保护你的-Node-Express-REST-API"><span class="post-toc-number">3.</span> <span class="post-toc-text">使用 OAuth2.0 来保护你的 Node + Express REST API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建一个授权服务器"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">创建一个授权服务器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建中间件验证-Express-中的令牌"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">创建中间件验证 Express 中的令牌</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用-Node-创建测试客户端"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">使用 Node 创建测试客户端</span></a></li></ol></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        請我喝可樂吧(●ˇ∀ˇ●)🥤
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/69c8aa0f-f453-4dfb-90fd-d902862a397e.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/69c8aa0f-f453-4dfb-90fd-d902862a397e.jpg" data-alipay="/img/1afbf165-2495-4b8a-ba6f-6dff9220bb46.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                木南 &copy; 2016 - 2022
+            </span>
+        		
+           	
+            
+            
+            
+            
+
+            
+                
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://munan.wiki/2018/08/22/201802200830/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用Node和OAuth2.0构建一个简单的REST API》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2018/08/22/201802200830/&via=https://munan.wiki" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://munan.wiki/2018/08/22/201802200830/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3azWpCQQwGUN//pW+hq4JUvyQqmDmzKgpz73GR5u92i8/1e+4/+fv5FZz72/67+faOg4GB8bWM3oM//8l/74aBgXEO43GQTR7QC9aPA27ybhgYGBgJaR5SMTAwMN4RcPPiNv8WAwMD4zEjKWLzlC65v5eAvqAWx8DA+EJGdTDwyb/fON/AwMD4EsZVPPk9vec23woDA2M1o7rukKR0vSbdpD2HgYFxDqNXuCYhdTJaKCSLGBgYSxn5i+aN/ry5li9nPKFiYGAcz0jCcXV4mS9qRGkoBgbGYYx8JSJvtFUDevlnxcDAWM2Yh8LJkkRe6EYJKwYGxlJGvu4wabfl4biaFGJgYJzGmCRzvUD8qqYeBgbGCYxe0lZduagmoPmzMDAwdjOSZK66NpE0yKrtvEKSioGBsY6RBMEk/PWCZv5DNP9vYGBgLGL0kry83J232KLhJQYGxlJGEtR62VcvNcwHFU+ei4GBsZqRJ3OvHVVOAjQGBsZuRrV8rbbM5msWUXDHwMA4gJGndFHzq/Wi+UDiSS2OgYGxjpGnaL2h5mfSRAwMjN2Mq3h6w8skrE8CPQYGxm5GfuarGL2bqytoGBgYWxnVIJtfnbft8oAb9Q4xMDCWMpJBZi9BrA4MeoNVDAwMjHmpma95lUcCGBgYGMXW/6QorY4lonksBgbGIkZ10aE3pMwL4+YkFgMDYymjV0D20rskfFeTSAwMjNWMH32AN/WL/3VvAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=undefined"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=undefined"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="/js/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=undefined"></script>
+<script type="text/javascript" src="/js/blog.js?v=undefined"></script>
+
+<!-- third-party -->
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=undefined"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<!-- <script async src="/js/busuanzi.pure.mini.js"></script> -->
+
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="/js/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '(づ￣ 3￣)づ點我吧!';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '(。・∀・)ノ咦~歡迎你!';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+
+    
+</body>
+</html>
