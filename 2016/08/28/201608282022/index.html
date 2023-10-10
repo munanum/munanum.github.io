@@ -226,24 +226,24 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 Web 开发中，经常会出现重定向的情况，重定向指的是将一个网络请求重新定个方向，向新的方向发起请求。常见的重定向有网页重定向，访问一个网页时却跳转到另外一个网页；也有域名重定向，向某个域名发起请求却自动变成请求另外一个域名。</p>
-<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p>URL 重定向是由客户端完成的（通常是浏览器），客户端发出请求后，服务器做出响应，如果响应头的状态码为<strong>301</strong>或者<strong>302</strong>，此时响应头中会多出一个<strong>Location</strong>字段，该字段用来表示需要重定向到的新位置。<strong>301</strong>与<strong>302</strong>都是 HTTP 的状态码，都表示某个请求地址发生了重定向。<strong>301</strong>重定向表示的是<strong>永久重定向</strong>（Moved Permanently），表示请求的地址永久性地转移到另外一个地址，今后任何新的请求都应使用新的地址代替。<strong>302</strong>重定向表示的是<strong>临时重定向</strong>（Moved Temporarily），表示请求的地址临时性地转移到另外一个地址，不改变后续请求的地址。</p>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 Web 開發中，經常會出現重定向的情況，重定向指的是將一個網絡請求重新定個方向，向新的方向發起請求。常見的重定向有網頁重定向，訪問一個網頁時卻跳轉到另外一個網頁；也有域名重定向，向某個域名發起請求卻自動變成請求另外一個域名。</p>
+<h2 id="實現原理"><a href="#實現原理" class="headerlink" title="實現原理"></a>實現原理</h2><p>URL 重定向是由客戶端完成的（通常是瀏覽器），客戶端發出請求後，服務器做出響應，如果響應頭的狀態碼為<strong>301</strong>或者<strong>302</strong>，此時響應頭中會多出一個<strong>Location</strong>字段，該字段用來表示需要重定向到的新位置。<strong>301</strong>與<strong>302</strong>都是 HTTP 的狀態碼，都表示某個請求地址發生了重定向。<strong>301</strong>重定向表示的是<strong>永久重定向</strong>（Moved Permanently），表示請求的地址永久性地轉移到另外一個地址，今後任何新的請求都應使用新的地址代替。<strong>302</strong>重定向表示的是<strong>臨時重定向</strong>（Moved Temporarily），表示請求的地址臨時性地轉移到另外一個地址，不改變後續請求的地址。</p>
 <figure class="image-box">
                 <a rel=URL 重定向 href="703023-20160623003845360-1558726736.png" title="" data-fancybox="images"><img src="703023-20160623003845360-1558726736.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
-<p>（图片来自网络）</p>
+<p>（圖片來自網絡）</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"></span><br><span class="line">http</span><br><span class="line">  .createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.writeHead(<span class="number">301</span>, &#123; <span class="attr">Location</span>: <span class="string">'http://example.com/'</span> &#125;)</span><br><span class="line">    <span class="comment">// res.writeHead(302, &#123;'Location': 'http://example.com/'&#125;);</span></span><br><span class="line"></span><br><span class="line">    res.end()</span><br><span class="line">  &#125;)</span><br><span class="line">  .listen(<span class="number">8080</span>)</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>注意：客户端会先判断状态码，只有当状态码是<strong>301</strong>或<strong>302</strong>时，客户端才会根据响应头中<strong>Location</strong>字段的值进行重定向。</p>
+<p>註意：客戶端會先判斷狀態碼，只有當狀態碼是<strong>301</strong>或<strong>302</strong>時，客戶端才會根據響應頭中<strong>Location</strong>字段的值進行重定向。</p>
 </blockquote>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p><strong>301</strong>重定向与<strong>302</strong>重定向有什么区别呢？</p>
-<p>两者都表示重定向，其效果都是自动跳转到一个新的地址。不同在于，<strong>301</strong>表示原有地址的资源已经被永久地移除了，其资源无法访问了，搜索引擎在抓取新地址内容的同时会把原有地址的权重等信息转移到新的地址，也同时把原有地址的信息从引擎索引库中彻底废弃。浏览器也不会再缓存原有地址的资源。<strong>302</strong>表示临时重定向，原有地址的资源依旧存在，只是因为特殊原因临时进行重定向，搜索引擎在抓取新地址内容的同时不会把原有地址的信息从引擎索引库中彻底废弃。</p>
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p><strong>301</strong>重定向与<strong>302</strong>重定向分别在什么场景下应用呢？下面给了一些常见的场景。</p>
+<h2 id="區別"><a href="#區別" class="headerlink" title="區別"></a>區別</h2><p><strong>301</strong>重定向與<strong>302</strong>重定向有什麽區別呢？</p>
+<p>兩者都表示重定向，其效果都是自動跳轉到一個新的地址。不同在於，<strong>301</strong>表示原有地址的資源已經被永久地移除了，其資源無法訪問了，搜索引擎在抓取新地址內容的同時會把原有地址的權重等信息轉移到新的地址，也同時把原有地址的信息從引擎索引庫中徹底廢棄。瀏覽器也不會再緩存原有地址的資源。<strong>302</strong>表示臨時重定向，原有地址的資源依舊存在，只是因為特殊原因臨時進行重定向，搜索引擎在抓取新地址內容的同時不會把原有地址的信息從引擎索引庫中徹底廢棄。</p>
+<h2 id="應用"><a href="#應用" class="headerlink" title="應用"></a>應用</h2><p><strong>301</strong>重定向與<strong>302</strong>重定向分別在什麽場景下應用呢？下面給了一些常見的場景。</p>
 <h3 id="使用301重定向"><a href="#使用301重定向" class="headerlink" title="使用301重定向"></a>使用<strong>301</strong>重定向</h3><ul>
-<li>原有域名不再使用。比如访问<strong><a href="http://www.xiaomi.com" target="_blank" rel="noopener">www.xiaomi.com</a></strong>（小米官网最早的域名）这个域名，直接重定向到<strong><a href="http://www.mi.com" target="_blank" rel="noopener">www.mi.com</a></strong>，此时使用<strong>301</strong>进行重定向。</li>
+<li>原有域名不再使用。比如訪問<strong><a href="http://www.xiaomi.com" target="_blank" rel="noopener">www.xiaomi.com</a></strong>（小米官網最早的域名）這個域名，直接重定向到<strong><a href="http://www.mi.com" target="_blank" rel="noopener">www.mi.com</a></strong>，此時使用<strong>301</strong>進行重定向。</li>
 </ul>
 <figure class="image-box">
                 <a rel=URL 重定向 href="{6D7B9A3E-34DB-48F5-A6C5-E38545AAAB84}_20190622141836.jpg" title="" data-fancybox="images"><img src="{6D7B9A3E-34DB-48F5-A6C5-E38545AAAB84}_20190622141836.jpg" alt="" title="" class=""></a>
@@ -251,7 +251,7 @@
             </figure>
 
 <ul>
-<li><p>站点升级了协议（由<strong>http</strong>升级到<strong>https</strong>），原协议不再使用（这种情况很少）。</p>
+<li><p>站點升級了協議（由<strong>http</strong>升級到<strong>https</strong>），原協議不再使用（這種情況很少）。</p>
 </li>
 <li><p>主域名不含<strong>www</strong>（<a href="https://example.com/）。" target="_blank" rel="noopener">https://example.com/）。</a></p>
 </li>
@@ -262,16 +262,16 @@
             </figure>
 
 <h3 id="使用302重定向"><a href="#使用302重定向" class="headerlink" title="使用302重定向"></a>使用<strong>302</strong>重定向</h3><ul>
-<li>站点升级了协议（由<strong>http</strong>升级到<strong>https</strong>），原协议依旧使用。</li>
+<li>站點升級了協議（由<strong>http</strong>升級到<strong>https</strong>），原協議依舊使用。</li>
 </ul>
 <figure class="image-box">
                 <a rel=URL 重定向 href="{0E158DC9-DE68-47EC-9C22-C94E84603E9B}_20190622145046.jpg" title="" data-fancybox="images"><img src="{0E158DC9-DE68-47EC-9C22-C94E84603E9B}_20190622145046.jpg" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
-<p>（<strong>307</strong>与<strong>302</strong>类似，都表示临时重定向，只不过<strong>307</strong>为<strong>GET</strong>请求方式重定向。）</p>
+<p>（<strong>307</strong>與<strong>302</strong>類似，都表示臨時重定向，只不過<strong>307</strong>為<strong>GET</strong>請求方式重定向。）</p>
 <ul>
-<li>网站切换语言。比如访问<strong><a href="https://www.microsoft.com/" target="_blank" rel="noopener">https://www.microsoft.com/</a></strong>（微软的英文官网）这个域名，服务器判断用户当前处于中国大陆地区，直接重定向到<strong><a href="https://www.microsoft.com/zh-cn" target="_blank" rel="noopener">https://www.microsoft.com/zh-cn</a></strong>（微软的简体中文官网），此时使用<strong>302</strong>进行重定向。类似的还有根据用户的设备重定向到 PC 端页面或者移动端页面。</li>
+<li>網站切換語言。比如訪問<strong><a href="https://www.microsoft.com/" target="_blank" rel="noopener">https://www.microsoft.com/</a></strong>（微軟的英文官網）這個域名，服務器判斷用戶當前處於中國大陸地區，直接重定向到<strong><a href="https://www.microsoft.com/zh-cn" target="_blank" rel="noopener">https://www.microsoft.com/zh-cn</a></strong>（微軟的簡體中文官網），此時使用<strong>302</strong>進行重定向。類似的還有根據用戶的設備重定向到 PC 端頁面或者移動端頁面。</li>
 </ul>
 <figure class="image-box">
                 <a rel=URL 重定向 href="{73F1359C-FC27-449D-AB68-C2850DF21022}_20190622150910.jpg" title="" data-fancybox="images"><img src="{73F1359C-FC27-449D-AB68-C2850DF21022}_20190622150910.jpg" alt="" title="" class=""></a>
@@ -279,14 +279,14 @@
             </figure>
 
 <ul>
-<li>用户登录信息过期，自动跳转到登陆界面。</li>
+<li>用戶登錄信息過期，自動跳轉到登陸界面。</li>
 </ul>
 <figure class="image-box">
                 <a rel=URL 重定向 href="2FEWDIpq0trZFeziy9YSF.png" title="" data-fancybox="images"><img src="2FEWDIpq0trZFeziy9YSF.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
-<p>综上所述，只要原有地址的资源今后不再使用一般用<strong>301</strong>进行重定向，只要是临时性重定向一般用<strong>302</strong>进行重定向。</p>
+<p>綜上所述，只要原有地址的資源今後不再使用一般用<strong>301</strong>進行重定向，只要是臨時性重定向一般用<strong>302</strong>進行重定向。</p>
 
         </div>
         
@@ -378,7 +378,7 @@
     <div class="prev">
       <a href="/2018/08/22/201802200830/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">使用 Node 和 OAuth2.0 构建一个简单的 REST API</h4>
+        <h4 class="title">使用 Node 和 OAuth2.0 構建一個簡單的 REST API</h4>
       </a>
     </div>
   
@@ -387,7 +387,7 @@
     <div class="next">
       <a href="/2016/08/06/201608060654/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">原生 JS 实现图片懒加载</h4>
+        <h4 class="title">原生 JS 實現圖片懶加載</h4>
       </a>
     </div>
   
@@ -399,7 +399,7 @@
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
                 <strong>目錄</strong>
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实现原理"><span class="post-toc-number">2.</span> <span class="post-toc-text">实现原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#区别"><span class="post-toc-number">3.</span> <span class="post-toc-text">区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#应用"><span class="post-toc-number">4.</span> <span class="post-toc-text">应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用301重定向"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">使用301重定向</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用302重定向"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">使用302重定向</span></a></li></ol></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#實現原理"><span class="post-toc-number">2.</span> <span class="post-toc-text">實現原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#區別"><span class="post-toc-number">3.</span> <span class="post-toc-text">區別</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#應用"><span class="post-toc-number">4.</span> <span class="post-toc-text">應用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用301重定向"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">使用301重定向</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用302重定向"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">使用302重定向</span></a></li></ol></li></ol>
             </nav>
             <div class="toc-bar"><div>
         </aside>

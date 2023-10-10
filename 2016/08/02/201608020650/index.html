@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     
-    <title>常见“同源策略”问题解决方案 | 木南的個人網站 - MuNan&#39;s Personal Website | 人成各 今非昨 — 唐琬</title>
+    <title>常見「同源策略」問題解決方案 | 木南的個人網站 - MuNan&#39;s Personal Website | 人成各 今非昨 — 唐琬</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="HTTP,跨域">
@@ -149,7 +149,7 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            <span>常见“同源策略”问题解决方案</span>
+            <span>常見「同源策略」問題解決方案</span>
             
         </div>
         
@@ -162,7 +162,7 @@
 <header class="content-header post-header">
     <img src="/img/a057c731-d78c-499a-8233-8309e92a3e4c.png" class="header-bg">
     <div class="container fade-scale">
-        <h1 class="title">常见“同源策略”问题解决方案</h1>
+        <h1 class="title">常見「同源策略」問題解決方案</h1>
         <h5 class="subtitle">
             
                 <time datetime="2016-08-01T22:50:45.000Z" itemprop="datePublished" class="page-time">
@@ -198,7 +198,7 @@
     <article id="post-201608020650"
   class="post-article article-type-post" itemprop="blogPost">
     <div class="post-card">
-        <h1 class="post-card-title">常见“同源策略”问题解决方案</h1>
+        <h1 class="post-card-title">常見「同源策略」問題解決方案</h1>
         <div class="post-meta">
             <time class="post-time" title="2016-08-02 06:50:45" datetime="2016-08-01T22:50:45.000Z"  itemprop="datePublished">2016-08-02</time>
 
@@ -226,112 +226,112 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>“同源政策”（same-origin policy）是由<strong>Netscape</strong>公司引入浏览器的。其使得浏览器更加安全，现在所有浏览器都支持了这个策略。然而，安全的同时也使得开发过程中出现了一些麻烦。本文列出了一些常见的同源策略问题以及相对应的解决方案。</p>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p>“同源”指的是两个地址之间<strong>协议相同</strong>、<strong>域名相同</strong>、<strong>端口相同</strong>，只要有一个不相同就会出现问题。</p>
-<p>目前，受到“同源政策”限制的有以下功能：</p>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>「同源政策」（same-origin policy）是由<strong>Netscape</strong>公司引入瀏覽器的。其使得瀏覽器更加安全，現在所有瀏覽器都支持了這個策略。然而，安全的同時也使得開發過程中出現了一些麻煩。本文列出了一些常見的同源策略問題以及相對應的解決方案。</p>
+<h2 id="常見問題"><a href="#常見問題" class="headerlink" title="常見問題"></a>常見問題</h2><p>「同源」指的是兩個地址之間<strong>協議相同</strong>、<strong>域名相同</strong>、<strong>端口相同</strong>，只要有一個不相同就會出現問題。</p>
+<p>目前，受到「同源政策」限製的有以下功能：</p>
 <ul>
-<li>Cookie、LocalStorage、IndexDB 的读取；</li>
-<li>AJAX 请求的响应被浏览器拒绝（浏览器虽然收到了响应，但是并不使用）；</li>
-<li>DOM 无法获取（更不用说操作了）。</li>
+<li>Cookie、LocalStorage、IndexDB 的讀取；</li>
+<li>AJAX 請求的響應被瀏覽器拒絕（瀏覽器雖然收到了響應，但是並不使用）；</li>
+<li>DOM 無法獲取（更不用說操作了）。</li>
 </ul>
-<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>Cookie 是由服务器写入浏览器的，用来控制客户端的状态。虽然受到“同源政策”限制，但是并不苛刻。同源的页面之间可以共享 Cookie，一级域名相同二级域名不同的页面之间也可以通过设置<strong>document.domain</strong>共享 Cookie。</p>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>Cookie 是由服務器寫入瀏覽器的，用來控製客戶端的狀態。雖然受到「同源政策」限製，但是並不苛刻。同源的頁面之間可以共享 Cookie，一級域名相同二級域名不同的頁面之間也可以通過設置<strong>document.domain</strong>共享 Cookie。</p>
 <blockquote>
-<p>注意：该方法仅适用于 Cookie、iframe 窗口，LocalStorage、IndexDB 无法使用该方法解决“同源政策”问题。</p>
+<p>註意：該方法僅適用於 Cookie、iframe 窗口，LocalStorage、IndexDB 無法使用該方法解決「同源政策」問題。</p>
 </blockquote>
-<h3 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h3><p><strong>iframe</strong>标签使得一个页面中可以嵌入另一个页面，如果两个页面不同源，就无法拿到对方的 DOM。这样会造成父子页面无法通信。</p>
-<p>对于不同源的父子页面有以下方法解决通信问题：</p>
+<h3 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h3><p><strong>iframe</strong>標簽使得一個頁面中可以嵌入另一個頁面，如果兩個頁面不同源，就無法拿到對方的 DOM。這樣會造成父子頁面無法通信。</p>
+<p>對於不同源的父子頁面有以下方法解決通信問題：</p>
 <ol>
-<li>动态 hash</li>
+<li>動態 hash</li>
 <li>window.name</li>
 <li>window.postMessage</li>
 </ol>
-<h4 id="动态-hash"><a href="#动态-hash" class="headerlink" title="动态 hash"></a>动态 hash</h4><p>在父页面中，通过使用<code>&lt;iframe src=&quot;http://example.com/XXX.html#message&quot;&gt;&lt;/iframe&gt;</code>来嵌入子页面。其中，<strong><a href="http://example.com/XXX.html" target="_blank" rel="noopener">http://example.com/XXX.html</a></strong>为子页面地址，<strong>#</strong>后面的部分称之为<strong>片段标识符（Fragment Identifier）</strong>，片段标识符改变页面不会重新加载，父页面传递给子页面的数据可以放到此部分内。</p>
-<p>其过程是父页面动态修改<strong>iframe</strong>标签中<strong>src</strong>属性值的片段标识符部分，子页面通过<code>window.onhashchange</code>事件监听片段标识符部分的变化。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父页面代码</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'iframe'</span>).src = url + <span class="string">'#'</span> + message</span><br><span class="line"><span class="comment">// url为子页面地址</span></span><br><span class="line"><span class="comment">// message变量存放父页面传递给子页面的数据</span></span><br></pre></td></tr></table></figure>
+<h4 id="動態-hash"><a href="#動態-hash" class="headerlink" title="動態 hash"></a>動態 hash</h4><p>在父頁面中，通過使用<code>&lt;iframe src=&quot;http://example.com/XXX.html#message&quot;&gt;&lt;/iframe&gt;</code>來嵌入子頁面。其中，<strong><a href="http://example.com/XXX.html" target="_blank" rel="noopener">http://example.com/XXX.html</a></strong>為子頁面地址，<strong>#</strong>後面的部分稱之為<strong>片段標識符（Fragment Identifier）</strong>，片段標識符改變頁面不會重新加載，父頁面傳遞給子頁面的數據可以放到此部分內。</p>
+<p>其過程是父頁面動態修改<strong>iframe</strong>標簽中<strong>src</strong>屬性值的片段標識符部分，子頁面通過<code>window.onhashchange</code>事件監聽片段標識符部分的變化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父頁面代碼</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'iframe'</span>).src = url + <span class="string">'#'</span> + message</span><br><span class="line"><span class="comment">// url為子頁面地址</span></span><br><span class="line"><span class="comment">// message變量存放父頁面傳遞給子頁面的數據</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子页面代码</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onhashchange = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> message = <span class="built_in">window</span>.location.hash</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子頁面代碼</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onhashchange = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> message = <span class="built_in">window</span>.location.hash</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>同理，该方法也可以逆向使用，即实现子页面向父页面传递数据。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父页面代码</span></span><br><span class="line"><span class="built_in">window</span>.onhashchange = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> message = <span class="built_in">window</span>.location.hash</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同理，該方法也可以逆向使用，即實現子頁面向父頁面傳遞數據。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父頁面代碼</span></span><br><span class="line"><span class="built_in">window</span>.onhashchange = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> message = <span class="built_in">window</span>.location.hash</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子页面代码</span></span><br><span class="line">parent.location.href = url + <span class="string">'#'</span> + message</span><br><span class="line"><span class="comment">// url为父页面地址</span></span><br><span class="line"><span class="comment">// message变量存放子页面传递给父页面的数据</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子頁面代碼</span></span><br><span class="line">parent.location.href = url + <span class="string">'#'</span> + message</span><br><span class="line"><span class="comment">// url為父頁面地址</span></span><br><span class="line"><span class="comment">// message變量存放子頁面傳遞給父頁面的數據</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="window-name"><a href="#window-name" class="headerlink" title="window.name"></a>window.name</h4><p><strong>window.name</strong>是一个特殊的属性。无论页面之间是否同源，只要在同一个窗口内，共享该属性值（前一个页面设置了该属性，后一个页面就可以获取它。）。</p>
-<!-- 其过程是父页面打开子页面，子页面将需要传递的数据写入window.name属性内，写入后子页面跳转到一个与父页面同域的页面，此时父页面就可以读取子页面存在window.name内的数据了。操作繁琐且必须一直监听子页面window.name属性值的变化，不建议使用。 -->
+<h4 id="window-name"><a href="#window-name" class="headerlink" title="window.name"></a>window.name</h4><p><strong>window.name</strong>是一個特殊的屬性。無論頁面之間是否同源，只要在同一個窗口內，共享該屬性值（前一個頁面設置了該屬性，後一個頁面就可以獲取它。）。</p>
+<!-- 其過程是父頁面打開子頁面，子頁面將需要傳遞的數據寫入window.name屬性內，寫入後子頁面跳轉到一個與父頁面同域的頁面，此時父頁面就可以讀取子頁面存在window.name內的數據了。操作繁瑣且必須一直監聽子頁面window.name屬性值的變化，不建議使用。 -->
 
-<h4 id="window-postMessage"><a href="#window-postMessage" class="headerlink" title="window.postMessage"></a>window.postMessage</h4><p>这是 HTML5 新增加的 API，无论两个窗口是否同源，都可以进行跨窗口通信。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父页面向子页面发送消息</span></span><br><span class="line"><span class="keyword">const</span> popupPage = <span class="built_in">window</span>.open(<span class="string">'http://father.com'</span>)</span><br><span class="line"></span><br><span class="line">popupPage.postMessage(<span class="string">'message'</span>, <span class="string">'http://son.com'</span>)</span><br><span class="line"><span class="comment">// message是向子页面发送的消息 http://son.com是接收消息的子页面</span></span><br><span class="line"><span class="comment">// postMessage第二个参数为*时不限制域名，向所有窗口发送</span></span><br></pre></td></tr></table></figure>
+<h4 id="window-postMessage"><a href="#window-postMessage" class="headerlink" title="window.postMessage"></a>window.postMessage</h4><p>這是 HTML5 新增加的 API，無論兩個窗口是否同源，都可以進行跨窗口通信。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父頁面向子頁面發送消息</span></span><br><span class="line"><span class="keyword">const</span> popupPage = <span class="built_in">window</span>.open(<span class="string">'http://father.com'</span>)</span><br><span class="line"></span><br><span class="line">popupPage.postMessage(<span class="string">'message'</span>, <span class="string">'http://son.com'</span>)</span><br><span class="line"><span class="comment">// message是向子頁面發送的消息 http://son.com是接收消息的子頁面</span></span><br><span class="line"><span class="comment">// postMessage第二個參數為*時不限製域名，向所有窗口發送</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子页面向父页面发送消息</span></span><br><span class="line"><span class="built_in">window</span>.opener.postMessage(<span class="string">'message'</span>, <span class="string">'http://father.com'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子頁面向父頁面發送消息</span></span><br><span class="line"><span class="built_in">window</span>.opener.postMessage(<span class="string">'message'</span>, <span class="string">'http://father.com'</span>)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父页面和子页面都可以使用message事件监听对方的消息</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'message'</span>, (e) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e.data) <span class="comment">// 接收到的数据内容</span></span><br><span class="line">  <span class="built_in">console</span>.log(e.source) <span class="comment">// 发送消息的页面地址</span></span><br><span class="line">  <span class="built_in">console</span>.log(e.origin) <span class="comment">// 接收消息的页面地址</span></span><br><span class="line"></span><br><span class="line">  e.source.postMessage(<span class="string">'message'</span>, <span class="string">'*'</span>)</span><br><span class="line">  <span class="comment">// 子页面通过e.source属性引用父页面并发送消息</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父頁面和子頁面都可以使用message事件監聽對方的消息</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'message'</span>, (e) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e.data) <span class="comment">// 接收到的數據內容</span></span><br><span class="line">  <span class="built_in">console</span>.log(e.source) <span class="comment">// 發送消息的頁面地址</span></span><br><span class="line">  <span class="built_in">console</span>.log(e.origin) <span class="comment">// 接收消息的頁面地址</span></span><br><span class="line"></span><br><span class="line">  e.source.postMessage(<span class="string">'message'</span>, <span class="string">'*'</span>)</span><br><span class="line">  <span class="comment">// 子頁面通過e.source屬性引用父頁面並發送消息</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p><strong>因此，通过 window.postMessage 可以间接读写其他页面的 LocalStorage、IndexDB。</strong></p>
-<p>参考链接：<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage</a></p>
-<h3 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h3><p>由于同源政策的影响，AJAX 请求只能发给同源的网址，否则报错。解决方法有 JSONP、iframe、postMessage、window.name、代理服务器、CORS、WebSocket。</p>
-<h4 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h4><p>该方法是浏览器与服务器跨源通信的常用方法，对于前端简单且兼容性好，对于后端服务器变动小。其原理是<strong>script</strong>、<strong>img</strong>等标签中的<strong>src</strong>属性请求非同源链接不受同源策略影响。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getData = <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 动态添加script标签</span></span><br><span class="line"><span class="comment">// 向跨源网址发出请求</span></span><br><span class="line"><span class="keyword">let</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">script.setAttribute(<span class="string">'type'</span>, <span class="string">'text/javascript'</span>)</span><br><span class="line">script.src = <span class="string">'http://example.com/?callback=getData'</span></span><br><span class="line"><span class="comment">// callback参数用来指定回调函数的名字 服务器收到这个请求以后将数据放在回调函数的参数位置后一起返回</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(script)</span><br></pre></td></tr></table></figure>
+<p><strong>因此，通過 window.postMessage 可以間接讀寫其他頁面的 LocalStorage、IndexDB。</strong></p>
+<p>參考鏈接：<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage</a></p>
+<h3 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h3><p>由於同源政策的影響，AJAX 請求只能發給同源的網址，否則報錯。解決方法有 JSONP、iframe、postMessage、window.name、代理服務器、CORS、WebSocket。</p>
+<h4 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h4><p>該方法是瀏覽器與服務器跨源通信的常用方法，對於前端簡單且兼容性好，對於後端服務器變動小。其原理是<strong>script</strong>、<strong>img</strong>等標簽中的<strong>src</strong>屬性請求非同源鏈接不受同源策略影響。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getData = <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 動態添加script標簽</span></span><br><span class="line"><span class="comment">// 向跨源網址發出請求</span></span><br><span class="line"><span class="keyword">let</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">script.setAttribute(<span class="string">'type'</span>, <span class="string">'text/javascript'</span>)</span><br><span class="line">script.src = <span class="string">'http://example.com/?callback=getData'</span></span><br><span class="line"><span class="comment">// callback參數用來指定回調函數的名字 服務器收到這個請求以後將數據放在回調函數的參數位置後一起返回</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(script)</span><br></pre></td></tr></table></figure>
 
-<h4 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h4><p>CORS 是跨域资源分享（Cross-Origin Resource Sharing）的缩写。它使得浏览器能够向非同源服务器发出 AJAX 请求，解决了 AJAX 请求只能向同源服务器发出请求的限制。</p>
+<h4 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h4><p>CORS 是跨域資源分享（Cross-Origin Resource Sharing）的縮寫。它使得瀏覽器能夠向非同源服務器發出 AJAX 請求，解決了 AJAX 請求只能向同源服務器發出請求的限製。</p>
 <figure class="image-box">
-                <a rel=常见“同源策略”问题解决方案 href="CORS_principle.png" title="" data-fancybox="images"><img src="CORS_principle.png" alt="" title="" class=""></a>
+                <a rel=常見「同源策略」問題解決方案 href="CORS_principle.png" title="" data-fancybox="images"><img src="CORS_principle.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
-<p>（图片来自网络）</p>
-<p>1.简单非同源请求：</p>
-<p>浏览器如果请求非同源服务器，会自动在请求头中添加<strong>Origin</strong>（绿圈标注部分）字段，用来说明本次请求来自哪个源。服务器会根据这个字段值，决定是否同意这次非同源请求。如果<strong>Origin</strong>指定的源不在许可范围内，服务器会返回一个常规的 HTTP 响应。浏览器检测响应头，发现没有包含<strong>Access-Control-Allow-Origin</strong>（红圈标注部分）字段，此时浏览器会抛出一个错误，请求失败，<strong>此时状态码仍有可能是 200</strong>，响应数据虽然返回给了浏览器，但是被浏览器拦截了，无法在请求回调函数中获取。相反，如果<strong>Origin</strong>指定的源在许可范围内，则响应头中包含<strong>Access-Control-Allow-Origin</strong>字段，可以收到数据。</p>
+<p>（圖片來自網絡）</p>
+<p>1.簡單非同源請求：</p>
+<p>瀏覽器如果請求非同源服務器，會自動在請求頭中添加<strong>Origin</strong>（綠圈標註部分）字段，用來說明本次請求來自哪個源。服務器會根據這個字段值，決定是否同意這次非同源請求。如果<strong>Origin</strong>指定的源不在許可範圍內，服務器會返回一個常規的 HTTP 響應。瀏覽器檢測響應頭，發現沒有包含<strong>Access-Control-Allow-Origin</strong>（紅圈標註部分）字段，此時瀏覽器會拋出一個錯誤，請求失敗，<strong>此時狀態碼仍有可能是 200</strong>，響應數據雖然返回給了瀏覽器，但是被瀏覽器攔截了，無法在請求回調函數中獲取。相反，如果<strong>Origin</strong>指定的源在許可範圍內，則響應頭中包含<strong>Access-Control-Allow-Origin</strong>字段，可以收到數據。</p>
 <ul>
-<li><strong>Access-Control-Allow-Origin</strong>：该字段取值要么是请求头中<strong>Origin</strong>字段的值，要么是一个星号（表示允许来自所有域的跨域请求）。</li>
+<li><strong>Access-Control-Allow-Origin</strong>：該字段取值要麽是請求頭中<strong>Origin</strong>字段的值，要麽是一個星號（表示允許來自所有域的跨域請求）。</li>
 </ul>
 <figure class="image-box">
-                <a rel=常见“同源策略”问题解决方案 href="simple_req.png" title="" data-fancybox="images"><img src="simple_req.png" alt="" title="" class=""></a>
+                <a rel=常見「同源策略」問題解決方案 href="simple_req.png" title="" data-fancybox="images"><img src="simple_req.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
-<p>（图片来自网络）</p>
-<p>2.含有“预检请求”的非同源请求：</p>
-<p>这种请求会在正式请求发出之前提前发出一次 HTTP 查询请求（称之为“<strong>预检请求</strong>”）。<strong>预检请求</strong>是浏览器预先询问服务器，当前页面的域名是否在服务器的允许名单之中，以及可以使用哪些 HTTP<strong>请求方法</strong>和<strong>请求头字段</strong>。当提出的要求被服务器完全“同意”后，浏览器才会发出真正的非同源请求，否则无法进行下一步或者报错。</p>
-<p>“预检请求”使用的请求方法是<strong>OPTIONS</strong>（紫圈标注部分），用来告诉服务器该请求是“预检请求”，不是真正的请求。此外，”预检请求”的请求头中还包含<strong>Access-Control-Request-Method</strong>、<strong>Access-Control-Request-Headers</strong>（黄圈标注部分）两个特殊字段。</p>
+<p>（圖片來自網絡）</p>
+<p>2.含有「預檢請求」的非同源請求：</p>
+<p>這種請求會在正式請求發出之前提前發出一次 HTTP 查詢請求（稱之為「<strong>預檢請求</strong>」）。<strong>預檢請求</strong>是瀏覽器預先詢問服務器，當前頁面的域名是否在服務器的允許名單之中，以及可以使用哪些 HTTP<strong>請求方法</strong>和<strong>請求頭字段</strong>。當提出的要求被服務器完全「同意」後，瀏覽器才會發出真正的非同源請求，否則無法進行下一步或者報錯。</p>
+<p>「預檢請求」使用的請求方法是<strong>OPTIONS</strong>（紫圈標註部分），用來告訴服務器該請求是「預檢請求」，不是真正的請求。此外，”預檢請求”的請求頭中還包含<strong>Access-Control-Request-Method</strong>、<strong>Access-Control-Request-Headers</strong>（黃圈標註部分）兩個特殊字段。</p>
 <ul>
-<li><strong>Access-Control-Request-Method</strong>：该字段是浏览器用来告诉服务器接下来的正式请求将要使用哪些 HTTP 请求方法。</li>
-<li><strong>Access-Control-Request-Headers</strong>：该字段取值是一个逗号分隔的字符串。该字段是浏览器用来告诉服务器接下来的正式请求在请求头中将要附加额外的请求头字段。</li>
+<li><strong>Access-Control-Request-Method</strong>：該字段是瀏覽器用來告訴服務器接下來的正式請求將要使用哪些 HTTP 請求方法。</li>
+<li><strong>Access-Control-Request-Headers</strong>：該字段取值是一個逗號分隔的字符串。該字段是瀏覽器用來告訴服務器接下來的正式請求在請求頭中將要附加額外的請求頭字段。</li>
 </ul>
-<p>与此同时，服务器对“预检请求”做出响应，在响应头中包含<strong>Access-Control-Allow-Methods</strong>、<strong>Access-Control-Allow-Headers</strong>（红圈标注部分）等字段。</p>
+<p>與此同時，服務器對「預檢請求」做出響應，在響應頭中包含<strong>Access-Control-Allow-Methods</strong>、<strong>Access-Control-Allow-Headers</strong>（紅圈標註部分）等字段。</p>
 <ul>
-<li><strong>Access-Control-Allow-Methods</strong>：该字段取值是一个逗号分隔的字符串。表明服务器支持的<strong>所有</strong>跨域请求的方法（避免多次“<strong>预检请求</strong>”）。</li>
-<li><strong>Access-Control-Allow-Headers</strong>：该字段用来指定接下来的正式请求允许携带的请求头字段。</li>
-<li><strong>Access-Control-Max-Age</strong>：该字段用来指定本次<strong>预检请求</strong>的有效期（有效期内不用再发送<strong>预检请求</strong>），单位为秒。</li>
-<li><strong>Access-Control-Expose-Headers</strong>：该字段取值是一个逗号分隔的字符串。在跨域请求时，<strong>XMLHttpRequest</strong>对象的<strong>getResponseHeader</strong>方法只能拿到一些最基本的响应头字段（Cache-Control、Content-Language、Content-Type、Expires、Last-Modified、Pragma）。如果想拿到其他字段，就必须在<strong>Access-Control-Expose-Headers</strong>里面指定。</li>
+<li><strong>Access-Control-Allow-Methods</strong>：該字段取值是一個逗號分隔的字符串。表明服務器支持的<strong>所有</strong>跨域請求的方法（避免多次「<strong>預檢請求</strong>」）。</li>
+<li><strong>Access-Control-Allow-Headers</strong>：該字段用來指定接下來的正式請求允許攜帶的請求頭字段。</li>
+<li><strong>Access-Control-Max-Age</strong>：該字段用來指定本次<strong>預檢請求</strong>的有效期（有效期內不用再發送<strong>預檢請求</strong>），單位為秒。</li>
+<li><strong>Access-Control-Expose-Headers</strong>：該字段取值是一個逗號分隔的字符串。在跨域請求時，<strong>XMLHttpRequest</strong>對象的<strong>getResponseHeader</strong>方法只能拿到一些最基本的響應頭字段（Cache-Control、Content-Language、Content-Type、Expires、Last-Modified、Pragma）。如果想拿到其他字段，就必須在<strong>Access-Control-Expose-Headers</strong>裏面指定。</li>
 </ul>
 <figure class="image-box">
-                <a rel=常见“同源策略”问题解决方案 href="prelight.png" title="" data-fancybox="images"><img src="prelight.png" alt="" title="" class=""></a>
+                <a rel=常見「同源策略」問題解決方案 href="prelight.png" title="" data-fancybox="images"><img src="prelight.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
-<p>（图片来自网络）</p>
-<p>满足以下条件之一的请求在正式请求发出之前会提前发出“预检请求”：</p>
+<p>（圖片來自網絡）</p>
+<p>滿足以下條件之一的請求在正式請求發出之前會提前發出「預檢請求」：</p>
 <ul>
-<li>一个请求在请求头中包含了任何自定义请求头字段。</li>
-<li>使用 HTTP 请求方式是<strong>GET</strong>、<strong>HEAD</strong>、<strong>POST</strong>之外的任何一种方式。</li>
-<li>请求方式是<strong>POST</strong>，但请求头的<strong>Content-Type</strong>字段取值是<strong>application/x-www-form-urlencoded</strong>、<strong>multipart/form-data</strong>、<strong>text/plain</strong>之外的。</li>
+<li>一個請求在請求頭中包含了任何自定義請求頭字段。</li>
+<li>使用 HTTP 請求方式是<strong>GET</strong>、<strong>HEAD</strong>、<strong>POST</strong>之外的任何一種方式。</li>
+<li>請求方式是<strong>POST</strong>，但請求頭的<strong>Content-Type</strong>字段取值是<strong>application/x-www-form-urlencoded</strong>、<strong>multipart/form-data</strong>、<strong>text/plain</strong>之外的。</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> url = <span class="string">'http://example.com/'</span></span><br><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line"></span><br><span class="line">xhr.open(<span class="string">'PUT'</span>, url, <span class="literal">true</span>)</span><br><span class="line">xhr.setRequestHeader(<span class="string">'X-Custom-Header'</span>, <span class="string">'value'</span>)</span><br><span class="line">xhr.send()</span><br></pre></td></tr></table></figure>
 
-<p>上面的<strong>XMLHttpRequest</strong>请求中，请求方法是<strong>PUT</strong>，不是常规请求方式。且在生成的请求头中，有一个用户自定义的字段<strong>X-Custom-Header</strong>，浏览器发现这是个非正常字段自动发出一个”预检请求”，询问服务器是否可以接受这个非正常请求头字段。如果服务器回绝则返回一个正常的响应头，此时浏览器报错；如果同意，则返回的响应头中会有<strong>Access-Control-Allow-Headers: X-Custom-Header</strong>。</p>
-<p>3.附带身份凭证的非同源请求：</p>
-<p>该请求和前两种请求类似，只不过在发送请求的时候，需要将用户凭证包含在请求中。</p>
-<p>默认情况下，Cookie 不会包含在非同源请求之中，开发者需要在非同源请求中把<strong>withCredentials</strong>属性的值设置为<strong>true</strong>，而且服务器响应头中的<strong>Access-Control-Allow-Credentials</strong>字段取值也要设置为<strong>true</strong>，两者缺一不可。只有这样，浏览器才会把响应内容返回给请求的发起者。对于这种请求，响应头中的<strong>Access-Control-Allow-Origin</strong>字段取值不能为星号。这是因为请求头中携带了 Cookie 信息，如果<strong>Access-Control-Allow-Origin</strong>取值为星号请求将会失败，而将<strong>Access-Control-Allow-Origin</strong>字段的值设置为请求发起者所在域名则请求成功执行。此外，这时响应头中也携带了<strong>Set-Cookie</strong>字段。</p>
+<p>上面的<strong>XMLHttpRequest</strong>請求中，請求方法是<strong>PUT</strong>，不是常規請求方式。且在生成的請求頭中，有一個用戶自定義的字段<strong>X-Custom-Header</strong>，瀏覽器發現這是個非正常字段自動發出一個”預檢請求”，詢問服務器是否可以接受這個非正常請求頭字段。如果服務器回絕則返回一個正常的響應頭，此時瀏覽器報錯；如果同意，則返回的響應頭中會有<strong>Access-Control-Allow-Headers: X-Custom-Header</strong>。</p>
+<p>3.附帶身份憑證的非同源請求：</p>
+<p>該請求和前兩種請求類似，只不過在發送請求的時候，需要將用戶憑證包含在請求中。</p>
+<p>默認情況下，Cookie 不會包含在非同源請求之中，開發者需要在非同源請求中把<strong>withCredentials</strong>屬性的值設置為<strong>true</strong>，而且服務器響應頭中的<strong>Access-Control-Allow-Credentials</strong>字段取值也要設置為<strong>true</strong>，兩者缺一不可。只有這樣，瀏覽器才會把響應內容返回給請求的發起者。對於這種請求，響應頭中的<strong>Access-Control-Allow-Origin</strong>字段取值不能為星號。這是因為請求頭中攜帶了 Cookie 信息，如果<strong>Access-Control-Allow-Origin</strong>取值為星號請求將會失敗，而將<strong>Access-Control-Allow-Origin</strong>字段的值設置為請求發起者所在域名則請求成功執行。此外，這時響應頭中也攜帶了<strong>Set-Cookie</strong>字段。</p>
 <figure class="image-box">
-                <a rel=常见“同源策略”问题解决方案 href="cred-req.png" title="" data-fancybox="images"><img src="cred-req.png" alt="" title="" class=""></a>
+                <a rel=常見「同源策略」問題解決方案 href="cred-req.png" title="" data-fancybox="images"><img src="cred-req.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
-<p>（图片来自网络）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> url = <span class="string">'http://example.com/'</span></span><br><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line"></span><br><span class="line">xhr.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>)</span><br><span class="line">xhr.withCredentials = <span class="literal">true</span></span><br><span class="line"><span class="comment">// XMLHttpRequest的withCredentials设置为true从而向服务器发送Cookie</span></span><br><span class="line">xhr.send()</span><br></pre></td></tr></table></figure>
+<p>（圖片來自網絡）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> url = <span class="string">'http://example.com/'</span></span><br><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line"></span><br><span class="line">xhr.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>)</span><br><span class="line">xhr.withCredentials = <span class="literal">true</span></span><br><span class="line"><span class="comment">// XMLHttpRequest的withCredentials設置為true從而向服務器發送Cookie</span></span><br><span class="line">xhr.send()</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>注意：有的浏览器不用设置<strong>withCredentials</strong>为<strong>true</strong>也可以向服务器发送 Cookie，可以通过<code>xhr.withCredentials = false;</code>显式关闭。</p>
+<p>註意：有的瀏覽器不用設置<strong>withCredentials</strong>為<strong>true</strong>也可以向服務器發送 Cookie，可以通過<code>xhr.withCredentials = false;</code>顯式關閉。</p>
 </blockquote>
 <style>
   h4 {
@@ -387,7 +387,7 @@
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《常见“同源策略”问题解决方案》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/08/02/201608020650/&via=https://munan.wiki" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《常見「同源策略」問題解決方案》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/08/02/201608020650/&via=https://munan.wiki" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -429,7 +429,7 @@
     <div class="prev">
       <a href="/2016/08/06/201608060654/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">原生 JS 实现图片懒加载</h4>
+        <h4 class="title">原生 JS 實現圖片懶加載</h4>
       </a>
     </div>
   
@@ -438,7 +438,7 @@
     <div class="next">
       <a href="/2016/07/20/201607200640/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">深入浅出 HTTP 协议（上）</h4>
+        <h4 class="title">深入淺出 HTTP 協議（上）</h4>
       </a>
     </div>
   
@@ -450,7 +450,7 @@
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
                 <strong>目錄</strong>
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常见问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">常见问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Cookie"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Cookie</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#iframe"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">iframe</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#动态-hash"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">动态 hash</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#window-name"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">window.name</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#window-postMessage"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">window.postMessage</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AJAX"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">AJAX</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#JSONP"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">JSONP</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CORS"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">CORS</span></a></li></ol></li></ol></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常見問題"><span class="post-toc-number">2.</span> <span class="post-toc-text">常見問題</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Cookie"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Cookie</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#iframe"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">iframe</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#動態-hash"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">動態 hash</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#window-name"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">window.name</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#window-postMessage"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">window.postMessage</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AJAX"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">AJAX</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#JSONP"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">JSONP</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CORS"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">CORS</span></a></li></ol></li></ol></li></ol>
             </nav>
             <div class="toc-bar"><div>
         </aside>
@@ -531,7 +531,7 @@
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《常见“同源策略”问题解决方案》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/08/02/201608020650/&via=https://munan.wiki" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《常見「同源策略」問題解決方案》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/08/02/201608020650/&via=https://munan.wiki" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>

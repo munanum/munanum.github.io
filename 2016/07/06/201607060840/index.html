@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     
-    <title>移动端适配（下） | 木南的個人網站 - MuNan&#39;s Personal Website | 人成各 今非昨 — 唐琬</title>
+    <title>移動端適配（下） | 木南的個人網站 - MuNan&#39;s Personal Website | 人成各 今非昨 — 唐琬</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="viewport">
@@ -149,7 +149,7 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            <span>移动端适配（下）</span>
+            <span>移動端適配（下）</span>
             
         </div>
         
@@ -162,7 +162,7 @@
 <header class="content-header post-header">
     <img src="/img/a057c731-d78c-499a-8233-8309e92a3e4c.png" class="header-bg">
     <div class="container fade-scale">
-        <h1 class="title">移动端适配（下）</h1>
+        <h1 class="title">移動端適配（下）</h1>
         <h5 class="subtitle">
             
                 <time datetime="2016-07-06T00:40:33.000Z" itemprop="datePublished" class="page-time">
@@ -198,7 +198,7 @@
     <article id="post-201607060840"
   class="post-article article-type-post" itemprop="blogPost">
     <div class="post-card">
-        <h1 class="post-card-title">移动端适配（下）</h1>
+        <h1 class="post-card-title">移動端適配（下）</h1>
         <div class="post-meta">
             <time class="post-time" title="2016-07-06 08:40:33" datetime="2016-07-06T00:40:33.000Z"  itemprop="datePublished">2016-07-06</time>
 
@@ -226,20 +226,20 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>承接<a href="/2019/01/10/201901101503/" title="移动端适配（上）">移动端适配（上）</a>，这次主要写<strong>“viewport”缩放</strong>适配方式。这是淘宝使用的方法，实现原理是将页面放大 dpr（devicePixelRatio）倍，然后 viewport 设置为 1/dpr。例如 iphone6/7/8 的 dpr 为 2，则页面整体放大 2 倍，1px(css 单位)在 iphone6/7/8 下默认显示为 2px(物理像素)。将 viewport 设置为 1/2，这样页面整体缩回原始大小。这样页面显示时的宽度就会等于设备逻辑像素大小（device-width）。</p>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="物理像素"><a href="#物理像素" class="headerlink" title="物理像素"></a>物理像素</h3><p>物理像素（physical pixel）既设备像素，用于表示显示屏中一个最微小的方格。每个方格由操作系统控制颜色和亮度。方格越微小，画面越细腻。</p>
-<h3 id="逻辑像素"><a href="#逻辑像素" class="headerlink" title="逻辑像素"></a>逻辑像素</h3><p>逻辑像素也称为设备独立像素（density-independent pixel）或者虚拟像素，独立于设备用于逻辑上衡量像素的单位。</p>
-<h3 id="设备像素比"><a href="#设备像素比" class="headerlink" title="设备像素比"></a>设备像素比</h3><p>设备像素比（device pixel ratio）简称为<strong>dpr</strong>，其大小是物理像素与逻辑像素的比值。执行代码<code>window.devicePixelRatio</code>可获取到当前设备的<strong>dpr</strong>。</p>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>承接<a href="/2019/01/10/201901101503/" title="移動端適配（上）">移動端適配（上）</a>，這次主要寫<strong>「viewport」縮放</strong>適配方式。這是淘寶使用的方法，實現原理是將頁面放大 dpr（devicePixelRatio）倍，然後 viewport 設置為 1/dpr。例如 iphone6/7/8 的 dpr 為 2，則頁面整體放大 2 倍，1px(css 單位)在 iphone6/7/8 下默認顯示為 2px(物理像素)。將 viewport 設置為 1/2，這樣頁面整體縮回原始大小。這樣頁面顯示時的寬度就會等於設備邏輯像素大小（device-width）。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="物理像素"><a href="#物理像素" class="headerlink" title="物理像素"></a>物理像素</h3><p>物理像素（physical pixel）既設備像素，用於表示顯示屏中一個最微小的方格。每個方格由操作系統控製顏色和亮度。方格越微小，畫面越細膩。</p>
+<h3 id="邏輯像素"><a href="#邏輯像素" class="headerlink" title="邏輯像素"></a>邏輯像素</h3><p>邏輯像素也稱為設備獨立像素（density-independent pixel）或者虛擬像素，獨立於設備用於邏輯上衡量像素的單位。</p>
+<h3 id="設備像素比"><a href="#設備像素比" class="headerlink" title="設備像素比"></a>設備像素比</h3><p>設備像素比（device pixel ratio）簡稱為<strong>dpr</strong>，其大小是物理像素與邏輯像素的比值。執行代碼<code>window.devicePixelRatio</code>可獲取到當前設備的<strong>dpr</strong>。</p>
 <figure class="image-box">
-                <a rel=移动端适配（下） href="multidevice.png" title="" data-fancybox="images"><img src="multidevice.png" alt="" title="" class=""></a>
+                <a rel=移動端適配（下） href="multidevice.png" title="" data-fancybox="images"><img src="multidevice.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
-<p>（以苹果设备为例，绿、红、黄各部分分别表示各设备的物理像素、逻辑像素、设备像素比。图片来自<a href="https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions/" target="_blank" rel="noopener" title="PaintCode">PaintCode</a>。）</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>以<strong>iPhone6</strong>为例，其物理像素、逻辑像素、设备像素比分别为 750×1334、375×667、2。这也造成了<strong>1px</strong>的边框在 iPhone6 上显示为<strong>2px</strong>的宽度。以下为解决方法：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- dpr等于1时使用 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- dpr等于2时使用 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"initial-scale=0.333333, maximum-scale=0.333333, minimum-scale=0.333333, user-scalable=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- dpr等于3时使用 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"initial-scale=0.25, maximum-scale=0.25, minimum-scale=0.25, user-scalable=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- dpr等于4时使用 --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>（以蘋果設備為例，綠、紅、黃各部分分別表示各設備的物理像素、邏輯像素、設備像素比。圖片來自<a href="https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions/" target="_blank" rel="noopener" title="PaintCode">PaintCode</a>。）</p>
+<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><p>以<strong>iPhone6</strong>為例，其物理像素、邏輯像素、設備像素比分別為 750×1334、375×667、2。這也造成了<strong>1px</strong>的邊框在 iPhone6 上顯示為<strong>2px</strong>的寬度。以下為解決方法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- dpr等於1時使用 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- dpr等於2時使用 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"initial-scale=0.333333, maximum-scale=0.333333, minimum-scale=0.333333, user-scalable=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- dpr等於3時使用 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"initial-scale=0.25, maximum-scale=0.25, minimum-scale=0.25, user-scalable=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- dpr等於4時使用 --&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>其思想是根据设备的<strong>dpr</strong>值相应改变<code>&lt;meta&gt;</code>标签中<strong>viewport</strong>的值（当然你也可以通过脚本动态生成该标签）。</p>
+<p>其思想是根據設備的<strong>dpr</strong>值相應改變<code>&lt;meta&gt;</code>標簽中<strong>viewport</strong>的值（當然你也可以通過腳本動態生成該標簽）。</p>
 
         </div>
         
@@ -289,7 +289,7 @@
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《移动端适配（下）》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/07/06/201607060840/&via=https://munan.wiki" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《移動端適配（下）》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/07/06/201607060840/&via=https://munan.wiki" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -331,7 +331,7 @@
     <div class="prev">
       <a href="/2016/07/20/201607200640/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">深入浅出 HTTP 协议（上）</h4>
+        <h4 class="title">深入淺出 HTTP 協議（上）</h4>
       </a>
     </div>
   
@@ -340,7 +340,7 @@
     <div class="next">
       <a href="/2016/07/02/201607020832/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">深入浅出 meta 标签</h4>
+        <h4 class="title">深入淺出 meta 標簽</h4>
       </a>
     </div>
   
@@ -352,7 +352,7 @@
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
                 <strong>目錄</strong>
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">2.</span> <span class="post-toc-text">基本概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#物理像素"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">物理像素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逻辑像素"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">逻辑像素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设备像素比"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">设备像素比</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">解决方法</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">2.</span> <span class="post-toc-text">基本概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#物理像素"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">物理像素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#邏輯像素"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">邏輯像素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#設備像素比"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">設備像素比</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解決方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">解決方法</span></a></li></ol>
             </nav>
             <div class="toc-bar"><div>
         </aside>
@@ -433,7 +433,7 @@
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《移动端适配（下）》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/07/06/201607060840/&via=https://munan.wiki" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《移動端適配（下）》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/07/06/201607060840/&via=https://munan.wiki" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
