@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     
-    <title>使用Node和OAuth2.0构建一个简单的REST API | 木南的個人網站 - MuNan&#39;s Personal Website | 人成各 今非昨 — 唐琬</title>
+    <title>使用 Node 和 OAuth2.0 构建一个简单的 REST API | 木南的個人網站 - MuNan&#39;s Personal Website | 人成各 今非昨 — 唐琬</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="REST API">
@@ -12,13 +12,15 @@
     <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="/css/style.css?v=undefined">
     
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=undefined">
+    
     <script type="text/javascript">
         // Data Center
         var DC = {
             reward:	true,
             lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
-            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
-            g: JSON.parse('{"enable":false,"lazy":true,"owner":null,"repo":null,"oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"Give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"munanum","repo":"issues","oauth":{"client_id":"247de68ddbbfa47690cd","client_secret":"25c21da09d3f068ab0689510079ff4ef72792ec5"},"perPage":10}'),
             d: JSON.parse('{"app_id":null}')
         };
     </script>
@@ -147,7 +149,7 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            <span>使用Node和OAuth2.0构建一个简单的REST API</span>
+            <span>使用 Node 和 OAuth2.0 构建一个简单的 REST API</span>
             
         </div>
         
@@ -160,7 +162,7 @@
 <header class="content-header post-header">
     <img src="/img/a057c731-d78c-499a-8233-8309e92a3e4c.png" class="header-bg">
     <div class="container fade-scale">
-        <h1 class="title">使用Node和OAuth2.0构建一个简单的REST API</h1>
+        <h1 class="title">使用 Node 和 OAuth2.0 构建一个简单的 REST API</h1>
         <h5 class="subtitle">
             
                 <time datetime="2018-08-22T00:30:24.000Z" itemprop="datePublished" class="page-time">
@@ -183,7 +185,7 @@
         <span class="pull-left">
           <i class="icon icon-lg icon-search"></i>
         </span>
-        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="Search my blog..." class="form-control pull-left"/>
         <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
           <i class="icon icon-lg icon-close"></i>
         </a>
@@ -196,7 +198,7 @@
     <article id="post-201802200830"
   class="post-article article-type-post" itemprop="blogPost">
     <div class="post-card">
-        <h1 class="post-card-title">使用Node和OAuth2.0构建一个简单的REST API</h1>
+        <h1 class="post-card-title">使用 Node 和 OAuth2.0 构建一个简单的 REST API</h1>
         <div class="post-meta">
             <time class="post-time" title="2018-08-22 08:30:24" datetime="2018-08-22T00:30:24.000Z"  itemprop="datePublished">2018-08-22</time>
 
@@ -209,6 +211,16 @@
 
             
 
+
+<span class="post-comments-counter" id="/2018/08/22/201802200830/">
+    <span class="post-meta-item-icon">
+        <i class="icon icon-comment-o"></i>
+    </span>
+    
+    <a href="/2018/08/22/201802200830/#gitment-display-button" onclick="ShowGitment()">
+        <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
+    </a>
+</span>
 
             
         </div>
@@ -310,14 +322,14 @@
 <p><code>ISSUER=https://{yourOktaDomain}/oauth2/default</code></p>
 <p><strong>ISSUER</strong>的值应该是设置页<strong>Issuer URI</strong>字段的值。</p>
 <figure class="image-box">
-                <a rel=使用Node和OAuth2.0构建一个简单的REST API href="issuer-afa0da4b4f632196092a4da8f243f3bec37615602dc5b62e8e34546fd1018333.png" title="" data-fancybox="images"><img src="issuer-afa0da4b4f632196092a4da8f243f3bec37615602dc5b62e8e34546fd1018333.png" alt="" title="" class=""></a>
+                <a rel=使用 Node 和 OAuth2.0 构建一个简单的 REST API href="issuer-afa0da4b4f632196092a4da8f243f3bec37615602dc5b62e8e34546fd1018333.png" title="" data-fancybox="images"><img src="issuer-afa0da4b4f632196092a4da8f243f3bec37615602dc5b62e8e34546fd1018333.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
 <p><strong>注意：</strong>通常情况下，你不应该把<strong>.env</strong>文件存储在源代码管理器（source control）中。这允许多个项目使用相同的源代码（source code），而不需要单独的分叉（fork）。它可以确保你的安全信息不会被公开（尤其是你将要把源代码作为开源代码发布时）。</p>
 <p>接下来，导航到<strong>Scopes</strong>选项卡，点击<strong>Add Scope</strong>按钮并为你的 REST API 创建一个作用域（scope）。你需要给它起个名字（比如<code>parts_manager</code>），如果你愿意你可以给它一个描述（介绍）。</p>
 <figure class="image-box">
-                <a rel=使用Node和OAuth2.0构建一个简单的REST API href="adding-scope-f3ecb3b4eec06d616a130400245843c0de2dd52a54b2fdcff7449a10a2ce75ed.png" title="" data-fancybox="images"><img src="adding-scope-f3ecb3b4eec06d616a130400245843c0de2dd52a54b2fdcff7449a10a2ce75ed.png" alt="" title="" class=""></a>
+                <a rel=使用 Node 和 OAuth2.0 构建一个简单的 REST API href="adding-scope-f3ecb3b4eec06d616a130400245843c0de2dd52a54b2fdcff7449a10a2ce75ed.png" title="" data-fancybox="images"><img src="adding-scope-f3ecb3b4eec06d616a130400245843c0de2dd52a54b2fdcff7449a10a2ce75ed.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
@@ -410,7 +422,7 @@
 
         
             <div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">賞</a>
 </div>
 
             
@@ -438,7 +450,7 @@
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用Node和OAuth2.0构建一个简单的REST API》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2018/08/22/201802200830/&via=https://munan.wiki" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用 Node 和 OAuth2.0 构建一个简单的 REST API》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2018/08/22/201802200830/&via=https://munan.wiki" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -464,6 +476,14 @@
             
 
 
+      
+    <div onclick="ShowGitment()" id="gitment-display-button" style="display: block;">
+        <span>顯示 Gitment 評論</span>
+    </div>
+    <div id="gitment" class="hide"></div>
+
+
+
         
     </div>
     
@@ -481,7 +501,7 @@
     <div class="next">
       <a href="/2016/08/28/201608282022/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">URL重定向</h4>
+        <h4 class="title">URL 重定向</h4>
       </a>
     </div>
   
@@ -492,7 +512,7 @@
     
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
-                <strong>目录</strong>
+                <strong>目錄</strong>
                 <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构建一个-REST-类型的-Node-API-服务器"><span class="post-toc-number">1.</span> <span class="post-toc-text">构建一个 REST 类型的 Node API 服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-Node、Express、Sequelize-和-Epilogue-构建-REST-类型的-API"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用 Node、Express、Sequelize 和 Epilogue 构建 REST 类型的 API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Node-API-工作原理"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Node API 工作原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-OAuth2-0-来保护你的-Node-Express-REST-API"><span class="post-toc-number">3.</span> <span class="post-toc-text">使用 OAuth2.0 来保护你的 Node + Express REST API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建一个授权服务器"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">创建一个授权服务器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建中间件验证-Express-中的令牌"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">创建中间件验证 Express 中的令牌</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用-Node-创建测试客户端"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">使用 Node 创建测试客户端</span></a></li></ol></li></ol>
             </nav>
             <div class="toc-bar"><div>
@@ -510,7 +530,7 @@
     <div class="reward-content">
         
         <div class="reward-code">
-            <img id="rewardCode" src="/img/69c8aa0f-f453-4dfb-90fd-d902862a397e.jpg" alt="打赏二维码">
+            <img id="rewardCode" src="/img/69c8aa0f-f453-4dfb-90fd-d902862a397e.jpg" alt="打賞二維碼">
         </div>
         
         <label class="reward-toggle">
@@ -519,7 +539,7 @@
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
-                <span class="reward-toggle-item alipay">支付宝</span>
+                <span class="reward-toggle-item alipay">支付寶</span>
             </div>
         </label>
         
@@ -536,7 +556,7 @@
     <div class="bottom">
         <p>
             <span>
-                木南 &copy; 2016 - 2022
+                木南 &copy; 2016 - 2023
             </span>
         		
            	
@@ -574,7 +594,7 @@
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用Node和OAuth2.0构建一个简单的REST API》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2018/08/22/201802200830/&via=https://munan.wiki" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用 Node 和 OAuth2.0 构建一个简单的 REST API》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2018/08/22/201802200830/&via=https://munan.wiki" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -591,8 +611,8 @@
 
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3azWpCQQwGUN//pW+hq4JUvyQqmDmzKgpz73GR5u92i8/1e+4/+fv5FZz72/67+faOg4GB8bWM3oM//8l/74aBgXEO43GQTR7QC9aPA27ybhgYGBgJaR5SMTAwMN4RcPPiNv8WAwMD4zEjKWLzlC65v5eAvqAWx8DA+EJGdTDwyb/fON/AwMD4EsZVPPk9vec23woDA2M1o7rukKR0vSbdpD2HgYFxDqNXuCYhdTJaKCSLGBgYSxn5i+aN/ry5li9nPKFiYGAcz0jCcXV4mS9qRGkoBgbGYYx8JSJvtFUDevlnxcDAWM2Yh8LJkkRe6EYJKwYGxlJGvu4wabfl4biaFGJgYJzGmCRzvUD8qqYeBgbGCYxe0lZduagmoPmzMDAwdjOSZK66NpE0yKrtvEKSioGBsY6RBMEk/PWCZv5DNP9vYGBgLGL0kry83J232KLhJQYGxlJGEtR62VcvNcwHFU+ei4GBsZqRJ3OvHVVOAjQGBsZuRrV8rbbM5msWUXDHwMA4gJGndFHzq/Wi+UDiSS2OgYGxjpGnaL2h5mfSRAwMjN2Mq3h6w8skrE8CPQYGxm5GfuarGL2bqytoGBgYWxnVIJtfnbft8oAb9Q4xMDCWMpJBZi9BrA4MeoNVDAwMjHmpma95lUcCGBgYGMXW/6QorY4lonksBgbGIkZ10aE3pMwL4+YkFgMDYymjV0D20rskfFeTSAwMjNWMH32AN/WL/3VvAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <p>掃一掃，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3azWpCQQwGUN//pW+hq4JUvyQqmDmzKgpz73GR5u92i8/1e+4/+fv5FZz72/67+faOg4GB8bWM3oM//8l/74aBgXEO43GQTR7QC9aPA27ybhgYGBgJaR5SMTAwMN4RcPPiNv8WAwMD4zEjKWLzlC65v5eAvqAWx8DA+EJGdTDwyb/fON/AwMD4EsZVPPk9vec23woDA2M1o7rukKR0vSbdpD2HgYFxDqNXuCYhdTJaKCSLGBgYSxn5i+aN/ry5li9nPKFiYGAcz0jCcXV4mS9qRGkoBgbGYYx8JSJvtFUDevlnxcDAWM2Yh8LJkkRe6EYJKwYGxlJGvu4wabfl4biaFGJgYJzGmCRzvUD8qqYeBgbGCYxe0lZduagmoPmzMDAwdjOSZK66NpE0yKrtvEKSioGBsY6RBMEk/PWCZv5DNP9vYGBgLGL0kry83J232KLhJQYGxlJGEtR62VcvNcwHFU+ei4GBsZqRJ3OvHVVOAjQGBsZuRrV8rbbM5msWUXDHwMA4gJGndFHzq/Wi+UDiSS2OgYGxjpGnaL2h5mfSRAwMjN2Mq3h6w8skrE8CPQYGxm5GfuarGL2bqytoGBgYWxnVIJtfnbft8oAb9Q4xMDCWMpJBZi9BrA4MeoNVDAwMjHmpma95lUcCGBgYGMXW/6QorY4lonksBgbGIkZ10aE3pMwL4+YkFgMDYymjV0D20rskfFeTSAwMjNWMH32AN/WL/3VvAAAAAElFTkSuQmCC" alt="微信分享二維碼">
 </div>
 
 
@@ -634,6 +654,9 @@
 
     
     
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=undefined"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=undefined"></script>
+    
 
 
 
@@ -662,24 +685,6 @@
 <script type="text/javascript" src="/js/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
-
-
-    <script>
-    (function() {
-        var OriginTitile = document.title, titleTime;
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                document.title = '(づ￣ 3￣)づ點我吧!';
-                clearTimeout(titleTime);
-            } else {
-                document.title = '(。・∀・)ノ咦~歡迎你!';
-                titleTime = setTimeout(function() {
-                    document.title = OriginTitile;
-                },2000);
-            }
-        });
-    })();
-</script>
 
 
 

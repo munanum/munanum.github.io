@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     
-    <title>URL重定向 | 木南的個人網站 - MuNan&#39;s Personal Website | 人成各 今非昨 — 唐琬</title>
+    <title>URL 重定向 | 木南的個人網站 - MuNan&#39;s Personal Website | 人成各 今非昨 — 唐琬</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="HTTP,URL,重定向">
@@ -12,13 +12,15 @@
     <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="/css/style.css?v=undefined">
     
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=undefined">
+    
     <script type="text/javascript">
         // Data Center
         var DC = {
             reward:	true,
             lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
-            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
-            g: JSON.parse('{"enable":false,"lazy":true,"owner":null,"repo":null,"oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"Give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"munanum","repo":"issues","oauth":{"client_id":"247de68ddbbfa47690cd","client_secret":"25c21da09d3f068ab0689510079ff4ef72792ec5"},"perPage":10}'),
             d: JSON.parse('{"app_id":null}')
         };
     </script>
@@ -147,7 +149,7 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            <span>URL重定向</span>
+            <span>URL 重定向</span>
             
         </div>
         
@@ -160,7 +162,7 @@
 <header class="content-header post-header">
     <img src="/img/a057c731-d78c-499a-8233-8309e92a3e4c.png" class="header-bg">
     <div class="container fade-scale">
-        <h1 class="title">URL重定向</h1>
+        <h1 class="title">URL 重定向</h1>
         <h5 class="subtitle">
             
                 <time datetime="2016-08-28T12:22:55.000Z" itemprop="datePublished" class="page-time">
@@ -183,7 +185,7 @@
         <span class="pull-left">
           <i class="icon icon-lg icon-search"></i>
         </span>
-        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="Search my blog..." class="form-control pull-left"/>
         <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
           <i class="icon icon-lg icon-close"></i>
         </a>
@@ -196,7 +198,7 @@
     <article id="post-201608282022"
   class="post-article article-type-post" itemprop="blogPost">
     <div class="post-card">
-        <h1 class="post-card-title">URL重定向</h1>
+        <h1 class="post-card-title">URL 重定向</h1>
         <div class="post-meta">
             <time class="post-time" title="2016-08-28 20:22:55" datetime="2016-08-28T12:22:55.000Z"  itemprop="datePublished">2016-08-28</time>
 
@@ -210,6 +212,16 @@
             
 
 
+<span class="post-comments-counter" id="/2016/08/28/201608282022/">
+    <span class="post-meta-item-icon">
+        <i class="icon icon-comment-o"></i>
+    </span>
+    
+    <a href="/2016/08/28/201608282022/#gitment-display-button" onclick="ShowGitment()">
+        <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
+    </a>
+</span>
+
             
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
@@ -217,7 +229,7 @@
             <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 Web 开发中，经常会出现重定向的情况，重定向指的是将一个网络请求重新定个方向，向新的方向发起请求。常见的重定向有网页重定向，访问一个网页时却跳转到另外一个网页；也有域名重定向，向某个域名发起请求却自动变成请求另外一个域名。</p>
 <h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p>URL 重定向是由客户端完成的（通常是浏览器），客户端发出请求后，服务器做出响应，如果响应头的状态码为<strong>301</strong>或者<strong>302</strong>，此时响应头中会多出一个<strong>Location</strong>字段，该字段用来表示需要重定向到的新位置。<strong>301</strong>与<strong>302</strong>都是 HTTP 的状态码，都表示某个请求地址发生了重定向。<strong>301</strong>重定向表示的是<strong>永久重定向</strong>（Moved Permanently），表示请求的地址永久性地转移到另外一个地址，今后任何新的请求都应使用新的地址代替。<strong>302</strong>重定向表示的是<strong>临时重定向</strong>（Moved Temporarily），表示请求的地址临时性地转移到另外一个地址，不改变后续请求的地址。</p>
 <figure class="image-box">
-                <a rel=URL重定向 href="703023-20160623003845360-1558726736.png" title="" data-fancybox="images"><img src="703023-20160623003845360-1558726736.png" alt="" title="" class=""></a>
+                <a rel=URL 重定向 href="703023-20160623003845360-1558726736.png" title="" data-fancybox="images"><img src="703023-20160623003845360-1558726736.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
@@ -234,7 +246,7 @@
 <li>原有域名不再使用。比如访问<strong><a href="http://www.xiaomi.com" target="_blank" rel="noopener">www.xiaomi.com</a></strong>（小米官网最早的域名）这个域名，直接重定向到<strong><a href="http://www.mi.com" target="_blank" rel="noopener">www.mi.com</a></strong>，此时使用<strong>301</strong>进行重定向。</li>
 </ul>
 <figure class="image-box">
-                <a rel=URL重定向 href="{6D7B9A3E-34DB-48F5-A6C5-E38545AAAB84}_20190622141836.jpg" title="" data-fancybox="images"><img src="{6D7B9A3E-34DB-48F5-A6C5-E38545AAAB84}_20190622141836.jpg" alt="" title="" class=""></a>
+                <a rel=URL 重定向 href="{6D7B9A3E-34DB-48F5-A6C5-E38545AAAB84}_20190622141836.jpg" title="" data-fancybox="images"><img src="{6D7B9A3E-34DB-48F5-A6C5-E38545AAAB84}_20190622141836.jpg" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
@@ -245,7 +257,7 @@
 </li>
 </ul>
 <figure class="image-box">
-                <a rel=URL重定向 href="{15276BFE-0F71-4575-B845-ADA546AE9EF8}_20190622145217.jpg" title="" data-fancybox="images"><img src="{15276BFE-0F71-4575-B845-ADA546AE9EF8}_20190622145217.jpg" alt="" title="" class=""></a>
+                <a rel=URL 重定向 href="{15276BFE-0F71-4575-B845-ADA546AE9EF8}_20190622145217.jpg" title="" data-fancybox="images"><img src="{15276BFE-0F71-4575-B845-ADA546AE9EF8}_20190622145217.jpg" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
@@ -253,7 +265,7 @@
 <li>站点升级了协议（由<strong>http</strong>升级到<strong>https</strong>），原协议依旧使用。</li>
 </ul>
 <figure class="image-box">
-                <a rel=URL重定向 href="{0E158DC9-DE68-47EC-9C22-C94E84603E9B}_20190622145046.jpg" title="" data-fancybox="images"><img src="{0E158DC9-DE68-47EC-9C22-C94E84603E9B}_20190622145046.jpg" alt="" title="" class=""></a>
+                <a rel=URL 重定向 href="{0E158DC9-DE68-47EC-9C22-C94E84603E9B}_20190622145046.jpg" title="" data-fancybox="images"><img src="{0E158DC9-DE68-47EC-9C22-C94E84603E9B}_20190622145046.jpg" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
@@ -262,7 +274,7 @@
 <li>网站切换语言。比如访问<strong><a href="https://www.microsoft.com/" target="_blank" rel="noopener">https://www.microsoft.com/</a></strong>（微软的英文官网）这个域名，服务器判断用户当前处于中国大陆地区，直接重定向到<strong><a href="https://www.microsoft.com/zh-cn" target="_blank" rel="noopener">https://www.microsoft.com/zh-cn</a></strong>（微软的简体中文官网），此时使用<strong>302</strong>进行重定向。类似的还有根据用户的设备重定向到 PC 端页面或者移动端页面。</li>
 </ul>
 <figure class="image-box">
-                <a rel=URL重定向 href="{73F1359C-FC27-449D-AB68-C2850DF21022}_20190622150910.jpg" title="" data-fancybox="images"><img src="{73F1359C-FC27-449D-AB68-C2850DF21022}_20190622150910.jpg" alt="" title="" class=""></a>
+                <a rel=URL 重定向 href="{73F1359C-FC27-449D-AB68-C2850DF21022}_20190622150910.jpg" title="" data-fancybox="images"><img src="{73F1359C-FC27-449D-AB68-C2850DF21022}_20190622150910.jpg" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
@@ -270,7 +282,7 @@
 <li>用户登录信息过期，自动跳转到登陆界面。</li>
 </ul>
 <figure class="image-box">
-                <a rel=URL重定向 href="2FEWDIpq0trZFeziy9YSF.png" title="" data-fancybox="images"><img src="2FEWDIpq0trZFeziy9YSF.png" alt="" title="" class=""></a>
+                <a rel=URL 重定向 href="2FEWDIpq0trZFeziy9YSF.png" title="" data-fancybox="images"><img src="2FEWDIpq0trZFeziy9YSF.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
@@ -296,7 +308,7 @@
 
         
             <div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">賞</a>
 </div>
 
             
@@ -324,7 +336,7 @@
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《URL重定向》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/08/28/201608282022/&via=https://munan.wiki" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《URL 重定向》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/08/28/201608282022/&via=https://munan.wiki" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -350,6 +362,14 @@
             
 
 
+      
+    <div onclick="ShowGitment()" id="gitment-display-button" style="display: block;">
+        <span>顯示 Gitment 評論</span>
+    </div>
+    <div id="gitment" class="hide"></div>
+
+
+
         
     </div>
     
@@ -358,7 +378,7 @@
     <div class="prev">
       <a href="/2018/08/22/201802200830/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">使用Node和OAuth2.0构建一个简单的REST API</h4>
+        <h4 class="title">使用 Node 和 OAuth2.0 构建一个简单的 REST API</h4>
       </a>
     </div>
   
@@ -367,7 +387,7 @@
     <div class="next">
       <a href="/2016/08/06/201608060654/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">原生JS实现图片懒加载</h4>
+        <h4 class="title">原生 JS 实现图片懒加载</h4>
       </a>
     </div>
   
@@ -378,7 +398,7 @@
     
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
-                <strong>目录</strong>
+                <strong>目錄</strong>
                 <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实现原理"><span class="post-toc-number">2.</span> <span class="post-toc-text">实现原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#区别"><span class="post-toc-number">3.</span> <span class="post-toc-text">区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#应用"><span class="post-toc-number">4.</span> <span class="post-toc-text">应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用301重定向"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">使用301重定向</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用302重定向"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">使用302重定向</span></a></li></ol></li></ol>
             </nav>
             <div class="toc-bar"><div>
@@ -396,7 +416,7 @@
     <div class="reward-content">
         
         <div class="reward-code">
-            <img id="rewardCode" src="/img/69c8aa0f-f453-4dfb-90fd-d902862a397e.jpg" alt="打赏二维码">
+            <img id="rewardCode" src="/img/69c8aa0f-f453-4dfb-90fd-d902862a397e.jpg" alt="打賞二維碼">
         </div>
         
         <label class="reward-toggle">
@@ -405,7 +425,7 @@
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
-                <span class="reward-toggle-item alipay">支付宝</span>
+                <span class="reward-toggle-item alipay">支付寶</span>
             </div>
         </label>
         
@@ -422,7 +442,7 @@
     <div class="bottom">
         <p>
             <span>
-                木南 &copy; 2016 - 2022
+                木南 &copy; 2016 - 2023
             </span>
         		
            	
@@ -460,7 +480,7 @@
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《URL重定向》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/08/28/201608282022/&via=https://munan.wiki" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《URL 重定向》 — 木南的個人網站 - MuNan's Personal Website&url=https://munan.wiki/2016/08/28/201608282022/&via=https://munan.wiki" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -477,8 +497,8 @@
 
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3aS47CQAxFUfa/aXqKhCq5zy5aiutmhEJD6jBw+/d64ev9ca3uk+vzU9+vV3e2XTJkyHgsgz+Y3F+9m97hZ5MhQ8Y5jFUEI39TC8ckrJOzyZAhQ8Z1EOQJIj+oDBkyZOwNuLXqkqSAMmTIkFErYtHXhSkj+fk21+IyZMh4IIMHzf9//ZP5hgwZMh7FqA0geVm7N7wuTyVDhozRDB7geMrIU7c03bx5igwZMo5h1JYh0mFkWtyiZFGGDBmjGWkjjD+mtkCWDhJkyJBxDoO3+Dk1/c609SZDhowTGNfJWe3dDqx4BhkyZIxm1EJhLeHjd2oNOBkyZExl1Ba2OKPfgENjCRkyZBzDSIeUaRqXLl4EAwwZMmQcwOCLX7uWJIodwes1CxkyZAxl1IJmbSTJf6DWzogMGTLGMXjo5A16fug0fUQZrgwZMsYx9iaCfDxQC/1BgihDhowDGHy0WRsV8BAcL1vIkCHjAAZP0UhSyEeYPBDffFaGDBlDGZ0WW+3BncRxeUeGDBkHMHjrn5S1tYPGzbXOBEOGDBkPZHQeGbTDfpAmypAhYzbjHV5prCMhmC9qoPpbhgwZ4xi1AMpTQP5uOkwt/mOQIUPGYxl8MEmK3nQho9bUuxleypAhYyiDBz7yqTTG14rYm/mGDBkyDmZ0xpPpmIEUtzJkyJDBD0pSxs6aBSpiZciQMZrBm/VpWcuP3iqkZciQMZrRWdLiY850wJCGfhkyZAxl/AHRTvoISIvD1AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <p>掃一掃，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3aS47CQAxFUfa/aXqKhCq5zy5aiutmhEJD6jBw+/d64ev9ca3uk+vzU9+vV3e2XTJkyHgsgz+Y3F+9m97hZ5MhQ8Y5jFUEI39TC8ckrJOzyZAhQ8Z1EOQJIj+oDBkyZOwNuLXqkqSAMmTIkFErYtHXhSkj+fk21+IyZMh4IIMHzf9//ZP5hgwZMh7FqA0geVm7N7wuTyVDhozRDB7geMrIU7c03bx5igwZMo5h1JYh0mFkWtyiZFGGDBmjGWkjjD+mtkCWDhJkyJBxDoO3+Dk1/c609SZDhowTGNfJWe3dDqx4BhkyZIxm1EJhLeHjd2oNOBkyZExl1Ba2OKPfgENjCRkyZBzDSIeUaRqXLl4EAwwZMmQcwOCLX7uWJIodwes1CxkyZAxl1IJmbSTJf6DWzogMGTLGMXjo5A16fug0fUQZrgwZMsYx9iaCfDxQC/1BgihDhowDGHy0WRsV8BAcL1vIkCHjAAZP0UhSyEeYPBDffFaGDBlDGZ0WW+3BncRxeUeGDBkHMHjrn5S1tYPGzbXOBEOGDBkPZHQeGbTDfpAmypAhYzbjHV5prCMhmC9qoPpbhgwZ4xi1AMpTQP5uOkwt/mOQIUPGYxl8MEmK3nQho9bUuxleypAhYyiDBz7yqTTG14rYm/mGDBkyDmZ0xpPpmIEUtzJkyJDBD0pSxs6aBSpiZciQMZrBm/VpWcuP3iqkZciQMZrRWdLiY850wJCGfhkyZAxl/AHRTvoISIvD1AAAAABJRU5ErkJggg==" alt="微信分享二維碼">
 </div>
 
 
@@ -520,6 +540,9 @@
 
     
     
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=undefined"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=undefined"></script>
+    
 
 
 
@@ -548,24 +571,6 @@
 <script type="text/javascript" src="/js/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
-
-
-    <script>
-    (function() {
-        var OriginTitile = document.title, titleTime;
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                document.title = '(づ￣ 3￣)づ點我吧!';
-                clearTimeout(titleTime);
-            } else {
-                document.title = '(。・∀・)ノ咦~歡迎你!';
-                titleTime = setTimeout(function() {
-                    document.title = OriginTitile;
-                },2000);
-            }
-        });
-    })();
-</script>
 
 
 

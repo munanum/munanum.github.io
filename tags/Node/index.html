@@ -12,13 +12,15 @@
     <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="/css/style.css?v=undefined">
     
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=undefined">
+    
     <script type="text/javascript">
         // Data Center
         var DC = {
             reward:	false,
             lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
-            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
-            g: JSON.parse('{"enable":false,"lazy":true,"owner":null,"repo":null,"oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"Give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"munanum","repo":"issues","oauth":{"client_id":"247de68ddbbfa47690cd","client_secret":"25c21da09d3f068ab0689510079ff4ef72792ec5"},"perPage":10}'),
             d: JSON.parse('{"app_id":null}')
         };
     </script>
@@ -175,7 +177,7 @@
             <a href="/tags/%E9%9A%A8%E7%AD%86/" backup-style="-webkit-order:12;order:12" class="tags-list-item waves-effect waves-button waves-light">隨筆</a>
             
         
-            <a href="/tags/markdown/" backup-style="-webkit-order:13;order:13" class="tags-list-item waves-effect waves-button waves-light">markdown</a>
+            <a href="/tags/Markdown/" backup-style="-webkit-order:13;order:13" class="tags-list-item waves-effect waves-button waves-light">Markdown</a>
             
         
             <a href="/tags/rem/" backup-style="-webkit-order:14;order:14" class="tags-list-item waves-effect waves-button waves-light">rem</a>
@@ -193,7 +195,7 @@
             <a href="/tags/Node/" backup-style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light active">Node</a>
             
         
-            <a href="/tags/%E7%88%AC%E8%99%AB/" backup-style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">爬虫</a>
+            <a href="/tags/%E7%88%AC%E8%9F%B2/" backup-style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">爬蟲</a>
             
         
             <a href="/tags/%E8%B7%A8%E5%9F%9F/" backup-style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">跨域</a>
@@ -202,22 +204,22 @@
             <a href="/tags/JavaScript/" backup-style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light">JavaScript</a>
             
         
-            <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" backup-style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">性能优化</a>
+            <a href="/tags/%E6%80%A7%E8%83%BD%E5%84%AA%E5%8C%96/" backup-style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">性能優化</a>
             
         
-            <a href="/tags/%E6%87%92%E5%8A%A0%E8%BD%BD/" backup-style="-webkit-order:6;order:6" class="tags-list-item waves-effect waves-button waves-light">懒加载</a>
+            <a href="/tags/%E6%87%B6%E5%8A%A0%E8%BC%89/" backup-style="-webkit-order:6;order:6" class="tags-list-item waves-effect waves-button waves-light">懶加載</a>
             
         
-            <a href="/tags/URL/" backup-style="-webkit-order:7;order:7" class="tags-list-item waves-effect waves-button waves-light">URL</a>
+            <a href="/tags/REST-API/" backup-style="-webkit-order:7;order:7" class="tags-list-item waves-effect waves-button waves-light">REST API</a>
             
         
-            <a href="/tags/%E9%87%8D%E5%AE%9A%E5%90%91/" backup-style="-webkit-order:8;order:8" class="tags-list-item waves-effect waves-button waves-light">重定向</a>
+            <a href="/tags/URL/" backup-style="-webkit-order:8;order:8" class="tags-list-item waves-effect waves-button waves-light">URL</a>
             
         
-            <a href="/tags/REST-API/" backup-style="-webkit-order:9;order:9" class="tags-list-item waves-effect waves-button waves-light">REST API</a>
+            <a href="/tags/%E9%87%8D%E5%AE%9A%E5%90%91/" backup-style="-webkit-order:9;order:9" class="tags-list-item waves-effect waves-button waves-light">重定向</a>
             
         
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" backup-style="-webkit-order:10;order:10" class="tags-list-item waves-effect waves-button waves-light">数据库</a>
+            <a href="/tags/%E6%95%B8%E6%93%9A%E5%BA%AB/" backup-style="-webkit-order:10;order:10" class="tags-list-item waves-effect waves-button waves-light">數據庫</a>
             
         
             <a href="/tags/MySQL/" backup-style="-webkit-order:11;order:11" class="tags-list-item waves-effect waves-button waves-light">MySQL</a>
@@ -238,7 +240,7 @@
         <span class="pull-left">
           <i class="icon icon-lg icon-search"></i>
         </span>
-        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="Search my blog..." class="form-control pull-left"/>
         <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
           <i class="icon icon-lg icon-close"></i>
         </a>
@@ -256,7 +258,7 @@
       <time class="post-time" title="2016-07-20 06:40:35" datetime="2016-07-19T22:40:35.000Z"  itemprop="datePublished">2016-07-20</time>
 
       
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Node/">Node</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Node/%E7%88%AC%E8%99%AB/">爬虫</a></li></ul></li></ul></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Node/">Node</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Node/%E7%88%AC%E8%9F%B2/">爬蟲</a></li></ul></li></ul></li></ul>
 
 
 
@@ -266,7 +268,7 @@
 
   
     <h3 class="post-title " itemprop="name">
-      <a class="post-title-link" href="/2016/07/20/201607200640/">深入浅出HTTP协议（上）</a>
+      <a class="post-title-link" href="/2016/07/20/201607200640/">深入浅出 HTTP 协议（上）</a>
     </h3>
   
 
@@ -275,7 +277,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%88%AC%E8%9F%B2/" rel="tag">爬蟲</a></li></ul>
 
     </div>
     
@@ -294,7 +296,7 @@
     <div class="bottom">
         <p>
             <span>
-                木南 &copy; 2016 - 2022
+                木南 &copy; 2016 - 2023
             </span>
         		
            	
@@ -349,8 +351,8 @@
 
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwElEQVR42u3aS27DMAwFwNz/0u6mu8DGIympLjBaBXYcjbMg+NHnE6/rZn3f7X1/8cLFxR1zr8eVb5A8+309N+Di4p7n3m3/zH3+6Ttccvf2Oi4u7ou5vXTn+QouLu7/5VbTlDwNwsXFfRs3KX6qISwpkzbWari4uANu3qXc93lLfxcXF7fFvVorf7FVO/7+Ji4u7hFu3qToFULVsgcXF/cN3F6R8xy2quOWvKmKi4t7nrsKVx2jFkovXFzcF3Dz0DMfqUbHOHBxcY9we4PPVSVT70AGLi7uGW6exPSGItWAWGjU4uLibuDmpUuVm/9PheCFi4t7hFtNTXplT/IHFV4DFxf3IHc+Iq2+TB7ycHFxT3Kr49XnzfLDWL0AiouLe4abpx15AMobH702Ci4u7m5u/nDyVLVkKvd0cXFxj3CrrYrJwYuoGVrNy3BxcTdwe2FlUsyMjn3g4uIe4eZrkqAkrOpIBhcXdze3OntJip9k42pLBRcX9zy3WjP1Sp0kgkaBDBcX9zXcpM2av0CScy0YsuLi4m7mToLXssCHi4t7kJu3NqpBatJ2GbVFcHFxB9zJ4LPaQMkTHVxc3D/i/gCbgaqhi0KgFwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <p>掃一掃，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwElEQVR42u3aS27DMAwFwNz/0u6mu8DGIympLjBaBXYcjbMg+NHnE6/rZn3f7X1/8cLFxR1zr8eVb5A8+309N+Di4p7n3m3/zH3+6Ttccvf2Oi4u7ou5vXTn+QouLu7/5VbTlDwNwsXFfRs3KX6qISwpkzbWari4uANu3qXc93lLfxcXF7fFvVorf7FVO/7+Ji4u7hFu3qToFULVsgcXF/cN3F6R8xy2quOWvKmKi4t7nrsKVx2jFkovXFzcF3Dz0DMfqUbHOHBxcY9we4PPVSVT70AGLi7uGW6exPSGItWAWGjU4uLibuDmpUuVm/9PheCFi4t7hFtNTXplT/IHFV4DFxf3IHc+Iq2+TB7ycHFxT3Kr49XnzfLDWL0AiouLe4abpx15AMobH702Ci4u7m5u/nDyVLVkKvd0cXFxj3CrrYrJwYuoGVrNy3BxcTdwe2FlUsyMjn3g4uIe4eZrkqAkrOpIBhcXdze3OntJip9k42pLBRcX9zy3WjP1Sp0kgkaBDBcX9zXcpM2av0CScy0YsuLi4m7mToLXssCHi4t7kJu3NqpBatJ2GbVFcHFxB9zJ4LPaQMkTHVxc3D/i/gCbgaqhi0KgFwAAAABJRU5ErkJggg==" alt="微信分享二維碼">
 </div>
 
 
@@ -392,6 +394,9 @@
 
     
     
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=undefined"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=undefined"></script>
+    
 
 
 
@@ -420,24 +425,6 @@
 <script type="text/javascript" src="/js/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
-
-
-    <script>
-    (function() {
-        var OriginTitile = document.title, titleTime;
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                document.title = '(づ￣ 3￣)づ點我吧!';
-                clearTimeout(titleTime);
-            } else {
-                document.title = '(。・∀・)ノ咦~歡迎你!';
-                titleTime = setTimeout(function() {
-                    document.title = OriginTitile;
-                },2000);
-            }
-        });
-    })();
-</script>
 
 
 

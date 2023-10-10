@@ -12,13 +12,15 @@
     <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="/css/style.css?v=undefined">
     
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=undefined">
+    
     <script type="text/javascript">
         // Data Center
         var DC = {
             reward:	false,
             lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
-            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
-            g: JSON.parse('{"enable":false,"lazy":true,"owner":null,"repo":null,"oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"Give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"munanum","repo":"issues","oauth":{"client_id":"247de68ddbbfa47690cd","client_secret":"25c21da09d3f068ab0689510079ff4ef72792ec5"},"perPage":10}'),
             d: JSON.parse('{"app_id":null}')
         };
     </script>
@@ -181,7 +183,7 @@
         <span class="pull-left">
           <i class="icon icon-lg icon-search"></i>
         </span>
-        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="Search my blog..." class="form-control pull-left"/>
         <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
           <i class="icon icon-lg icon-close"></i>
         </a>
@@ -224,6 +226,16 @@
         
 
 
+<span class="post-comments-counter" id="/2016/06/06/201606060620/">
+    <span class="post-meta-item-icon">
+        <i class="icon icon-comment-o"></i>
+    </span>
+    
+    <a href="/2016/06/06/201606060620/#gitment-display-button" onclick="ShowGitment()">
+        <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
+    </a>
+</span>
+
         
         
     </div>
@@ -242,7 +254,7 @@
 学着...
     
     <a href="/2016/06/06/201606060620/" class="post-more waves-effect waves-button">
-        more
+        More
     </a>
     </div>
 </article>
@@ -260,7 +272,7 @@
         
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">上一頁</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
     </div>
 </nav>
 
@@ -272,7 +284,7 @@
     <div class="bottom">
         <p>
             <span>
-                木南 &copy; 2016 - 2022
+                木南 &copy; 2016 - 2023
             </span>
         		
            	
@@ -327,8 +339,8 @@
 
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAAAAAAZai4+AAABVklEQVR42u3awQ6DIBBFUf7/p23SbaPemdFFeZdV0ygcNgw+WAu349uu/yfPPNxkydqIdVy232fO/iFcMpYsWcks0jUZgLDQIiJLlqxid2QCsmTJeo81KduyZMnqbZrJ85N3ZclKZlWDpMnvF/MtWbL+lnUU23VhJhtrNIosWWGss9f4Rpl8yvLV4GY2smQFsHofrtUD0cJYsmSFsSadkiWGLBw3H7GyZIWxeiWZb455LZYlK4fFLxD08p9qOV88A5YlayNWdbBeca1e7JMlK43Vu0jXm0DhXVmy4lmTck4OYAqbZlmyYliTiwUPhEG9fEuWrO1YkwsHPH7iga8sWZms3uElPyzhC40sWbKqF+/48Uk16l38rEaWrE1ZfANdnVJzLy9LlqxWMMRjXNSbLFmyxhEtD5tOlyFZsiJZfNPMy/kkfpIlK43VC5J6x5ajNEuWrD1ZHz5cz0ekCUDNAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <p>掃一掃，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAAAAAAZai4+AAABVklEQVR42u3awQ6DIBBFUf7/p23SbaPemdFFeZdV0ygcNgw+WAu349uu/yfPPNxkydqIdVy232fO/iFcMpYsWcks0jUZgLDQIiJLlqxid2QCsmTJeo81KduyZMnqbZrJ85N3ZclKZlWDpMnvF/MtWbL+lnUU23VhJhtrNIosWWGss9f4Rpl8yvLV4GY2smQFsHofrtUD0cJYsmSFsSadkiWGLBw3H7GyZIWxeiWZb455LZYlK4fFLxD08p9qOV88A5YlayNWdbBeca1e7JMlK43Vu0jXm0DhXVmy4lmTck4OYAqbZlmyYliTiwUPhEG9fEuWrO1YkwsHPH7iga8sWZms3uElPyzhC40sWbKqF+/48Uk16l38rEaWrE1ZfANdnVJzLy9LlqxWMMRjXNSbLFmyxhEtD5tOlyFZsiJZfNPMy/kkfpIlK43VC5J6x5ajNEuWrD1ZHz5cz0ekCUDNAAAAAElFTkSuQmCC" alt="微信分享二維碼">
 </div>
 
 
@@ -370,6 +382,9 @@
 
     
     
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=undefined"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=undefined"></script>
+    
 
 
 
@@ -398,24 +413,6 @@
 <script type="text/javascript" src="/js/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
-
-
-    <script>
-    (function() {
-        var OriginTitile = document.title, titleTime;
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                document.title = '(づ￣ 3￣)づ點我吧!';
-                clearTimeout(titleTime);
-            } else {
-                document.title = '(。・∀・)ノ咦~歡迎你!';
-                titleTime = setTimeout(function() {
-                    document.title = OriginTitile;
-                },2000);
-            }
-        });
-    })();
-</script>
 
 
 

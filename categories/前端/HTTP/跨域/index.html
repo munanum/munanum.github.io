@@ -12,13 +12,15 @@
     <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="/css/style.css?v=undefined">
     
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=undefined">
+    
     <script type="text/javascript">
         // Data Center
         var DC = {
             reward:	false,
             lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
-            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
-            g: JSON.parse('{"enable":false,"lazy":true,"owner":null,"repo":null,"oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"Give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"munanum","repo":"issues","oauth":{"client_id":"247de68ddbbfa47690cd","client_secret":"25c21da09d3f068ab0689510079ff4ef72792ec5"},"perPage":10}'),
             d: JSON.parse('{"app_id":null}')
         };
     </script>
@@ -181,7 +183,7 @@
             <a href="/categories/%E5%89%8D%E7%AB%AF/Node/" backup-style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">Node</a>
             
         
-            <a href="/categories/%E5%89%8D%E7%AB%AF/markdown/" backup-style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">markdown</a>
+            <a href="/categories/%E5%89%8D%E7%AB%AF/Markdown/" backup-style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">Markdown</a>
             
         
             <a href="/categories/%E5%89%8D%E7%AB%AF/HTTP/" backup-style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light active">HTTP</a>
@@ -199,10 +201,10 @@
             <a href="/categories/%E5%89%8D%E7%AB%AF/HTML/" backup-style="-webkit-order:8;order:8" class="tags-list-item waves-effect waves-button waves-light">HTML</a>
             
         
-            <a href="/categories/%E5%90%8E%E7%AB%AF/" backup-style="-webkit-order:9;order:9" class="tags-list-item waves-effect waves-button waves-light">后端</a>
+            <a href="/categories/%E5%BE%8C%E7%AB%AF/" backup-style="-webkit-order:9;order:9" class="tags-list-item waves-effect waves-button waves-light">後端</a>
             
         
-            <a href="/categories/%E5%89%8D%E7%AB%AF/Node/%E7%88%AC%E8%99%AB/" backup-style="-webkit-order:10;order:10" class="tags-list-item waves-effect waves-button waves-light">爬虫</a>
+            <a href="/categories/%E5%89%8D%E7%AB%AF/Node/%E7%88%AC%E8%9F%B2/" backup-style="-webkit-order:10;order:10" class="tags-list-item waves-effect waves-button waves-light">爬蟲</a>
             
         
             <a href="/categories/%E5%89%8D%E7%AB%AF/HTTP/%E8%B7%A8%E5%9F%9F/" backup-style="-webkit-order:11;order:11" class="tags-list-item waves-effect waves-button waves-light active">跨域</a>
@@ -211,7 +213,7 @@
             <a href="/categories/HTTP/%E9%87%8D%E5%AE%9A%E5%90%91/" backup-style="-webkit-order:12;order:12" class="tags-list-item waves-effect waves-button waves-light">重定向</a>
             
         
-            <a href="/categories/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/" backup-style="-webkit-order:13;order:13" class="tags-list-item waves-effect waves-button waves-light">数据库</a>
+            <a href="/categories/%E5%BE%8C%E7%AB%AF/%E6%95%B8%E6%93%9A%E5%BA%AB/" backup-style="-webkit-order:13;order:13" class="tags-list-item waves-effect waves-button waves-light">數據庫</a>
             
         
     </nav>
@@ -229,7 +231,7 @@
         <span class="pull-left">
           <i class="icon icon-lg icon-search"></i>
         </span>
-        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="Search my blog..." class="form-control pull-left"/>
         <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
           <i class="icon icon-lg icon-close"></i>
         </a>
@@ -284,7 +286,7 @@
     <div class="bottom">
         <p>
             <span>
-                木南 &copy; 2016 - 2022
+                木南 &copy; 2016 - 2023
             </span>
         		
            	
@@ -339,8 +341,8 @@
 
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsElEQVR42u3aQW6DQAwF0N7/0u02Ugv5tscolV5WVQjgx4Jx//jrK/58v3yuvr8/+vrN77+v7nj/zbEPHh4e3qD0q3KvAElxydXu735/zfuz8PDw8PZ4SYn5WzdZVPIFploPHh4e3qfx8iLyBj3H4+Hh4f1fXrWs5AElbT0eHh7e5/DyS/fCiPtwNrnjetaCh4eHF/NOlfvk3yv7e3h4eHjjXfVetNq7Tt5SF+6Ch4eHt8DbC17n8WtvcAEPDw9vm5c3snkgmw8Z9La+Co0+Hh4e3hovGQ9NqFVMb7urENri4eHhrfF6pHlx+SOrRiF4eHh4e7z8tVsdgWo2wckQVXUzDA8PD+8RXt52J2dVhwPyRaIwU4aHh4e3wJssA3nkmrfa1WXg8jd4eHh4C7wc2Yt0J9Hw/LHi4eHhbfDyKOH+csn31SC4Wsmb/xjw8PDwxrzeEEB1gKC8ZTWorTB0hYeHh9effTrQ/iav72oUmy8JeUOPh4eHN+dNXs3VgYNqufNxBzw8PLw9Xh4o9IruZSTVoa4/qsLDw8Nb4+VxanWIqnf0WOyLh4eH9wivOkaQb+1PftNchPDw8PAWeMmmVAKrjg70trLyBh0PDw9vj5cUlD+CPHRImuMDATEeHh7eAq8aH+SPo7rNnwe71QeBh4eHt8dLSqy2zgksjxuaUQUeHh7eGm/S8uZt9GToqrcs4eHh4e3xekFt70XfewTJgvGmpcbDw8Mb83rjTb3YoteUj47i4eHhLfAOrCpxcDCJMJJH+Wb0Cg8PD+8ob37pUw3x5F6XSDw8PLw1Xq9dnoxe5ZNR1S2x6DAeHh7eg7zqtlbvynnE/GZxwsPDw/tgXq+Us2ctLgx4eHh4rZyzGjfkZ+VJc3n0Cg8PD2+BN4lZk0ChN5RQbbJHHzw8PLz0rB8qRg0BZbff/wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <p>掃一掃，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsElEQVR42u3aQW6DQAwF0N7/0u02Ugv5tscolV5WVQjgx4Jx//jrK/58v3yuvr8/+vrN77+v7nj/zbEPHh4e3qD0q3KvAElxydXu735/zfuz8PDw8PZ4SYn5WzdZVPIFploPHh4e3qfx8iLyBj3H4+Hh4f1fXrWs5AElbT0eHh7e5/DyS/fCiPtwNrnjetaCh4eHF/NOlfvk3yv7e3h4eHjjXfVetNq7Tt5SF+6Ch4eHt8DbC17n8WtvcAEPDw9vm5c3snkgmw8Z9La+Co0+Hh4e3hovGQ9NqFVMb7urENri4eHhrfF6pHlx+SOrRiF4eHh4e7z8tVsdgWo2wckQVXUzDA8PD+8RXt52J2dVhwPyRaIwU4aHh4e3wJssA3nkmrfa1WXg8jd4eHh4C7wc2Yt0J9Hw/LHi4eHhbfDyKOH+csn31SC4Wsmb/xjw8PDwxrzeEEB1gKC8ZTWorTB0hYeHh9effTrQ/iav72oUmy8JeUOPh4eHN+dNXs3VgYNqufNxBzw8PLw9Xh4o9IruZSTVoa4/qsLDw8Nb4+VxanWIqnf0WOyLh4eH9wivOkaQb+1PftNchPDw8PAWeMmmVAKrjg70trLyBh0PDw9vj5cUlD+CPHRImuMDATEeHh7eAq8aH+SPo7rNnwe71QeBh4eHt8dLSqy2zgksjxuaUQUeHh7eGm/S8uZt9GToqrcs4eHh4e3xekFt70XfewTJgvGmpcbDw8Mb83rjTb3YoteUj47i4eHhLfAOrCpxcDCJMJJH+Wb0Cg8PD+8ob37pUw3x5F6XSDw8PLw1Xq9dnoxe5ZNR1S2x6DAeHh7eg7zqtlbvynnE/GZxwsPDw/tgXq+Us2ctLgx4eHh4rZyzGjfkZ+VJc3n0Cg8PD2+BN4lZk0ChN5RQbbJHHzw8PLz0rB8qRg0BZbff/wAAAABJRU5ErkJggg==" alt="微信分享二維碼">
 </div>
 
 
@@ -382,6 +384,9 @@
 
     
     
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=undefined"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=undefined"></script>
+    
 
 
 
@@ -410,24 +415,6 @@
 <script type="text/javascript" src="/js/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
-
-
-    <script>
-    (function() {
-        var OriginTitile = document.title, titleTime;
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                document.title = '(づ￣ 3￣)づ點我吧!';
-                clearTimeout(titleTime);
-            } else {
-                document.title = '(。・∀・)ノ咦~歡迎你!';
-                titleTime = setTimeout(function() {
-                    document.title = OriginTitile;
-                },2000);
-            }
-        });
-    })();
-</script>
 
 
 

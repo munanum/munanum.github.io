@@ -12,13 +12,15 @@
     <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="/css/style.css?v=undefined">
     
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=undefined">
+    
     <script type="text/javascript">
         // Data Center
         var DC = {
             reward:	false,
             lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
-            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
-            g: JSON.parse('{"enable":false,"lazy":true,"owner":null,"repo":null,"oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"Give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"munanum","repo":"issues","oauth":{"client_id":"247de68ddbbfa47690cd","client_secret":"25c21da09d3f068ab0689510079ff4ef72792ec5"},"perPage":10}'),
             d: JSON.parse('{"app_id":null}')
         };
     </script>
@@ -180,7 +182,7 @@
         <span class="pull-left">
           <i class="icon icon-lg icon-search"></i>
         </span>
-        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="Search my blog..." class="form-control pull-left"/>
         <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
           <i class="icon icon-lg icon-close"></i>
         </a>
@@ -229,7 +231,7 @@
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/archives/">上一页</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/archives/">上一頁</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
     </div>
 </nav>
 
@@ -241,7 +243,7 @@
     <div class="bottom">
         <p>
             <span>
-                木南 &copy; 2016 - 2022
+                木南 &copy; 2016 - 2023
             </span>
         		
            	
@@ -296,8 +298,8 @@
 
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3ay46DMAwFUP7/pxmp2ynoOiYui5NVBW05YWHFj+OI1/lZV9fzu+e/dexYuLi4be55u664yYOv7ibbuPxnXFzcQe598LqnJ9EmuR4FUFxc3JdxkyvJBvJXgIuL+35u8pj7LVW3iouL+1tukvx0wlb16PNAroaLi9vgVgumOz5vrO/i4uIWuWd7VdstefD68itcXNwRbtIorZZEk6RoLRHCxcWd5HYKFp1v9reKi4u7g1v9i86YRT7ecVmOwcXFHeRWB7CScmq1shG9Alxc3EFuPh5RaIUGwbG8GVxc3BFutVmSpzRrac/DvR1cXNz2rEKnslIdtqgennBxcSe5OSsZw+q0V6NkDBcXd4Sbt0b6BZTkRRQOQ7i4uIPcvEFSLX/0XwQuLu48d0cZdC2ELY6L4eLibuPmxY5O2XStOoqLizvPzUNSsoFqcCyHVFxc3G3cs7j6Ddq88PHlLi4u7gi3P5yR3+38ChcXd55bHYNYO+7koKgzjIuLO8JdO7g8NcBRSJNwcXFfzM2HqDohslC/wcXF/RG32iBZG/csNFZxcXE3c5Nwk4ewVqhKej64uLibuZ1UpF9A6TdycHFxH+X+AUAJLuWIxdf4AAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <p>掃一掃，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3ay46DMAwFUP7/pxmp2ynoOiYui5NVBW05YWHFj+OI1/lZV9fzu+e/dexYuLi4be55u664yYOv7ibbuPxnXFzcQe598LqnJ9EmuR4FUFxc3JdxkyvJBvJXgIuL+35u8pj7LVW3iouL+1tukvx0wlb16PNAroaLi9vgVgumOz5vrO/i4uIWuWd7VdstefD68itcXNwRbtIorZZEk6RoLRHCxcWd5HYKFp1v9reKi4u7g1v9i86YRT7ecVmOwcXFHeRWB7CScmq1shG9Alxc3EFuPh5RaIUGwbG8GVxc3BFutVmSpzRrac/DvR1cXNz2rEKnslIdtqgennBxcSe5OSsZw+q0V6NkDBcXd4Sbt0b6BZTkRRQOQ7i4uIPcvEFSLX/0XwQuLu48d0cZdC2ELY6L4eLibuPmxY5O2XStOoqLizvPzUNSsoFqcCyHVFxc3G3cs7j6Ddq88PHlLi4u7gi3P5yR3+38ChcXd55bHYNYO+7koKgzjIuLO8JdO7g8NcBRSJNwcXFfzM2HqDohslC/wcXF/RG32iBZG/csNFZxcXE3c5Nwk4ewVqhKej64uLibuZ1UpF9A6TdycHFxH+X+AUAJLuWIxdf4AAAAAElFTkSuQmCC" alt="微信分享二維碼">
 </div>
 
 
@@ -339,6 +341,9 @@
 
     
     
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=undefined"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=undefined"></script>
+    
 
 
 
@@ -367,24 +372,6 @@
 <script type="text/javascript" src="/js/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
-
-
-    <script>
-    (function() {
-        var OriginTitile = document.title, titleTime;
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                document.title = '(づ￣ 3￣)づ點我吧!';
-                clearTimeout(titleTime);
-            } else {
-                document.title = '(。・∀・)ノ咦~歡迎你!';
-                titleTime = setTimeout(function() {
-                    document.title = OriginTitile;
-                },2000);
-            }
-        });
-    })();
-</script>
 
 
 

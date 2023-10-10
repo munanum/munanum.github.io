@@ -12,13 +12,15 @@
     <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="/css/style.css?v=undefined">
     
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=undefined">
+    
     <script type="text/javascript">
         // Data Center
         var DC = {
             reward:	true,
             lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
-            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
-            g: JSON.parse('{"enable":false,"lazy":true,"owner":null,"repo":null,"oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"Give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"munanum","repo":"issues","oauth":{"client_id":"247de68ddbbfa47690cd","client_secret":"25c21da09d3f068ab0689510079ff4ef72792ec5"},"perPage":10}'),
             d: JSON.parse('{"app_id":null}')
         };
     </script>
@@ -183,7 +185,7 @@
         <span class="pull-left">
           <i class="icon icon-lg icon-search"></i>
         </span>
-        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="Search my blog..." class="form-control pull-left"/>
         <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
           <i class="icon icon-lg icon-close"></i>
         </a>
@@ -209,6 +211,16 @@
 
             
 
+
+<span class="post-comments-counter" id="/2016/08/02/201608020650/">
+    <span class="post-meta-item-icon">
+        <i class="icon icon-comment-o"></i>
+    </span>
+    
+    <a href="/2016/08/02/201608020650/#gitment-display-button" onclick="ShowGitment()">
+        <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
+    </a>
+</span>
 
             
         </div>
@@ -347,7 +359,7 @@
 
         
             <div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">賞</a>
 </div>
 
             
@@ -401,6 +413,14 @@
             
 
 
+      
+    <div onclick="ShowGitment()" id="gitment-display-button" style="display: block;">
+        <span>顯示 Gitment 評論</span>
+    </div>
+    <div id="gitment" class="hide"></div>
+
+
+
         
     </div>
     
@@ -409,7 +429,7 @@
     <div class="prev">
       <a href="/2016/08/06/201608060654/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">原生JS实现图片懒加载</h4>
+        <h4 class="title">原生 JS 实现图片懒加载</h4>
       </a>
     </div>
   
@@ -418,7 +438,7 @@
     <div class="next">
       <a href="/2016/07/20/201607200640/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">深入浅出HTTP协议（上）</h4>
+        <h4 class="title">深入浅出 HTTP 协议（上）</h4>
       </a>
     </div>
   
@@ -429,7 +449,7 @@
     
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
-                <strong>目录</strong>
+                <strong>目錄</strong>
                 <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常见问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">常见问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Cookie"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Cookie</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#iframe"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">iframe</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#动态-hash"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">动态 hash</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#window-name"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">window.name</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#window-postMessage"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">window.postMessage</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AJAX"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">AJAX</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#JSONP"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">JSONP</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CORS"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">CORS</span></a></li></ol></li></ol></li></ol>
             </nav>
             <div class="toc-bar"><div>
@@ -447,7 +467,7 @@
     <div class="reward-content">
         
         <div class="reward-code">
-            <img id="rewardCode" src="/img/69c8aa0f-f453-4dfb-90fd-d902862a397e.jpg" alt="打赏二维码">
+            <img id="rewardCode" src="/img/69c8aa0f-f453-4dfb-90fd-d902862a397e.jpg" alt="打賞二維碼">
         </div>
         
         <label class="reward-toggle">
@@ -456,7 +476,7 @@
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
-                <span class="reward-toggle-item alipay">支付宝</span>
+                <span class="reward-toggle-item alipay">支付寶</span>
             </div>
         </label>
         
@@ -473,7 +493,7 @@
     <div class="bottom">
         <p>
             <span>
-                木南 &copy; 2016 - 2022
+                木南 &copy; 2016 - 2023
             </span>
         		
            	
@@ -528,8 +548,8 @@
 
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3a3WoCMRRFYd//pe2tUKJr76QFT9ZcyVgz+aYQzt/jga/ny7W6T67XX/3+vLpz7JIhQ8bXMviDyePJr/jKZG8yZMi4h7E6wd4vTe6gTeCXtbwvQ4YMGfjzzvFKAkcZMmTISJfj36YhoAwZMmR0SSzZXPoteX2Hc3EZMmR8IYNX3f//85/0N2TIkPFVjLMNSJ7cdsfrclcyZMgYzeAH3Psgj4d9afIc7EeGDBnXMLohLT54QV5KOSgmQ4aMoYydw5H8loR9XclvGeHKkCFjNCMN/vZHJTjpw2uSIUPGaAY5HPnSfNPp0RysJkOGjKEMXvpPH9zd6QpwMmTImMrgSWaK715WuYIMGTJGM/jj0zJcd7yS4LLsxMqQIWMQg5TSglGtsF3akWTIkDGb0VXmdtqQ5MUdG7aQIUPGCEZalA8WDVueXev0Q2goQ4aMQYz0T08do0H0mv6lDBkyhjLIIZsWzlLw1rCFDBkyRjPSrfMhjJ2WZ/xbGTJkXMkgi6bFuC5wRImuDBkyLmCkJX6+rW5ENU6DZciQcQ1jp5TGBy/OhokyZMiYzXiG105jkuB5cIn+DzJkyBjB6BLXbrSCb+tU6itDhoxJjDRlTRufXRgaj6bJkCHjAgY/+HiBbKfcFrclZMiQISM8UtOWQ9euOHDgypAhYzTjVFLKE2OUxMqQIWM0gxfr04EJvg4vz8mQIeM2Bk8d98cmeDmPtwdkyJAxmvEDzhp0crRvwBsAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <p>掃一掃，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3a3WoCMRRFYd//pe2tUKJr76QFT9ZcyVgz+aYQzt/jga/ny7W6T67XX/3+vLpz7JIhQ8bXMviDyePJr/jKZG8yZMi4h7E6wd4vTe6gTeCXtbwvQ4YMGfjzzvFKAkcZMmTISJfj36YhoAwZMmR0SSzZXPoteX2Hc3EZMmR8IYNX3f//85/0N2TIkPFVjLMNSJ7cdsfrclcyZMgYzeAH3Psgj4d9afIc7EeGDBnXMLohLT54QV5KOSgmQ4aMoYydw5H8loR9XclvGeHKkCFjNCMN/vZHJTjpw2uSIUPGaAY5HPnSfNPp0RysJkOGjKEMXvpPH9zd6QpwMmTImMrgSWaK715WuYIMGTJGM/jj0zJcd7yS4LLsxMqQIWMQg5TSglGtsF3akWTIkDGb0VXmdtqQ5MUdG7aQIUPGCEZalA8WDVueXev0Q2goQ4aMQYz0T08do0H0mv6lDBkyhjLIIZsWzlLw1rCFDBkyRjPSrfMhjJ2WZ/xbGTJkXMkgi6bFuC5wRImuDBkyLmCkJX6+rW5ENU6DZciQcQ1jp5TGBy/OhokyZMiYzXiG105jkuB5cIn+DzJkyBjB6BLXbrSCb+tU6itDhoxJjDRlTRufXRgaj6bJkCHjAgY/+HiBbKfcFrclZMiQISM8UtOWQ9euOHDgypAhYzTjVFLKE2OUxMqQIWM0gxfr04EJvg4vz8mQIeM2Bk8d98cmeDmPtwdkyJAxmvEDzhp0crRvwBsAAAAASUVORK5CYII=" alt="微信分享二維碼">
 </div>
 
 
@@ -571,6 +591,9 @@
 
     
     
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=undefined"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=undefined"></script>
+    
 
 
 
@@ -599,24 +622,6 @@
 <script type="text/javascript" src="/js/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
-
-
-    <script>
-    (function() {
-        var OriginTitile = document.title, titleTime;
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                document.title = '(づ￣ 3￣)づ點我吧!';
-                clearTimeout(titleTime);
-            } else {
-                document.title = '(。・∀・)ノ咦~歡迎你!';
-                titleTime = setTimeout(function() {
-                    document.title = OriginTitile;
-                },2000);
-            }
-        });
-    })();
-</script>
 
 
 

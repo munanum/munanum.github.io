@@ -12,13 +12,15 @@
     <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="/css/style.css?v=undefined">
     
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=undefined">
+    
     <script type="text/javascript">
         // Data Center
         var DC = {
             reward:	false,
             lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
-            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
-            g: JSON.parse('{"enable":false,"lazy":true,"owner":null,"repo":null,"oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"Give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"munanum","repo":"issues","oauth":{"client_id":"247de68ddbbfa47690cd","client_secret":"25c21da09d3f068ab0689510079ff4ef72792ec5"},"perPage":10}'),
             d: JSON.parse('{"app_id":null}')
         };
     </script>
@@ -180,7 +182,7 @@
         <span class="pull-left">
           <i class="icon icon-lg icon-search"></i>
         </span>
-        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="Search my blog..." class="form-control pull-left"/>
         <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
           <i class="icon icon-lg icon-close"></i>
         </a>
@@ -209,7 +211,7 @@
 
   
     <h3 class="post-title " itemprop="name">
-      <a class="post-title-link" href="/2018/08/22/201802200830/">使用Node和OAuth2.0构建一个简单的REST API</a>
+      <a class="post-title-link" href="/2018/08/22/201802200830/">使用 Node 和 OAuth2.0 构建一个简单的 REST API</a>
     </h3>
   
 
@@ -235,7 +237,7 @@
     <div class="bottom">
         <p>
             <span>
-                木南 &copy; 2016 - 2022
+                木南 &copy; 2016 - 2023
             </span>
         		
            	
@@ -290,8 +292,8 @@
 
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABy0lEQVR42u3aQXLDMAgFUN//0ukBWrkfsFR35mmVSWLr2QsGENcVr0+w7q9a3efasXBxccfcBPH91gni/j73d1g+Ei4u7kHuKmLcf+79P3kdy+9xcXFfyc237AU1XFzc/8XNA1D1V1xc3Hdyk+Inb3DkRc7GWg0XF3fAzbuU+z5v6e/i4uK2uJ/iur+2FxYLu+Pi4h7hTo5S8tbJKkm6b7IsSyBcXNyD3Gpe0Qtn1cIJFxf3PDdvZ8yHJ6rBcZmR4eLibuYmh6bV8PTUkQwuLu5fcZP0InrWmNjriGapGi4u7i5utaRpRs1492vyLnFxcVvcXlkyD0/53X45SsHFxd3Gnbc+e9BJ6wQXF/ckt1oU5WGu2mAtZGe4uLgbuJMDlaeKpcKrwcXFPcKdD1pVt682VnBxcc9zk3Tk2SRmMgqGi4t7klttc0xCW563lGMtLi7umPsprsmJZ/XxloNZuLi4m7nV4FIdpJg0X6pHubi4uM9yk+B1H27yPKTaZv1hF1xc3IPcXjrSG7d6oATCxcV9GTdvbublU2HsAxcX95XcarLSHK1YXYWLi3uQOw9Jk8PXQqKDi4t7hFsNJb1BzElDpNnfxcXF7XC/ANFsuWgvO8ouAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <p>掃一掃，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABy0lEQVR42u3aQXLDMAgFUN//0ukBWrkfsFR35mmVSWLr2QsGENcVr0+w7q9a3efasXBxccfcBPH91gni/j73d1g+Ei4u7kHuKmLcf+79P3kdy+9xcXFfyc237AU1XFzc/8XNA1D1V1xc3Hdyk+Inb3DkRc7GWg0XF3fAzbuU+z5v6e/i4uK2uJ/iur+2FxYLu+Pi4h7hTo5S8tbJKkm6b7IsSyBcXNyD3Gpe0Qtn1cIJFxf3PDdvZ8yHJ6rBcZmR4eLibuYmh6bV8PTUkQwuLu5fcZP0InrWmNjriGapGi4u7i5utaRpRs1492vyLnFxcVvcXlkyD0/53X45SsHFxd3Gnbc+e9BJ6wQXF/ckt1oU5WGu2mAtZGe4uLgbuJMDlaeKpcKrwcXFPcKdD1pVt682VnBxcc9zk3Tk2SRmMgqGi4t7klttc0xCW563lGMtLi7umPsprsmJZ/XxloNZuLi4m7nV4FIdpJg0X6pHubi4uM9yk+B1H27yPKTaZv1hF1xc3IPcXjrSG7d6oATCxcV9GTdvbublU2HsAxcX95XcarLSHK1YXYWLi3uQOw9Jk8PXQqKDi4t7hFsNJb1BzElDpNnfxcXF7XC/ANFsuWgvO8ouAAAAAElFTkSuQmCC" alt="微信分享二維碼">
 </div>
 
 
@@ -333,6 +335,9 @@
 
     
     
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=undefined"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=undefined"></script>
+    
 
 
 
@@ -361,24 +366,6 @@
 <script type="text/javascript" src="/js/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
-
-
-    <script>
-    (function() {
-        var OriginTitile = document.title, titleTime;
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                document.title = '(づ￣ 3￣)づ點我吧!';
-                clearTimeout(titleTime);
-            } else {
-                document.title = '(。・∀・)ノ咦~歡迎你!';
-                titleTime = setTimeout(function() {
-                    document.title = OriginTitile;
-                },2000);
-            }
-        });
-    })();
-</script>
 
 
 

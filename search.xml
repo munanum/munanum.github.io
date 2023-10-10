@@ -361,16 +361,16 @@
       
         <categories>
             
-            <category> 后端 </category>
+            <category> 後端 </category>
             
-            <category> 数据库 </category>
+            <category> 數據庫 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> 数据库 </tag>
+            <tag> 數據庫 </tag>
             
             <tag> MySQL </tag>
             
@@ -379,7 +379,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[使用Node和OAuth2.0构建一个简单的REST API]]></title>
+      <title><![CDATA[使用 Node 和 OAuth2.0 构建一个简单的 REST API]]></title>
       <url>/2018/08/22/201802200830/</url>
       <content type="html"><![CDATA[<p>JavaScript 在网络上无处不在。基本上每个网页都或多或少包含一些 JavaScript 代码，即使没有，你的浏览器或许也装了一些拓展附件，这些拓展附件能够将一部分 JavaScript 代码注入网页中。2018 年依旧如此。</p>
 <p>JavaScript 也可以在浏览器之外使用，从托管网络服务器到控制 RC 汽车或者运行一个成熟的操作系统。有些时候你想要两台服务器互相通信，无论是本地网络还是互联网上。</p>
@@ -576,7 +576,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[URL重定向]]></title>
+      <title><![CDATA[URL 重定向]]></title>
       <url>/2016/08/28/201608282022/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 Web 开发中，经常会出现重定向的情况，重定向指的是将一个网络请求重新定个方向，向新的方向发起请求。常见的重定向有网页重定向，访问一个网页时却跳转到另外一个网页；也有域名重定向，向某个域名发起请求却自动变成请求另外一个域名。</p>
 <h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p>URL 重定向是由客户端完成的（通常是浏览器），客户端发出请求后，服务器做出响应，如果响应头的状态码为<strong>301</strong>或者<strong>302</strong>，此时响应头中会多出一个<strong>Location</strong>字段，该字段用来表示需要重定向到的新位置。<strong>301</strong>与<strong>302</strong>都是 HTTP 的状态码，都表示某个请求地址发生了重定向。<strong>301</strong>重定向表示的是<strong>永久重定向</strong>（Moved Permanently），表示请求的地址永久性地转移到另外一个地址，今后任何新的请求都应使用新的地址代替。<strong>302</strong>重定向表示的是<strong>临时重定向</strong>（Moved Temporarily），表示请求的地址临时性地转移到另外一个地址，不改变后续请求的地址。</p>
@@ -663,7 +663,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[原生JS实现图片懒加载]]></title>
+      <title><![CDATA[原生 JS 实现图片懒加载]]></title>
       <url>/2016/08/06/201608060654/</url>
       <content type="html"><![CDATA[<h2 id="图片懒加载介绍"><a href="#图片懒加载介绍" class="headerlink" title="图片懒加载介绍"></a>图片懒加载介绍</h2><p>什么是<strong>懒加载</strong>？懒加载其实就是<strong>按需加载</strong>或者说是<strong>条件加载</strong>，是前端一种优化性能的方式。比如访问一个页面，里面有很多图片（也可以是视频等其他资源）。如果这些图片全部加载出来，不仅要在短时间内发出大量请求而且还要进行渲染，这是很消耗时间的。此外，在渲染过程中会阻塞浏览器继续向下解析，影响用户体验。所以，最佳的模式是访问一个页面的时候当图片出现在可视区域内的时候（或者距离可视区域一定距离的时候）再去加载而不是一开始就加载全部图片。当需要加载的时候再发出图片请求，避免网页初始化时请求拥堵以及过多渲染阻塞线程。</p>
 <h2 id="图片懒加载原理"><a href="#图片懒加载原理" class="headerlink" title="图片懒加载原理"></a>图片懒加载原理</h2><p><strong>img</strong>标签有一个属性是<strong>src</strong>，用来表示图片的地址，当这个属性的值不为空时，浏览器就会根据这个属性值发出请求；如果这个属性值为空，则不会发出请求。根据这个原理，将图片地址赋值给<strong>img</strong>标签的<strong>data-src</strong>属性，而<strong>src</strong>属性值设为空或者设为一个默认图片的路径。</p>
@@ -709,9 +709,9 @@
             
             <tag> JavaScript </tag>
             
-            <tag> 性能优化 </tag>
+            <tag> 性能優化 </tag>
             
-            <tag> 懒加载 </tag>
+            <tag> 懶加載 </tag>
             
         </tags>
         
@@ -856,7 +856,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[深入浅出HTTP协议（上）]]></title>
+      <title><![CDATA[深入浅出 HTTP 协议（上）]]></title>
       <url>/2016/07/20/201607200640/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>无论大家是前端程序员还是后端程序员，相信大家对<strong>HTTP</strong>这个词一定不陌生，在程序开发中它无处不在。所以，深入了解 HTTP 协议将会提高自己的编程质量以及提高前后端对接的效率。</p>
 <h2 id="HTTP-工作原理"><a href="#HTTP-工作原理" class="headerlink" title="HTTP 工作原理"></a>HTTP 工作原理</h2><h3 id="HTTP-协议简介"><a href="#HTTP-协议简介" class="headerlink" title="HTTP 协议简介"></a>HTTP 协议简介</h3><p>HTTP 协议是<strong>Hyper Text Transfer Protocol（超文本传输协议）</strong>的缩写，是用于从万维网服务器传输超文本（例如 HTML 文件、图片文件、视频文件等）到本地浏览器的传输协议（<strong>应用层协议</strong>），也是互联网上应用最为广泛的一种网络协议。</p>
@@ -1329,7 +1329,7 @@
             
             <category> Node </category>
             
-            <category> 爬虫 </category>
+            <category> 爬蟲 </category>
             
         </categories>
         
@@ -1340,7 +1340,7 @@
             
             <tag> Node </tag>
             
-            <tag> 爬虫 </tag>
+            <tag> 爬蟲 </tag>
             
         </tags>
         
@@ -1383,7 +1383,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[深入浅出meta标签]]></title>
+      <title><![CDATA[深入浅出 meta 标签]]></title>
       <url>/2016/07/02/201607020832/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>meta 标签提供关于 html 文档的元数据（元数据不会显示在网页上，但是对于机器是可读的。），常用来描述一个 html 网页的属性（例如作者、网页描述、关键词等。）或者渲染方式等。meta 标签有两个属性，分别是<strong>http-equiv</strong>属性和<strong>name</strong>属性，不同的属性又有不同的属性值，这些不同的属性值就实现了网页不同的功能。</p>
 <p>name 属性主要用于描述网页，与之对应的属性值为 content，content 中的内容主要是便于搜索引擎查找信息和分类信息用的。</p>
@@ -1659,7 +1659,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[学习markdown语法]]></title>
+      <title><![CDATA[学习 Markdown 语法]]></title>
       <url>/2016/06/20/201606201932/</url>
       <content type="html"><![CDATA[<h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><h6 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h6><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><p><strong>这是加粗的文字</strong><br><em>这是倾斜的文字</em><br><strong><em>这是斜体加粗的文字</em></strong><br><del>这是加删除线的文字</del></p>
 <blockquote>
@@ -1752,14 +1752,14 @@
             
             <category> 前端 </category>
             
-            <category> markdown </category>
+            <category> Markdown </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> markdown </tag>
+            <tag> Markdown </tag>
             
         </tags>
         

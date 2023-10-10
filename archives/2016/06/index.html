@@ -12,13 +12,15 @@
     <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="/css/style.css?v=undefined">
     
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=undefined">
+    
     <script type="text/javascript">
         // Data Center
         var DC = {
             reward:	false,
             lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
-            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
-            g: JSON.parse('{"enable":false,"lazy":true,"owner":null,"repo":null,"oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"Give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"munanum","repo":"issues","oauth":{"client_id":"247de68ddbbfa47690cd","client_secret":"25c21da09d3f068ab0689510079ff4ef72792ec5"},"perPage":10}'),
             d: JSON.parse('{"app_id":null}')
         };
     </script>
@@ -180,7 +182,7 @@
         <span class="pull-left">
           <i class="icon icon-lg icon-search"></i>
         </span>
-        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="Search my blog..." class="form-control pull-left"/>
         <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
           <i class="icon icon-lg icon-close"></i>
         </a>
@@ -231,7 +233,7 @@
       <time class="post-time" title="2016-06-20 19:32:28" datetime="2016-06-20T11:32:28.000Z"  itemprop="datePublished">2016-06-20</time>
 
       
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/markdown/">markdown</a></li></ul></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Markdown/">Markdown</a></li></ul></li></ul>
 
 
 
@@ -241,7 +243,7 @@
 
   
     <h3 class="post-title " itemprop="name">
-      <a class="post-title-link" href="/2016/06/20/201606201932/">学习markdown语法</a>
+      <a class="post-title-link" href="/2016/06/20/201606201932/">学习 Markdown 语法</a>
     </h3>
   
 
@@ -250,7 +252,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/" rel="tag">markdown</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
 
     </div>
     
@@ -299,7 +301,7 @@
     <div class="bottom">
         <p>
             <span>
-                木南 &copy; 2016 - 2022
+                木南 &copy; 2016 - 2023
             </span>
         		
            	
@@ -354,8 +356,8 @@
 
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3aMZLDIAwF0Nz/0t5mi93C+AsBSWYelSdx4JFCgyRer3hcf8bdt+NP8tkWDFxc3Db3Go7x8nfvV7eUGHBxcc9zxwvMhZ48/OUhEhcX95O543CTf4uLi/vt3FXJDC4u7rdwk+SnusD4eXuuhouL2+DmoWff85b6Li4u7hT3mhrV41F/xd/ZcHFxj3DnDiU7DjGF4xQuLu5mbvKDpBiaLJkHuNsZcHFxj3A7icocNCmvPCRFuLi4m7nV0NM5SXWuef074uDi4m7mVi9MdBohyWYK5VRcXNxt3LxRWkUUkplqroaLi3uEm1x0mAtD1QDXOtbg4uIu4ibXLnc0WZPPC/80Li7uUm41/cgDWQ6dTH5wcXE3czvNj7UNlYdAiYuLe4Sbp0BzZZE8Zym8g4uLu5k7DjSrmq9z5dGH5AcXF3cbNw8u45EURvuz4eLinuFexVFtu/aTq8K/gouLu4i7LBYuLb8uQOPi4ra51eCV776aMkWbwcXFPcgdL7a2lZIHzUK3FhcX903c/ILFXJk12hIuLu6HcfOrVHmzttyOxcXFPcitJj/J1Hl4SlbHxcU9yc0LpnMF1k5ZtlXfxcXFneH+AP6RTdQjmuhtAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <p>掃一掃，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3aMZLDIAwF0Nz/0t5mi93C+AsBSWYelSdx4JFCgyRer3hcf8bdt+NP8tkWDFxc3Db3Go7x8nfvV7eUGHBxcc9zxwvMhZ48/OUhEhcX95O543CTf4uLi/vt3FXJDC4u7rdwk+SnusD4eXuuhouL2+DmoWff85b6Li4u7hT3mhrV41F/xd/ZcHFxj3DnDiU7DjGF4xQuLu5mbvKDpBiaLJkHuNsZcHFxj3A7icocNCmvPCRFuLi4m7nV0NM5SXWuef074uDi4m7mVi9MdBohyWYK5VRcXNxt3LxRWkUUkplqroaLi3uEm1x0mAtD1QDXOtbg4uIu4ibXLnc0WZPPC/80Li7uUm41/cgDWQ6dTH5wcXE3czvNj7UNlYdAiYuLe4Sbp0BzZZE8Zym8g4uLu5k7DjSrmq9z5dGH5AcXF3cbNw8u45EURvuz4eLinuFexVFtu/aTq8K/gouLu4i7LBYuLb8uQOPi4ra51eCV776aMkWbwcXFPcgdL7a2lZIHzUK3FhcX903c/ILFXJk12hIuLu6HcfOrVHmzttyOxcXFPcitJj/J1Hl4SlbHxcU9yc0LpnMF1k5ZtlXfxcXFneH+AP6RTdQjmuhtAAAAAElFTkSuQmCC" alt="微信分享二維碼">
 </div>
 
 
@@ -397,6 +399,9 @@
 
     
     
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=undefined"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=undefined"></script>
+    
 
 
 
@@ -425,24 +430,6 @@
 <script type="text/javascript" src="/js/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
-
-
-    <script>
-    (function() {
-        var OriginTitile = document.title, titleTime;
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                document.title = '(づ￣ 3￣)づ點我吧!';
-                clearTimeout(titleTime);
-            } else {
-                document.title = '(。・∀・)ノ咦~歡迎你!';
-                titleTime = setTimeout(function() {
-                    document.title = OriginTitile;
-                },2000);
-            }
-        });
-    })();
-</script>
 
 
 

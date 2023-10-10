@@ -12,13 +12,15 @@
     <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="/css/style.css?v=undefined">
     
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=undefined">
+    
     <script type="text/javascript">
         // Data Center
         var DC = {
             reward:	true,
             lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
-            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
-            g: JSON.parse('{"enable":false,"lazy":true,"owner":null,"repo":null,"oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            v: JSON.parse('{"enable":false,"appid":"P6YMSmGYRiXAnXDJJseTQdjd-gzGzoHsz","appkey":"dQIRsCSKFyCU9GupulzVFNUO","notify":true,"verify":true,"placeholder":"Give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"munanum","repo":"issues","oauth":{"client_id":"247de68ddbbfa47690cd","client_secret":"25c21da09d3f068ab0689510079ff4ef72792ec5"},"perPage":10}'),
             d: JSON.parse('{"app_id":null}')
         };
     </script>
@@ -183,7 +185,7 @@
         <span class="pull-left">
           <i class="icon icon-lg icon-search"></i>
         </span>
-        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="Search my blog..." class="form-control pull-left"/>
         <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
           <i class="icon icon-lg icon-close"></i>
         </a>
@@ -209,6 +211,16 @@
 
             
 
+
+<span class="post-comments-counter" id="/2016/06/06/201606060620/">
+    <span class="post-meta-item-icon">
+        <i class="icon icon-comment-o"></i>
+    </span>
+    
+    <a href="/2016/06/06/201606060620/#gitment-display-button" onclick="ShowGitment()">
+        <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
+    </a>
+</span>
 
             
         </div>
@@ -254,7 +266,7 @@
 
         
             <div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">賞</a>
 </div>
 
             
@@ -308,6 +320,14 @@
             
 
 
+      
+    <div onclick="ShowGitment()" id="gitment-display-button" style="display: block;">
+        <span>顯示 Gitment 評論</span>
+    </div>
+    <div id="gitment" class="hide"></div>
+
+
+
         
     </div>
     
@@ -316,7 +336,7 @@
     <div class="prev">
       <a href="/2016/06/20/201606201932/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">学习markdown语法</h4>
+        <h4 class="title">学习 Markdown 语法</h4>
       </a>
     </div>
   
@@ -339,7 +359,7 @@
     <div class="reward-content">
         
         <div class="reward-code">
-            <img id="rewardCode" src="/img/69c8aa0f-f453-4dfb-90fd-d902862a397e.jpg" alt="打赏二维码">
+            <img id="rewardCode" src="/img/69c8aa0f-f453-4dfb-90fd-d902862a397e.jpg" alt="打賞二維碼">
         </div>
         
         <label class="reward-toggle">
@@ -348,7 +368,7 @@
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
-                <span class="reward-toggle-item alipay">支付宝</span>
+                <span class="reward-toggle-item alipay">支付寶</span>
             </div>
         </label>
         
@@ -365,7 +385,7 @@
     <div class="bottom">
         <p>
             <span>
-                木南 &copy; 2016 - 2022
+                木南 &copy; 2016 - 2023
             </span>
         		
            	
@@ -420,8 +440,8 @@
 
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3azY6DMAxFYd7/pTvSrCqNCOfaoZqakxVCLeRjYfknx4HX63e9X7+vs/vrX/69PruzbcmQIeNrGemL10+4787Z3mTIkPEcBg+y67C75pH/ks8nQ4YMGevHra9rd2TIkCHjjoC73kQagmXIkCGDMEgRS8pL3gerJaAbanEZMmR8IaM2GPjM9e3zDRkyZPx7xitc/Gm19xZ3JUOGjNGM9LgDSel42tdp2B2krpUhQ8YIBhkl1r5NhxQfFJMhQ8ZoRjpWrP0yLVDTI2gyZMiYzegH3Fr45u9CaagMGTJGM8gL7hhh8oMdweeQIUPGaEZno/0CmAfWuPUmQ4aMEQwS/tJSsz/45CMHGTJkPIdRC7K7wi5/sgwZMp7MSItSnsbtSjEvhqAyZMgYzUgPmJItpk9LE1D+XxkyZMxgpOEvLUfXQTM9ChZkuDJkyHgAY8Mo8eYWGwq4MmTIGMRIG2FoIlpKDdew013JkCFjNIO3tHjhSsI3H5QG/5UhQ8ZQRn/E2OnwdRJE9CAZMmQMYvDyNU0Q040WhxAyZMgYzaiNAUjrrRNqa+MHGTJkTGW8wtVJ7zof5aLkliFDxmhGOnQstuxL4bs/kJAhQ8YkBi8geeDj5XHtGMdFhitDhoyhDH7AgpD48Yt+0JchQ4aMdKNkLNofSKAcU4YMGY9n1AraNDQHgwcZMmQ8gMEPOqQv4yME0qpDk1gZMmSMY+xq3/OGXa083oCRIUPG9zF+AApFqHaTSVKnAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <p>掃一掃，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3azY6DMAxFYd7/pTvSrCqNCOfaoZqakxVCLeRjYfknx4HX63e9X7+vs/vrX/69PruzbcmQIeNrGemL10+4787Z3mTIkPEcBg+y67C75pH/ks8nQ4YMGevHra9rd2TIkCHjjoC73kQagmXIkCGDMEgRS8pL3gerJaAbanEZMmR8IaM2GPjM9e3zDRkyZPx7xitc/Gm19xZ3JUOGjNGM9LgDSel42tdp2B2krpUhQ8YIBhkl1r5NhxQfFJMhQ8ZoRjpWrP0yLVDTI2gyZMiYzegH3Fr45u9CaagMGTJGM8gL7hhh8oMdweeQIUPGaEZno/0CmAfWuPUmQ4aMEQwS/tJSsz/45CMHGTJkPIdRC7K7wi5/sgwZMp7MSItSnsbtSjEvhqAyZMgYzUgPmJItpk9LE1D+XxkyZMxgpOEvLUfXQTM9ChZkuDJkyHgAY8Mo8eYWGwq4MmTIGMRIG2FoIlpKDdew013JkCFjNIO3tHjhSsI3H5QG/5UhQ8ZQRn/E2OnwdRJE9CAZMmQMYvDyNU0Q040WhxAyZMgYzaiNAUjrrRNqa+MHGTJkTGW8wtVJ7zof5aLkliFDxmhGOnQstuxL4bs/kJAhQ8YkBi8geeDj5XHtGMdFhitDhoyhDH7AgpD48Yt+0JchQ4aMdKNkLNofSKAcU4YMGY9n1AraNDQHgwcZMmQ8gMEPOqQv4yME0qpDk1gZMmSMY+xq3/OGXa083oCRIUPG9zF+AApFqHaTSVKnAAAAAElFTkSuQmCC" alt="微信分享二維碼">
 </div>
 
 
@@ -463,6 +483,9 @@
 
     
     
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=undefined"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=undefined"></script>
+    
 
 
 
@@ -491,24 +514,6 @@
 <script type="text/javascript" src="/js/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
-
-
-    <script>
-    (function() {
-        var OriginTitile = document.title, titleTime;
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                document.title = '(づ￣ 3￣)づ點我吧!';
-                clearTimeout(titleTime);
-            } else {
-                document.title = '(。・∀・)ノ咦~歡迎你!';
-                titleTime = setTimeout(function() {
-                    document.title = OriginTitile;
-                },2000);
-            }
-        });
-    })();
-</script>
 
 
 
