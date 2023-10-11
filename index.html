@@ -347,7 +347,7 @@ JavaScript 也可以在瀏覽器之外使用，從托管網絡服務器到控製
     
     
         前言在 Web 開發中，經常會出現重定向的情況，重定向指的是將一個網絡請求重新定個方向，向新的方向發起請求。常見的重定向有網頁重定向，訪問一個網頁時卻跳轉到另外一個網頁；也有域名重定向，向某個域名發起請求卻自動變成請求另外一個域名。
-實現原理URL 重定向是由客戶端完成的（通常是瀏覽器），客戶端發出請求後，服務器做出響應，如果響應頭的狀態碼為301或者302，此時響應頭中會多出一個Locat...
+實現原理URL 重定向是由客戶端完成的（通常是瀏覽器），客戶端發出請求後，服務器做出響應，如果響應頭的狀態碼為 301 或者 302，此時響應頭中會多出一個 L...
     
     <a href="/2016/08/28/201608282022/" class="post-more waves-effect waves-button">
         More
@@ -459,11 +459,10 @@ JavaScript 也可以在瀏覽器之外使用，從托管網絡服務器到控製
     <div class="post-content" id="post-content" itemprop="postContent">
     
     
-        前言「同源政策」（same-origin policy）是由Netscape公司引入瀏覽器的。其使得瀏覽器更加安全，現在所有瀏覽器都支持了這個策略。然而，安全的同時也使得開發過程中出現了一些麻煩。本文列出了一些常見的同源策略問題以及相對應的解決方案。
+        前言「同源政策」（same-origin policy）是由 Netscape 公司引入瀏覽器的。其使得瀏覽器更加安全，現在所有瀏覽器都支持了這個策略。然而，安全的同時也使得開發過程中出現了一些麻煩。本文列出了一些常見的同源策略問題以及相對應的解決方案。
 常見問題「同源」指的是兩個地址之間協議相同、域名相同、端口相同，只要有一個不相同就會出現問題。
 目前，受到「同源政策」限製的有以下功能：
-
-C...
+...
     
     <a href="/2016/08/02/201608020650/" class="post-more waves-effect waves-button">
         More
@@ -519,8 +518,8 @@ C...
     <div class="post-content" id="post-content" itemprop="postContent">
     
     
-        前言無論大家是前端程序員還是後端程序員，相信大家對HTTP這個詞一定不陌生，在程序開發中它無處不在。所以，深入了解 HTTP 協議將會提高自己的編程質量以及提高前後端對接的效率。
-HTTP 工作原理HTTP 協議簡介HTTP 協議是Hyper Text Transfer Protocol（超文本傳輸協議）的縮寫，是用於從萬維網服務器傳輸超文本（例如 HTML 文件、圖片文件、視頻文件等）到本...
+        前言無論大家是前端程序員還是後端程序員，相信大家對 HTTP 這個詞一定不陌生，在程序開發中它無處不在。所以，深入了解 HTTP 協議將會提高自己的編程質量以及提高前後端對接的效率。
+HTTP 工作原理HTTP 協議簡介HTTP 協議是 Hyper Text Transfer Protocol（超文本傳輸協議）的縮寫，是用於從萬維網服務器傳輸超文本（例如 HTML 文件、圖片文件、視頻文件等...
     
     <a href="/2016/07/20/201607200640/" class="post-more waves-effect waves-button">
         More
@@ -576,7 +575,7 @@ HTTP 工作原理HTTP 協議簡介HTTP 協議是Hyper Text Transfer Protocol（�
     <div class="post-content" id="post-content" itemprop="postContent">
     
     
-        前言承接移動端適配（上），這次主要寫「viewport」縮放適配方式。這是淘寶使用的方法，實現原理是將頁面放大 dpr（devicePixelRatio）倍，然後 viewport 設置為 1/dpr。例如 iphone6/7/8 的 dpr 為 2，則頁面整體放大 2 倍，1px(css 單位)在 iphone6/7/8 下默認顯示為 2px(物理像素)。將 viewport 設置為 1/...
+        前言承接 移動端適配（上），這次主要寫「viewport」縮放適配方式。這是淘寶使用的方法，實現原理是將頁面放大 dpr（devicePixelRatio）倍，然後 viewport 設置為 1/dpr。例如 iphone6/7/8 的 dpr 為 2，則頁面整體放大 2 倍，1px(css 單位)在 iphone6/7/8 下默認顯示為 2px(物理像素)。將 viewport 設置為 1...
     
     <a href="/2016/07/06/201607060840/" class="post-more waves-effect waves-button">
         More
@@ -632,8 +631,8 @@ HTTP 工作原理HTTP 協議簡介HTTP 協議是Hyper Text Transfer Protocol（�
     <div class="post-content" id="post-content" itemprop="postContent">
     
     
-        前言meta 標簽提供關於 html 文檔的元數據（元數據不會顯示在網頁上，但是對於機器是可讀的。），常用來描述一個 html 網頁的屬性（例如作者、網頁描述、關鍵詞等。）或者渲染方式等。meta 標簽有兩個屬性，分別是http-equiv屬性和name屬性，不同的屬性又有不同的屬性值，這些不同的屬性值就實現了網頁不同的功能。
-name 屬性主要用於描述網頁，與之對應的屬性值為 conten...
+        前言meta 標簽提供關於 html 文檔的元數據（元數據不會顯示在網頁上，但是對於機器是可讀的。），常用來描述一個 html 網頁的屬性（例如作者、網頁描述、關鍵詞等。）或者渲染方式等。meta 標簽有兩個屬性，分別是 http-equiv 屬性和 name 屬性，不同的屬性又有不同的屬性值，這些不同的屬性值就實現了網頁不同的功能。
+name 屬性主要用於描述網頁，與之對應的屬性值為 co...
     
     <a href="/2016/07/02/201607020832/" class="post-more waves-effect waves-button">
         More
@@ -690,7 +689,7 @@ name 屬性主要用於描述網頁，與之對應的屬性值為 conten...
     
     
         前言作為一名前端碼農（「工程師」這個稱號太高大上，我還用不起。）如果不會移動端適配就別說自己是搞前端的。畢竟 PC 獨霸天下的時代已經過去了，現在移動端這股浪潮誰也阻止不了。話不多說，下面是我個人總結的一些移動端適配的方法。
-百分比百分比布局是比較早的適配方式，因為CSS2.0時代就已經支持這個方法。其作用可以使頁面隨著屏幕寬度（或者瀏覽器寬度）改變而自適應。使用時要註意高度設置百分比時，要...
+百分比百分比布局是比較早的適配方式，因為 CSS2.0 時代就已經支持這個方法。其作用可以使頁面隨著屏幕寬度（或者瀏覽器寬度）改變而自適應。使用時要註意高度設置百分比時...
     
     <a href="/2016/06/30/201606300203/" class="post-more waves-effect waves-button">
         More

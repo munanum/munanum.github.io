@@ -241,37 +241,37 @@
 <tbody><tr>
 <td>INT</td>
 <td align="center">整型</td>
-<td align="right">4 字節整數類型，範圍約+/-21 億</td>
+<td align="right">4 字節整數類型，範圍約 +/-21 億</td>
 </tr>
 <tr>
 <td>BIGINT</td>
 <td align="center">長整型</td>
-<td align="right">8 字節整數類型，範圍約+/-922 億億</td>
+<td align="right">8 字節整數類型，範圍約 +/-922 億億</td>
 </tr>
 <tr>
 <td>REAL/FLOAT(24)</td>
 <td align="center">浮點型</td>
-<td align="right">4 字節浮點數，範圍約+/-1038</td>
+<td align="right">4 字節浮點數，範圍約 +/-1038</td>
 </tr>
 <tr>
 <td>DOUBLE</td>
 <td align="center">浮點型</td>
-<td align="right">8 字節浮點數，範圍約+/-10308</td>
+<td align="right">8 字節浮點數，範圍約 +/-10308</td>
 </tr>
 <tr>
 <td>DECIMAL(M,N)</td>
 <td align="center">高精度小數</td>
-<td align="right">由用戶指定精度的小數，例如，DECIMAL(20,10)表示一共 20 位，其中小數 10 位，通常用於財務計算</td>
+<td align="right">由用戶指定精度的小數，例如，DECIMAL(20,10) 表示一共 20 位，其中小數 10 位，通常用於財務計算</td>
 </tr>
 <tr>
 <td>CHAR(N)</td>
 <td align="center">定長字符串</td>
-<td align="right">存儲指定長度的字符串，例如，CHAR(100)總是存儲 100 個字符的字符串</td>
+<td align="right">存儲指定長度的字符串，例如，CHAR(100) 總是存儲 100 個字符的字符串</td>
 </tr>
 <tr>
 <td>VARCHAR(N)</td>
 <td align="center">變長字符串</td>
-<td align="right">存儲可變長度的字符串，例如，VARCHAR(100)可以存儲 0~100 個字符的字符串</td>
+<td align="right">存儲可變長度的字符串，例如，VARCHAR(100) 可以存儲 0~100 個字符的字符串</td>
 </tr>
 <tr>
 <td>BOOLEAN</td>
@@ -298,34 +298,34 @@
 <h3 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h3><p>SQL 是結構化查詢語言的縮寫，用來訪問和操作數據庫系統。SQL 語句既可以查詢數據庫中的數據，也可以添加、更新和刪除數據庫中的數據，還可以對數據庫進行管理和維護操作。</p>
 <p>SQL 語言關鍵字不區分大小寫。但是，針對不同的數據庫，對於表名和列名，有的數據庫區分大小寫，有的數據庫不區分大小寫。同一個數據庫，有的在 Linux 上區分大小寫，有的在 Windows 上不區分大小寫。</p>
 <h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><p>MySQL 是目前應用最廣泛的開源關系數據庫。要在 Windows 或 Mac 上安裝 MySQL，首先從 MySQL 官方網站下載最新的 MySQL Community Server 版本：<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
-<p>MySQL 在安裝過程中會自動創建一個<code>root</code>用戶，並提示輸入<code>root</code>口令。要在 Linux 上安裝 MySQL，可以使用發行版的包管理器。例如，Debian 和 Ubuntu 用戶可以簡單地通過命令<code>apt-get install mysql-server</code>安裝最新的 MySQL 版本。</p>
-<p>MySQL 安裝後會自動在後臺運行。為了驗證 MySQL 安裝是否正確，需要通過<code>mysql</code>這個命令行程序來連接 MySQL 服務器。在命令提示符下輸入<code>mysql -u root -p</code>，然後輸入口令，如果一切正確，就會連接到 MySQL 服務器，同時提示符變為<code>mysql&gt;</code>。假設遠程 MySQL Server 的 IP 地址是 10.0.1.99，那麽就使用-h 指定 IP 或域名：<code>mysql -h 10.0.1.99 -u root -p</code>。輸入<code>exit</code>退出 MySQL 命令行。註意，MySQL 服務器仍在後臺運行。</p>
+<p>MySQL 在安裝過程中會自動創建一個 <strong>root</strong> 用戶，並提示輸入 <strong>root</strong> 口令。要在 Linux 上安裝 MySQL，可以使用發行版的包管理器。例如，Debian 和 Ubuntu 用戶可以簡單地通過命令 <strong>apt-get install mysql-server</strong> 安裝最新的 MySQL 版本。</p>
+<p>MySQL 安裝後會自動在後臺運行。為了驗證 MySQL 安裝是否正確，需要通過 <strong>mysql</strong> 這個命令行程序來連接 MySQL 服務器。在命令提示符下輸入 <strong>mysql -u root -p</strong>，然後輸入口令，如果一切正確，就會連接到 MySQL 服務器，同時提示符變為 <strong>mysql&gt;</strong>。假設遠程 MySQL Server 的 IP 地址是 10.0.1.99，那麽就使用-h 指定 IP 或域名：<strong>mysql -h 10.0.1.99 -u root -p</strong>。輸入 <strong>exit</strong> 退出 MySQL 命令行。註意，MySQL 服務器仍在後臺運行。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列出所有數據庫</span></span><br><span class="line">SHOW DATABASES;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 創建一個新數據庫</span></span><br><span class="line">CREATE DATABASE 數據庫名稱;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刪除一個數據庫</span></span><br><span class="line">DROP DATABASE 數據庫名稱;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 將一個數據庫切換為當前數據庫</span></span><br><span class="line">USE 數據庫名稱</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出當前數據庫的所有表</span></span><br><span class="line">SHOW TABLES;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看一個表的結構</span></span><br><span class="line">DESC 表名稱;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 創建表</span></span><br><span class="line">CREATE TABLE 表名稱;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刪除表</span></span><br><span class="line">DROP TABLE 表名稱;</span><br></pre></td></tr></table></figure>
 
 <p>修改表就比較復雜。</p>
-<p>要給<code>students</code>表新增一列<code>birth</code>，使用：</p>
+<p>要給 <strong>students</strong> 表新增一列 <strong>birth</strong>，使用：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> students <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> birth <span class="built_in">VARCHAR</span>(<span class="number">10</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
 
-<p>要修改<code>birth</code>列，例如把列名改為<code>birthday</code>，類型改為 VARCHAR(20)：</p>
+<p>要修改 <strong>birth</strong> 列，例如把列名改為 <strong>birthday</strong>，類型改為 VARCHAR(20)：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> students <span class="keyword">CHANGE</span> <span class="keyword">COLUMN</span> birth birthday <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
 
 <p>要刪除列，使用：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> students <span class="keyword">DROP</span> <span class="keyword">COLUMN</span> birthday;</span><br></pre></td></tr></table></figure>
 
 <h2 id="關系模型-1"><a href="#關系模型-1" class="headerlink" title="關系模型"></a>關系模型</h2><p>關系數據庫是建立在關系模型上的。而關系模型本質上就是若幹個存儲數據的二維表，可以把它們看作很多 Excel 表。表的每一行稱為記錄（Record），記錄是一個邏輯意義上的數據。表的每一列稱為字段（Column），同一個表的每一行記錄都擁有相同的若幹字段。</p>
-<p>字段定義了數據類型（整型、浮點型、字符串、日期等），以及是否允許為<code>NULL</code>。註意<code>NULL</code>表示字段數據不存在。一個整型字段如果為<code>NULL</code>不表示它的值為<code>0</code>，同樣的，一個字符串型字段為<code>NULL</code>也不表示它的值為空串<code>&#39;&#39;</code>。通常情況下，字段應該避免允許為<code>NULL</code>。不允許為<code>NULL</code>可以簡化查詢條件，加快查詢速度，也利於應用程序讀取數據後無需判斷是否為<code>NULL</code>。</p>
-<p>和 Excel 表有所不同的是，關系數據庫的表和表之間需要建立「<code>一對多</code>」，「<code>多對一</code>」和「<code>一對一</code>」的關系，這樣才能夠按照應用程序的邏輯來組織和存儲數據。</p>
-<p>在關系數據庫中，關系是通過<code>主鍵</code>和<code>外鍵</code>來維護的。</p>
+<p>字段定義了數據類型（整型、浮點型、字符串、日期等），以及是否允許為 <strong>NULL</strong>。註意 <strong>NULL</strong> 表示字段數據不存在。一個整型字段如果為 <strong>NULL</strong> 不表示它的值為 <strong>0</strong>，同樣的，一個字符串型字段為 <strong>NULL</strong> 也不表示它的值為空串 <strong>‘ ‘</strong>。通常情況下，字段應該避免允許為 <strong>NULL</strong>。不允許為 <strong>NULL</strong> 可以簡化查詢條件，加快查詢速度，也利於應用程序讀取數據後無需判斷是否為 <strong>NULL</strong>。</p>
+<p>和 Excel 表有所不同的是，關系數據庫的表和表之間需要建立「<strong>一對多</strong>」，「<strong>多對一</strong>」和「<strong>一對一</strong>」的關系，這樣才能夠按照應用程序的邏輯來組織和存儲數據。</p>
+<p>在關系數據庫中，關系是通過<strong>主鍵</strong>和<strong>外鍵</strong>來維護的。</p>
 <h3 id="主鍵"><a href="#主鍵" class="headerlink" title="主鍵"></a>主鍵</h3><p>在關系數據庫中，一張表中的每一行數據被稱為一條記錄。一條記錄就是由多個字段組成的。每一條記錄都包含若幹定義好的字段。同一個表的所有記錄都有相同的字段定義。</p>
-<p>對於關系表，有個很重要的約束，就是任意兩條記錄不能重復。不能重復不是指兩條記錄不完全相同，而是指能夠通過某個字段唯一區分出不同的記錄，這個字段被稱為<code>主鍵</code>。</p>
+<p>對於關系表，有個很重要的約束，就是任意兩條記錄不能重復。不能重復不是指兩條記錄不完全相同，而是指能夠通過某個字段唯一區分出不同的記錄，這個字段被稱為<strong>主鍵</strong>。</p>
 <p>對主鍵的要求，最關鍵的一點是：記錄一旦插入到表中，主鍵最好不要再修改，因為主鍵是用來唯一定位記錄的，修改了主鍵，會造成一系列的影響。</p>
 <p>由於主鍵的作用十分重要，如何選取主鍵會對業務開發產生重要影響。所以，選取主鍵的一個基本原則是：不使用任何業務相關的字段作為主鍵。</p>
 <h4 id="聯合主鍵"><a href="#聯合主鍵" class="headerlink" title="聯合主鍵"></a>聯合主鍵</h4><p>關系數據庫實際上還允許通過多個字段唯一標識記錄，即兩個或更多的字段都設置為主鍵，這種主鍵被稱為聯合主鍵。對於聯合主鍵，允許一列有重復，只要不是所有主鍵列都重復即可。沒有必要的情況下，盡量不使用聯合主鍵，因為它給關系表帶來了復雜度的上升。</p>
 <h3 id="外鍵"><a href="#外鍵" class="headerlink" title="外鍵"></a>外鍵</h3><p>外鍵並不是通過列名實現的，而是通過定義外鍵約束實現的：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> students <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> fk_class_id <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> (class_id) <span class="keyword">REFERENCES</span> classes (<span class="keyword">id</span>);</span><br></pre></td></tr></table></figure>
 
-<p>其中，外鍵約束的名稱<code>fk_class_id</code>可以任意，<code>FOREIGN KEY (class_id)</code>指定了<code>class_id</code>作為外鍵，<code>REFERENCES classes (id)</code>指定了這個外鍵將關聯到<code>classes</code>表的<code>id</code>列（即 classes 表的主鍵）。</p>
-<p>通過定義外鍵約束，關系數據庫可以保證無法插入無效的數據。由於外鍵約束會降低數據庫的性能，大部分互聯網應用程序為了追求速度，並不設置外鍵約束，而是僅靠<code>應用程序</code>自身來保證邏輯的正確性。這種情況下，<code>class_id</code>僅僅是一個普通的列，只是它起到了外鍵的作用而已。</p>
+<p>其中，外鍵約束的名稱 <strong>fk_class_id</strong> 可以任意，<strong>FOREIGN KEY (class_id)</strong> 指定了 <strong>class_id</strong> 作為外鍵，<strong>REFERENCES classes (id)</strong> 指定了這個外鍵將關聯到 <strong>classes</strong> 表的 <strong>id</strong> 列（即 classes 表的主鍵）。</p>
+<p>通過定義外鍵約束，關系數據庫可以保證無法插入無效的數據。由於外鍵約束會降低數據庫的性能，大部分互聯網應用程序為了追求速度，並不設置外鍵約束，而是僅靠<strong>應用程序</strong>自身來保證邏輯的正確性。這種情況下，<strong>class_id</strong> 僅僅是一個普通的列，只是它起到了外鍵的作用而已。</p>
 <p>要刪除一個外鍵約束，也是通過 ALTER TABLE 實現的：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> students <span class="keyword">DROP</span> <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> fk_class_id;</span><br></pre></td></tr></table></figure>
 
@@ -333,7 +333,7 @@
 <h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>在關系數據庫中，如果有上萬甚至上億條記錄，在查找記錄的時候，想要獲得非常快的速度，就需要使用索引。索引是關系數據庫中對某一列或多個列的值進行預排序的數據結構。通過使用索引，可以讓數據庫系統不必掃描整個表，而是直接定位到符合條件的記錄，這樣就大大加快了查詢速度。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> students <span class="keyword">ADD</span> <span class="keyword">INDEX</span> idx_score (score);</span><br></pre></td></tr></table></figure>
 
-<p>使用<code>ADD INDEX idx_score (score)</code>就創建了一個名稱為<code>idx_score</code>，使用列<code>score</code>的索引。索引名稱是任意的，索引如果有多列，可以在括號裏依次寫上，例如：</p>
+<p>使用 <strong>ADD INDEX idx_score (score)</strong> 就創建了一個名稱為 <strong>idx_score</strong>，使用列 <strong>score</strong> 的索引。索引名稱是任意的，索引如果有多列，可以在括號裏依次寫上，例如：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> students <span class="keyword">ADD</span> <span class="keyword">INDEX</span> idx_name_score (<span class="keyword">name</span>, score);</span><br></pre></td></tr></table></figure>
 
 <p>索引的效率取決於索引列的值是否散列，即該列的值如果越互不相同，那麽索引效率越高。反過來，如果記錄的列存在大量相同的值，例如 gender 列，大約一半的記錄值是 M，另一半是 F，因此，對該列創建索引就沒有意義。</p>
@@ -345,53 +345,53 @@
 <h4 id="強製使用指定索引"><a href="#強製使用指定索引" class="headerlink" title="強製使用指定索引"></a>強製使用指定索引</h4><p>在查詢的時候，數據庫系統會自動分析查詢語句，並選擇一個最合適的索引。但是很多時候，數據庫系統的查詢優化器並不一定總是能使用最優索引。可以使用 FORCE INDEX 強製查詢使用指定的索引。例如：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> students <span class="keyword">FORCE</span> <span class="keyword">INDEX</span> (idx_class_id) <span class="keyword">WHERE</span> class_id = <span class="number">1</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span> <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
 
-<p>指定索引的前提是索引<code>idx_class_id</code>必須存在。</p>
+<p>指定索引的前提是索引 <strong>idx_class_id</strong> 必須存在。</p>
 <h2 id="查詢數據"><a href="#查詢數據" class="headerlink" title="查詢數據"></a>查詢數據</h2><p>在關系數據庫中，最常用的操作就是查詢。</p>
-<p>通過<code>mysql -u root -p &lt; init-data.sql</code>命令導入初始化數據。</p>
+<p>通過 <strong>mysql -u root -p &lt; init-data.sql</strong> 命令導入初始化數據。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 如果test數據庫不存在，就創建test數據庫：</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> <span class="keyword">test</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 切換到test數據庫</span></span><br><span class="line"><span class="keyword">USE</span> <span class="keyword">test</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 刪除classes表和students表（如果存在）：</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> classes;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> students;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 創建classes表：</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> classes (</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">BIGINT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">    PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 創建students表：</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> students (</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">BIGINT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">    class_id <span class="built_in">BIGINT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">    gender <span class="built_in">VARCHAR</span>(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">    score <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">    PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 插入classes記錄：</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> classes(<span class="keyword">id</span>, <span class="keyword">name</span>) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">'一班'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> classes(<span class="keyword">id</span>, <span class="keyword">name</span>) <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">'二班'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> classes(<span class="keyword">id</span>, <span class="keyword">name</span>) <span class="keyword">VALUES</span> (<span class="number">3</span>, <span class="string">'三班'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> classes(<span class="keyword">id</span>, <span class="keyword">name</span>) <span class="keyword">VALUES</span> (<span class="number">4</span>, <span class="string">'四班'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 插入students記錄：</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="number">1</span>, <span class="string">'小明'</span>, <span class="string">'M'</span>, <span class="number">90</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="number">1</span>, <span class="string">'小紅'</span>, <span class="string">'F'</span>, <span class="number">95</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">3</span>, <span class="number">1</span>, <span class="string">'小軍'</span>, <span class="string">'M'</span>, <span class="number">88</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">4</span>, <span class="number">1</span>, <span class="string">'小米'</span>, <span class="string">'F'</span>, <span class="number">73</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">5</span>, <span class="number">2</span>, <span class="string">'小白'</span>, <span class="string">'F'</span>, <span class="number">81</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">6</span>, <span class="number">2</span>, <span class="string">'小兵'</span>, <span class="string">'M'</span>, <span class="number">55</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">7</span>, <span class="number">2</span>, <span class="string">'小林'</span>, <span class="string">'M'</span>, <span class="number">85</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">8</span>, <span class="number">3</span>, <span class="string">'小新'</span>, <span class="string">'F'</span>, <span class="number">91</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">9</span>, <span class="number">3</span>, <span class="string">'小王'</span>, <span class="string">'M'</span>, <span class="number">89</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">10</span>, <span class="number">3</span>, <span class="string">'小麗'</span>, <span class="string">'F'</span>, <span class="number">85</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- OK:</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="string">'ok'</span> <span class="keyword">as</span> <span class="string">'result:'</span>;</span><br></pre></td></tr></table></figure>
 
 <h3 id="基本查詢"><a href="#基本查詢" class="headerlink" title="基本查詢"></a>基本查詢</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> &lt;表名&gt;</span><br></pre></td></tr></table></figure>
 
 <p>查詢一個表的所有行和所有列的數據。</p>
-<h3 id="條件查詢"><a href="#條件查詢" class="headerlink" title="條件查詢"></a>條件查詢</h3><p>SELECT 語句可以通過<code>WHERE</code>條件來設定查詢條件，查詢結果是滿足查詢條件的記錄。</p>
+<h3 id="條件查詢"><a href="#條件查詢" class="headerlink" title="條件查詢"></a>條件查詢</h3><p>SELECT 語句可以通過 <strong>WHERE</strong> 條件來設定查詢條件，查詢結果是滿足查詢條件的記錄。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> &lt;表名&gt; <span class="keyword">WHERE</span> &lt;條件表達式&gt;;</span><br></pre></td></tr></table></figure>
 
-<p>SELECT 語句可以通過<code>WHERE</code>條件來設定查詢條件，查詢結果是滿足查詢條件的記錄。第一種條件表達式可以用<code>&lt;條件1&gt; AND &lt;條件2&gt;</code>表達滿足條件 1 並且滿足條件 2。第二種條件是<code>&lt;條件1&gt; OR &lt;條件2&gt;</code>，表示滿足條件 1 或者滿足條件 2。第三種條件是<code>NOT &lt;條件&gt;</code>，表示「不符合該條件」的記錄。<code>NOT</code>條件<code>&lt;&gt;</code>，因此，<code>NOT</code>查詢不是很常用。</p>
+<p>SELECT 語句可以通過 <strong>WHERE</strong> 條件來設定查詢條件，查詢結果是滿足查詢條件的記錄。第一種條件表達式可以用 <strong>&lt;條件 1&gt; AND &lt;條件 2&gt;</strong> 表達滿足條件 1 並且滿足條件 2。第二種條件是 <strong>&lt;條件 1&gt; OR &lt;條件 2&gt;</strong>，表示滿足條件 1 或者滿足條件 2。第三種條件是 <strong>NOT &lt;條件&gt;</strong>，表示「不符合該條件」的記錄。<strong>NOT</strong> 條件 <strong>&lt;&gt;</strong>，因此，<strong>NOT</strong> 查詢不是很常用。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> students <span class="keyword">WHERE</span> score &gt;= <span class="number">80</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> students <span class="keyword">WHERE</span> score &gt;= <span class="number">80</span> <span class="keyword">AND</span> gender = <span class="string">'M'</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> students <span class="keyword">WHERE</span> score &gt;= <span class="number">80</span> <span class="keyword">OR</span> gender = <span class="string">'M'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> students <span class="keyword">WHERE</span> <span class="keyword">NOT</span> class_id = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> students <span class="keyword">WHERE</span> class_id &lt;&gt; <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> students <span class="keyword">WHERE</span> (score &lt; <span class="number">80</span> <span class="keyword">OR</span> score &gt; <span class="number">90</span>) <span class="keyword">AND</span> gender = <span class="string">'M'</span>;</span><br></pre></td></tr></table></figure>
 
-<h3 id="投影查詢"><a href="#投影查詢" class="headerlink" title="投影查詢"></a>投影查詢</h3><p>使用<code>SELECT * FROM &lt;表名&gt; WHERE &lt;條件表達式&gt;</code>可以選出表中的若幹條記錄。返回的二維表結構和原表是相同的，即結果集的所有列與原表的所有列都一一對應。如果只希望返回某些列的數據，而不是所有列的數據，可以用<code>SELECT 列1, 列2, 列3 FROM ...</code>，讓結果集僅包含指定列。這種操作稱為投影查詢。</p>
+<h3 id="投影查詢"><a href="#投影查詢" class="headerlink" title="投影查詢"></a>投影查詢</h3><p>使用 <strong>SELECT * FROM &lt;表名&gt; WHERE &lt;條件表達式&gt;</strong> 可以選出表中的若幹條記錄。返回的二維表結構和原表是相同的，即結果集的所有列與原表的所有列都一一對應。如果只希望返回某些列的數據，而不是所有列的數據，可以用 <strong>SELECT 列 1, 列 2, 列 3 FROM …</strong>，讓結果集僅包含指定列。這種操作稱為投影查詢。</p>
 <p>這樣返回的結果集就只包含了指定的列，並且，結果集的列的順序和原表可以不一樣。</p>
-<p>使用<code>SELECT 列1, 列2, 列3 FROM ...</code>時，還可以給每一列起個別名，這樣，結果集的列名就可以與原表的列名不同。它的語法是<code>SELECT 列1 別名1, 列2 別名2, 列3 別名3 FROM ...</code>。</p>
+<p>使用 <strong>SELECT 列 1, 列 2, 列 3 FROM …</strong> 時，還可以給每一列起個別名，這樣，結果集的列名就可以與原表的列名不同。它的語法是 <strong>SELECT 列 1 別名 1, 列 2 別名 2, 列 3 別名 3 FROM …</strong>。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>, score, <span class="keyword">name</span> <span class="keyword">FROM</span> students;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>, score points, <span class="keyword">name</span> <span class="keyword">FROM</span> students;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>, score points, <span class="keyword">name</span> <span class="keyword">FROM</span> students <span class="keyword">WHERE</span> gender = <span class="string">'M'</span>;</span><br></pre></td></tr></table></figure>
 
-<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>使用 SELECT 查詢時，查詢結果集通常是按照<code>id</code>排序的，也就是根據主鍵排序。可以加上<code>ORDER BY</code>子句，選擇排序方式。</p>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>使用 SELECT 查詢時，查詢結果集通常是按照 <strong>id</strong> 排序的，也就是根據主鍵排序。可以加上 <strong>ORDER BY</strong> 子句，選擇排序方式。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- ASC 表示「升序」</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> &lt;表名&gt; <span class="keyword">WHERE</span> &lt;條件表達式&gt; <span class="keyword">ORDER</span> <span class="keyword">BY</span> &lt;屬性名&gt; <span class="keyword">ASC</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- DESC 表示「倒序」</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> &lt;表名&gt; <span class="keyword">WHERE</span> &lt;條件表達式&gt; <span class="keyword">ORDER</span> <span class="keyword">BY</span> &lt;屬性名&gt; <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
 
 <p>要進一步排序，可以繼續添加列名。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- DESC 表示「倒序」</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> &lt;表名&gt; <span class="keyword">WHERE</span> &lt;條件表達式&gt; <span class="keyword">ORDER</span> <span class="keyword">BY</span> &lt;屬性名<span class="number">1</span>&gt; <span class="keyword">DESC</span>, &lt;屬性名<span class="number">2</span>&gt; <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
 
-<p>表示先按<code>屬性名1</code>列倒序，如果有相同的，再按<code>屬性名2</code>列排序：</p>
-<p><code>ORDER BY</code>子句要放到<code>WHERE</code>子句後面</p>
+<p>表示先按<strong>屬性名 1</strong>列倒序，如果有相同的，再按<strong>屬性名 2</strong>列排序：</p>
+<p><strong>ORDER BY</strong> 子句要放到 <strong>WHERE</strong> 子句後面</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>, <span class="keyword">name</span>, gender, score <span class="keyword">FROM</span> students <span class="keyword">ORDER</span> <span class="keyword">BY</span> score <span class="keyword">ASC</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>, <span class="keyword">name</span>, gender, score <span class="keyword">FROM</span> students <span class="keyword">ORDER</span> <span class="keyword">BY</span> score <span class="keyword">DESC</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>, <span class="keyword">name</span>, gender, score <span class="keyword">FROM</span> students <span class="keyword">ORDER</span> <span class="keyword">BY</span> score <span class="keyword">DESC</span>, gender <span class="keyword">ASC</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>, <span class="keyword">name</span>, gender, score <span class="keyword">FROM</span> students <span class="keyword">WHERE</span> class_id = <span class="number">1</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> score <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
 
-<h3 id="分頁查詢"><a href="#分頁查詢" class="headerlink" title="分頁查詢"></a>分頁查詢</h3><p>分頁實際上就是從結果集中「截取」出第 M~N 條記錄。這個查詢可以通過<code>LIMIT &lt;M&gt; OFFSET &lt;N&gt;</code>子句實現。對結果集從<code>N</code>號記錄開始，最多取<code>M</code>條。</p>
-<p>分頁查詢的關鍵在於，首先要確定每頁需要顯示的結果數量<code>pageSize</code>，然後根據當前頁的索引<code>pageIndex</code>（從 0 開始），確定<code>LIMIT</code>和<code>OFFSET</code>應該設定的值：</p>
+<h3 id="分頁查詢"><a href="#分頁查詢" class="headerlink" title="分頁查詢"></a>分頁查詢</h3><p>分頁實際上就是從結果集中「截取」出第 M~N 條記錄。這個查詢可以通過 <strong>LIMIT M OFFSET N</strong> 子句實現。對結果集從 <strong>N</strong> 號記錄開始，最多取 <strong>M</strong> 條。</p>
+<p>分頁查詢的關鍵在於，首先要確定每頁需要顯示的結果數量 <strong>pageSize</strong>，然後根據當前頁的索引 <strong>pageIndex</strong>（從 0 開始），確定 <strong>LIMIT</strong> 和 <strong>OFFSET</strong> 應該設定的值：</p>
 <ul>
-<li><code>LIMIT</code>總是設定為<code>pageSize</code></li>
-<li><code>OFFSET</code>計算公式為<code>pageSize \* pageIndex</code></li>
+<li><strong>LIMIT</strong> 總是設定為 <strong>pageSize</strong></li>
+<li><strong>OFFSET</strong> 計算公式為 <strong>pageSize * pageIndex</strong></li>
 </ul>
-<p><code>OFFSET</code>超過了查詢的最大數量並不會報錯，而是得到一個空的結果集。</p>
-<p>在 MySQL 中，<code>LIMIT &lt;M&gt; OFFSET &lt;N&gt;</code>還可以簡寫成<code>LIMIT &lt;M&gt;, &lt;N&gt;</code>。</p>
-<p>使用<code>LIMIT &lt;M&gt; OFFSET &lt;N&gt;</code>分頁時，隨著<code>N</code>越來越大，查詢效率也會越來越低。</p>
+<p><strong>OFFSET</strong> 超過了查詢的最大數量並不會報錯，而是得到一個空的結果集。</p>
+<p>在 MySQL 中，<strong>LIMIT M OFFSET N</strong> 還可以簡寫成 <strong>LIMIT M, N</strong>。</p>
+<p>使用 <strong>LIMIT M OFFSET N</strong> 分頁時，隨著 <strong>N</strong> 越來越大，查詢效率也會越來越低。</p>
 <h3 id="聚合查詢"><a href="#聚合查詢" class="headerlink" title="聚合查詢"></a>聚合查詢</h3><p>對於統計總數、平均數這類計算，SQL 提供了專門的聚合函數，使用聚合函數進行查詢，就是聚合查詢，它可以快速獲得結果。</p>
-<p>使用 SQL 內置的<code>COUNT()</code>函數查詢記錄數量。</p>
+<p>使用 SQL 內置的 <strong>COUNT()</strong> 函數查詢記錄數量。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span> &lt;表名&gt;;</span><br></pre></td></tr></table></figure>
 
-<p><code>COUNT(*)</code>表示查詢所有列的行數，要註意聚合的計算結果雖然是一個數字，但查詢的結果仍然是一個二維表，只是這個二維表只有一行一列，並且列名是<code>COUNT(*)</code>。</p>
+<p><strong>COUNT(*)</strong> 表示查詢所有列的行數，要註意聚合的計算結果雖然是一個數字，但查詢的結果仍然是一個二維表，只是這個二維表只有一行一列，並且列名是 <strong>COUNT(*)</strong>。</p>
 <p>通常，使用聚合查詢時，應該給列名設置一個別名，便於處理結果：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) 別名 <span class="keyword">FROM</span> &lt;表名&gt;;</span><br></pre></td></tr></table></figure>
 
-<p>除了<code>COUNT()</code>函數外，SQL 還提供了如下聚合函數：</p>
+<p>除了 <strong>COUNT()</strong> 函數外，SQL 還提供了如下聚合函數：</p>
 <table>
 <thead>
 <tr>
@@ -416,72 +416,72 @@
 <td align="center">計算某一列的最小值</td>
 </tr>
 </tbody></table>
-<p>要特別註意：如果聚合查詢的<code>WHERE</code>條件沒有匹配到任何行，COUNT()會返回<code>0</code>，而 SUM()、AVG()、MAX()和 MIN()會返回<code>NULL</code>：</p>
+<p>要特別註意：如果聚合查詢的 <strong>WHERE</strong> 條件沒有匹配到任何行，COUNT()會返回 <strong>0</strong>，而 SUM()、AVG()、MAX()和 MIN()會返回 <strong>NULL</strong>：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span> students;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">num</span> <span class="keyword">FROM</span> students;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) boys <span class="keyword">FROM</span> students <span class="keyword">WHERE</span> gender = <span class="string">'M'</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(score) average <span class="keyword">FROM</span> students <span class="keyword">WHERE</span> gender = <span class="string">'M'</span>;</span><br></pre></td></tr></table></figure>
 
 <h4 id="分組聚合"><a href="#分組聚合" class="headerlink" title="分組聚合"></a>分組聚合</h4><p>對於聚合查詢，SQL 還提供了「分組聚合」的功能。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 按屬性名分組</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) 別名 <span class="keyword">FROM</span> &lt;表名&gt; <span class="keyword">GROUP</span> <span class="keyword">BY</span> &lt;屬性名&gt;;</span><br></pre></td></tr></table></figure>
 
-<p>執行該 SELECT 語句時，會把<code>屬性名對應取值</code>相同的列先分組，再分別計算，因此，得到了<code>多行</code>結果。</p>
+<p>執行該 SELECT 語句時，會把<strong>屬性名對應取值</strong>相同的列先分組，再分別計算，因此，得到了<strong>多行</strong>結果。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">num</span> <span class="keyword">FROM</span> students <span class="keyword">GROUP</span> <span class="keyword">BY</span> class_id;</span><br><span class="line"><span class="keyword">SELECT</span> class_id, <span class="keyword">COUNT</span>(*) <span class="keyword">num</span> <span class="keyword">FROM</span> students <span class="keyword">GROUP</span> <span class="keyword">BY</span> class_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 統計各班的男生和女生人數</span></span><br><span class="line"><span class="keyword">SELECT</span> class_id, gender, <span class="keyword">COUNT</span>(*) <span class="keyword">num</span> <span class="keyword">FROM</span> students <span class="keyword">GROUP</span> <span class="keyword">BY</span> class_id, gender;</span><br></pre></td></tr></table></figure>
 
-<h3 id="多表查詢"><a href="#多表查詢" class="headerlink" title="多表查詢"></a>多表查詢</h3><p>SELECT 查詢不但可以從一張表查詢數據，還可以從多張表同時查詢數據。查詢多張表的語法是：<code>SELECT * FROM &lt;表1&gt;, &lt;表2&gt;</code>。</p>
-<p>這種一次查詢兩個表的數據，查詢的結果也是一個二維表，它是<code>表1</code>和<code>表2</code>表的「乘積」，即<code>表1</code>的每一行與<code>表2</code>的每一行都兩兩拼在一起返回。結果集的列數是兩表的列數之和，行數是兩表的行數之積。</p>
+<h3 id="多表查詢"><a href="#多表查詢" class="headerlink" title="多表查詢"></a>多表查詢</h3><p>SELECT 查詢不但可以從一張表查詢數據，還可以從多張表同時查詢數據。查詢多張表的語法是：<strong>SELECT * FROM &lt;表 1&gt;, &lt;表 2&gt;</strong>。</p>
+<p>這種一次查詢兩個表的數據，查詢的結果也是一個二維表，它是<strong>表 1</strong>和<strong>表 2</strong>表的「乘積」，即<strong>表 1</strong>的每一行與<strong>表 2</strong>的每一行都兩兩拼在一起返回。結果集的列數是兩表的列數之和，行數是兩表的行數之積。</p>
 <p>這種多表查詢又稱笛卡爾查詢，使用笛卡爾查詢時要非常小心，由於結果集是目標表的行數乘積，對兩個各自有 100 行記錄的表進行笛卡爾查詢將返回 1 萬條記錄，對兩個各自有 1 萬行記錄的表進行笛卡爾查詢將返回 1 億條記錄。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    表<span class="number">1.</span>屬性<span class="number">1</span> 別名<span class="number">1</span>,</span><br><span class="line">    表<span class="number">1.</span>屬性<span class="number">2</span>,</span><br><span class="line">    表<span class="number">1.</span>屬性<span class="number">3</span>,</span><br><span class="line">    表<span class="number">1.</span>屬性<span class="number">4</span>,</span><br><span class="line">    表<span class="number">2.</span>屬性<span class="number">1</span> 別名<span class="number">2</span>,</span><br><span class="line">    表<span class="number">2.</span>屬性<span class="number">2</span> 別名<span class="number">3</span></span><br><span class="line"><span class="keyword">FROM</span> 表<span class="number">1</span>, 表<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 
-<p>註意，多表查詢時，要使用<code>表名.列名</code>這樣的方式來<code>引用列</code>和<code>設置別名</code>，這樣就避免了結果集的列名重復問題。但是，用<code>表名.列名</code>這種方式列舉兩個表的所有列實在是很麻煩，所以 SQL 還允許<code>給表設置一個別名</code>，讓投影查詢中引用起來稍微簡潔一點：</p>
+<p>註意，多表查詢時，要使用<strong>表名.列名</strong>這樣的方式來<strong>引用列</strong>和<strong>設置別名</strong>，這樣就避免了結果集的列名重復問題。但是，用<strong>表名.列名</strong>這種方式列舉兩個表的所有列實在是很麻煩，所以 SQL 還允許<strong>給表設置一個別名</strong>，讓投影查詢中引用起來稍微簡潔一點：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    表別名<span class="number">1.</span>屬性<span class="number">1</span> 別名<span class="number">1</span>,</span><br><span class="line">    表別名<span class="number">1.</span>屬性<span class="number">2</span>,</span><br><span class="line">    表別名<span class="number">1.</span>屬性<span class="number">3</span>,</span><br><span class="line">    表別名<span class="number">1.</span>屬性<span class="number">4</span>,</span><br><span class="line">    表別名<span class="number">2.</span>屬性<span class="number">1</span> 別名<span class="number">2</span>,</span><br><span class="line">    表別名<span class="number">2.</span>屬性<span class="number">2</span> 別名<span class="number">3</span></span><br><span class="line"><span class="keyword">FROM</span> 表<span class="number">1</span> 表別名<span class="number">1</span>, 表<span class="number">2</span> 表別名<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 
-<p>註意到 FROM 子句給表設置別名的語法是<code>FROM &lt;表名1&gt; &lt;別名1&gt;, &lt;表名2&gt; &lt;別名2&gt;</code>。</p>
+<p>註意到 FROM 子句給表設置別名的語法是 <strong>FROM &lt;表名 1&gt; &lt;別名 1&gt;, &lt;表名 2&gt; &lt;別名 2&gt;</strong>。</p>
 <p>多表查詢也是可以添加 WHERE 條件的：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    表別名<span class="number">1.</span>屬性<span class="number">1</span> 別名<span class="number">1</span>,</span><br><span class="line">    表別名<span class="number">1.</span>屬性<span class="number">2</span>,</span><br><span class="line">    表別名<span class="number">1.</span>屬性<span class="number">3</span>,</span><br><span class="line">    表別名<span class="number">1.</span>屬性<span class="number">4</span>,</span><br><span class="line">    表別名<span class="number">2.</span>屬性<span class="number">1</span> 別名<span class="number">2</span>,</span><br><span class="line">    表別名<span class="number">2.</span>屬性<span class="number">2</span> 別名<span class="number">3</span></span><br><span class="line"><span class="keyword">FROM</span> 表<span class="number">1</span> 表別名<span class="number">1</span>, 表<span class="number">2</span> 表別名<span class="number">2</span>;</span><br><span class="line">WHERE 表別名1.屬性1 = 'M' AND 表別名2.屬性1 = 1;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> students, classes;</span><br></pre></td></tr></table></figure>
 
-<p>這種一次查詢兩個表的數據，查詢的結果也是一個二維表，它是<code>students</code>表和<code>classes</code>表的「乘積」，即<code>students</code>表的每一行與<code>classes</code>表的每一行都兩兩拼在一起返回。結果集的列數是<code>students</code>表和<code>classes</code>表的列數之和，行數是<code>students</code>表和<code>classes</code>表的行數之積。</p>
-<p>上述查詢的結果集有兩列<code>id</code>和兩列<code>name</code>，兩列<code>id</code>是因為其中一列是<code>students</code>表的<code>id</code>，而另一列是<code>classes</code>表的<code>id</code>，但是在結果集中，不好區分。兩列<code>name</code>同理。</p>
-<p>要解決這個問題，仍然可以利用投影查詢的「設置列的別名」來給兩個表各自的<code>id</code>和<code>name</code>列起別名：</p>
+<p>這種一次查詢兩個表的數據，查詢的結果也是一個二維表，它是 <strong>students</strong> 表和 <strong>classes</strong> 表的「乘積」，即 <strong>students</strong> 表的每一行與 <strong>classes</strong> 表的每一行都兩兩拼在一起返回。結果集的列數是 <strong>students</strong> 表和 <strong>classes</strong> 表的列數之和，行數是 <strong>students</strong> 表和 <strong>classes</strong> 表的行數之積。</p>
+<p>上述查詢的結果集有兩列 <strong>id</strong> 和兩列 <strong>name</strong>，兩列 <strong>id</strong> 是因為其中一列是 <strong>students</strong> 表的 <strong>id</strong>，而另一列是 <strong>classes</strong> 表的 <strong>id</strong>，但是在結果集中，不好區分。兩列 <strong>name</strong> 同理。</p>
+<p>要解決這個問題，仍然可以利用投影查詢的「設置列的別名」來給兩個表各自的 <strong>id</strong> 和 <strong>name</strong> 列起別名：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    students.id <span class="keyword">sid</span>,</span><br><span class="line">    students.name,</span><br><span class="line">    students.gender,</span><br><span class="line">    students.score,</span><br><span class="line">    classes.id cid,</span><br><span class="line">    classes.name cname</span><br><span class="line"><span class="keyword">FROM</span> students, classes;</span><br></pre></td></tr></table></figure>
 
 <p>還可以使用別名：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    s.id <span class="keyword">sid</span>,</span><br><span class="line">    s.name,</span><br><span class="line">    s.gender,</span><br><span class="line">    s.score,</span><br><span class="line">    c.id cid,</span><br><span class="line">    c.name cname</span><br><span class="line"><span class="keyword">FROM</span> students s, classes c;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    s.id <span class="keyword">sid</span>,</span><br><span class="line">    s.name,</span><br><span class="line">    s.gender,</span><br><span class="line">    s.score,</span><br><span class="line">    c.id cid,</span><br><span class="line">    c.name cname</span><br><span class="line"><span class="keyword">FROM</span> students s, classes c</span><br><span class="line"><span class="keyword">WHERE</span> s.gender = <span class="string">'M'</span> <span class="keyword">AND</span> c.id = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 
 <h3 id="連接查詢"><a href="#連接查詢" class="headerlink" title="連接查詢"></a>連接查詢</h3><p>連接查詢是另一種類型的多表查詢。連接查詢對多個表進行 JOIN 運算，簡單地說，就是先確定一個主表作為結果集，然後，把其它表的行有選擇性地「連接」在主表結果集上。</p>
-<p>例如，想要選出<code>students</code>表的所有學生信息，可以用一條簡單的 SELECT 語句完成：</p>
+<p>例如，想要選出 <strong>students</strong> 表的所有學生信息，可以用一條簡單的 SELECT 語句完成：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> s.id, s.name, s.class_id, s.gender, s.score <span class="keyword">FROM</span> students s;</span><br></pre></td></tr></table></figure>
 
-<p>但是，假設希望結果集同時包含所在班級的名稱，上面的結果集只有<code>class_id</code>列，缺少對應班級的<code>name</code>列。</p>
-<p>現在問題來了，存放班級名稱的<code>name</code>列存儲在<code>classes</code>表中，只有根據<code>students</code>表的<code>class_id</code>，找到<code>classes</code>表對應的行，再取出<code>name</code>列，就可以獲得班級名稱。</p>
-<p>這時，連接查詢就派上了用場。先使用最常用的一種內連接<code>INNER JOIN</code>來實現：</p>
+<p>但是，假設希望結果集同時包含所在班級的名稱，上面的結果集只有 <strong>class_id</strong> 列，缺少對應班級的 <strong>name</strong> 列。</p>
+<p>現在問題來了，存放班級名稱的 <strong>name</strong> 列存儲在 <strong>classes</strong> 表中，只有根據 <strong>students</strong> 表的 <strong>class_id</strong>，找到 <strong>classes</strong> 表對應的行，再取出 <strong>name</strong> 列，就可以獲得班級名稱。</p>
+<p>這時，連接查詢就派上了用場。先使用最常用的一種內連接 <strong>INNER JOIN</strong> 來實現：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> s.id, s.name, s.class_id, c.name class_name, s.gender, s.score</span><br><span class="line"><span class="keyword">FROM</span> students s</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> classes c</span><br><span class="line"><span class="keyword">ON</span> s.class_id = c.id;</span><br></pre></td></tr></table></figure>
 
 <p>註意 INNER JOIN 查詢的寫法是：</p>
 <ul>
-<li>先確定主表，仍然使用<code>FROM &lt;表1&gt;</code>的語法；</li>
-<li>再確定需要連接的表，使用<code>INNER JOIN &lt;表2&gt;</code>的語法；</li>
-<li>然後確定連接條件，使用<code>ON &lt;條件...&gt;</code>，這裏的條件是<code>s.class_id = c.id</code>，表示<code>students</code>表的<code>class_id</code>列與<code>classes</code>表的<code>id</code>列相同的行需要連接；</li>
-<li>可選：加上<code>WHERE</code>子句、<code>ORDER BY</code>等子句。</li>
+<li>先確定主表，仍然使用 <strong>FROM &lt;表 1&gt;</strong> 的語法；</li>
+<li>再確定需要連接的表，使用 <strong>INNER JOIN &lt;表 2&gt;</strong> 的語法；</li>
+<li>然後確定連接條件，使用 <strong>ON &lt;條件…&gt;</strong>，這裏的條件是 <strong>s.class_id = c.id</strong>，表示 <strong>students</strong> 表的 <strong>class_id</strong> 列與 <strong>classes</strong> 表的 <strong>id</strong> 列相同的行需要連接；</li>
+<li>可選：加上 <strong>WHERE</strong> 子句、<strong>ORDER BY</strong> 等子句。</li>
 </ul>
-<h4 id="內連接（INNER-JOIN）"><a href="#內連接（INNER-JOIN）" class="headerlink" title="內連接（INNER JOIN）"></a>內連接（INNER JOIN）</h4><p>使用<code>INNER JOIN</code>只返回同時存在於兩張表的行數據。<code>INNER JOIN</code>是最常用的一種 JOIN 查詢，它的語法是<code>SELECT ... FROM &lt;表1&gt; INNER JOIN &lt;表2&gt; ON &lt;條件...&gt;；</code>。</p>
+<h4 id="內連接（INNER-JOIN）"><a href="#內連接（INNER-JOIN）" class="headerlink" title="內連接（INNER JOIN）"></a>內連接（INNER JOIN）</h4><p>使用 <strong>INNER JOIN</strong> 只返回同時存在於兩張表的行數據。<strong>INNER JOIN</strong> 是最常用的一種 JOIN 查詢，它的語法是 <strong>SELECT … FROM &lt;表 1&gt; INNER JOIN &lt;表 2&gt; ON &lt;條件…&gt;；</strong>。</p>
 <figure class="image-box">
                 <a rel=SQL href="insert.png" title="" data-fancybox="images"><img src="insert.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
-<h4 id="左外連接（LEFT-OUTER-JOIN）"><a href="#左外連接（LEFT-OUTER-JOIN）" class="headerlink" title="左外連接（LEFT OUTER JOIN）"></a>左外連接（LEFT OUTER JOIN）</h4><p>使用<code>LEFT OUTER JOIN</code>返回左表都存在的行。如果某一行僅在左表存在，那麽結果集就會以 NULL 填充剩下的字段。</p>
+<h4 id="左外連接（LEFT-OUTER-JOIN）"><a href="#左外連接（LEFT-OUTER-JOIN）" class="headerlink" title="左外連接（LEFT OUTER JOIN）"></a>左外連接（LEFT OUTER JOIN）</h4><p>使用 <strong>LEFT OUTER JOIN</strong> 返回左表都存在的行。如果某一行僅在左表存在，那麽結果集就會以 NULL 填充剩下的字段。</p>
 <figure class="image-box">
                 <a rel=SQL href="left.png" title="" data-fancybox="images"><img src="left.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
-<h4 id="右外連接（RIGHT-OUTER-JOIN）"><a href="#右外連接（RIGHT-OUTER-JOIN）" class="headerlink" title="右外連接（RIGHT OUTER JOIN）"></a>右外連接（RIGHT OUTER JOIN）</h4><p>使用<code>RIGHT OUTER JOIN</code>返回右表都存在的行。如果某一行僅在右表存在，那麽結果集就會以 NULL 填充剩下的字段。</p>
+<h4 id="右外連接（RIGHT-OUTER-JOIN）"><a href="#右外連接（RIGHT-OUTER-JOIN）" class="headerlink" title="右外連接（RIGHT OUTER JOIN）"></a>右外連接（RIGHT OUTER JOIN）</h4><p>使用 <strong>RIGHT OUTER JOIN</strong> 返回右表都存在的行。如果某一行僅在右表存在，那麽結果集就會以 NULL 填充剩下的字段。</p>
 <figure class="image-box">
                 <a rel=SQL href="right.png" title="" data-fancybox="images"><img src="right.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
-<h4 id="全外連接（FULL-OUTER-JOIN）"><a href="#全外連接（FULL-OUTER-JOIN）" class="headerlink" title="全外連接（FULL OUTER JOIN）"></a>全外連接（FULL OUTER JOIN）</h4><p>使用<code>FULL OUTER JOIN</code>，會把兩張表的所有記錄全部選擇出來，並且，自動把對方不存在的列填充為 NULL。</p>
+<h4 id="全外連接（FULL-OUTER-JOIN）"><a href="#全外連接（FULL-OUTER-JOIN）" class="headerlink" title="全外連接（FULL OUTER JOIN）"></a>全外連接（FULL OUTER JOIN）</h4><p>使用 <strong>FULL OUTER JOIN</strong>，會把兩張表的所有記錄全部選擇出來，並且，自動把對方不存在的列填充為 NULL。</p>
 <figure class="image-box">
                 <a rel=SQL href="full.png" title="" data-fancybox="images"><img src="full.png" alt="" title="" class=""></a>
                 <p></p>
@@ -493,48 +493,48 @@
 <li>UPDATE：更新已有記錄；</li>
 <li>DELETE：刪除已有記錄。</li>
 </ul>
-<h3 id="INSERT"><a href="#INSERT" class="headerlink" title="INSERT"></a>INSERT</h3><p>當需要向數據庫表中插入一條新記錄時，就必須使用<code>INSERT</code>語句。該語句的基本語法是：</p>
+<h3 id="INSERT"><a href="#INSERT" class="headerlink" title="INSERT"></a>INSERT</h3><p>當需要向數據庫表中插入一條新記錄時，就必須使用 <strong>INSERT</strong> 語句。該語句的基本語法是：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> &lt;表名&gt; (字段<span class="number">1</span>, 字段<span class="number">2</span>, ...) <span class="keyword">VALUES</span> (值<span class="number">1</span>, 值<span class="number">2</span>, ...);</span><br></pre></td></tr></table></figure>
 
-<p>例如，向<code>students</code>表插入一條新記錄，先列舉出需要插入的字段名稱，然後在<code>VALUES</code>子句中依次寫出對應字段的值：</p>
+<p>例如，向 <strong>students</strong> 表插入一條新記錄，先列舉出需要插入的字段名稱，然後在 <strong>VALUES</strong> 子句中依次寫出對應字段的值：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">'你猜'</span>, <span class="string">'M'</span>, <span class="number">80</span>);</span><br></pre></td></tr></table></figure>
 
-<p>如果一個字段有默認值，那麽在<code>INSERT</code>語句中也可以不出現。要註意，字段順序不必和數據庫表的字段順序一致，但值的順序必須和字段順序一致。</p>
-<p>還可以一次性添加多條記錄，只需要在<code>VALUES</code>子句中指定多個記錄值，每個記錄是由<code>(...)</code>包含的一組值：</p>
+<p>如果一個字段有默認值，那麽在 <strong>INSERT</strong> 語句中也可以不出現。要註意，字段順序不必和數據庫表的字段順序一致，但值的順序必須和字段順序一致。</p>
+<p>還可以一次性添加多條記錄，只需要在 <strong>VALUES</strong> 子句中指定多個記錄值，每個記錄是由 <strong>(…)</strong> 包含的一組值：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span></span><br><span class="line">  (<span class="number">1</span>, <span class="string">'大寶'</span>, <span class="string">'M'</span>, <span class="number">87</span>),</span><br><span class="line">  (<span class="number">2</span>, <span class="string">'二寶'</span>, <span class="string">'M'</span>, <span class="number">81</span>);</span><br></pre></td></tr></table></figure>
 
-<h4 id="插入或替換"><a href="#插入或替換" class="headerlink" title="插入或替換"></a>插入或替換</h4><p>如果希望插入一條新記錄（INSERT），但如果記錄已經存在，就先刪除原記錄，再插入新記錄。此時，可以使用<code>REPLACE</code>語句，這樣就不必先查詢，再決定是否先刪除再插入：</p>
+<h4 id="插入或替換"><a href="#插入或替換" class="headerlink" title="插入或替換"></a>插入或替換</h4><p>如果希望插入一條新記錄（INSERT），但如果記錄已經存在，就先刪除原記錄，再插入新記錄。此時，可以使用 <strong>REPLACE</strong> 語句，這樣就不必先查詢，再決定是否先刪除再插入：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REPLACE</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="number">1</span>, <span class="string">'小明'</span>, <span class="string">'F'</span>, <span class="number">99</span>);</span><br></pre></td></tr></table></figure>
 
-<p>若 id=1 的記錄不存在，<code>REPLACE</code>語句將插入新記錄，否則，當前 id=1 的記錄將被刪除，然後再插入新記錄。</p>
-<h4 id="插入或更新"><a href="#插入或更新" class="headerlink" title="插入或更新"></a>插入或更新</h4><p>如果希望插入一條新記錄（INSERT），但如果記錄已經存在，就更新該記錄，此時，可以使用<code>INSERT INTO ... ON DUPLICATE KEY UPDATE ...</code>語句：</p>
+<p>若 id=1 的記錄不存在，<strong>REPLACE</strong> 語句將插入新記錄，否則，當前 id=1 的記錄將被刪除，然後再插入新記錄。</p>
+<h4 id="插入或更新"><a href="#插入或更新" class="headerlink" title="插入或更新"></a>插入或更新</h4><p>如果希望插入一條新記錄（INSERT），但如果記錄已經存在，就更新該記錄，此時，可以使用 <strong>INSERT INTO … ON DUPLICATE KEY UPDATE …</strong> 語句：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="number">1</span>, <span class="string">'小明'</span>, <span class="string">'F'</span>, <span class="number">99</span>) <span class="keyword">ON</span> <span class="keyword">DUPLICATE</span> <span class="keyword">KEY</span> <span class="keyword">UPDATE</span> <span class="keyword">name</span>=<span class="string">'小明'</span>, gender=<span class="string">'F'</span>, score=<span class="number">99</span>;</span><br></pre></td></tr></table></figure>
 
-<p>若 id=1 的記錄不存在，<code>INSERT</code>語句將插入新記錄，否則，當前 id=1 的記錄將被更新，更新的字段由<code>UPDATE</code>指定。</p>
-<h4 id="插入或忽略"><a href="#插入或忽略" class="headerlink" title="插入或忽略"></a>插入或忽略</h4><p>如果希望插入一條新記錄（INSERT），但如果記錄已經存在，就啥事也不幹直接忽略，此時，可以使用<code>INSERT IGNORE INTO ...</code>語句：</p>
+<p>若 id=1 的記錄不存在，<strong>INSERT</strong> 語句將插入新記錄，否則，當前 id=1 的記錄將被更新，更新的字段由 <strong>UPDATE</strong> 指定。</p>
+<h4 id="插入或忽略"><a href="#插入或忽略" class="headerlink" title="插入或忽略"></a>插入或忽略</h4><p>如果希望插入一條新記錄（INSERT），但如果記錄已經存在，就啥事也不幹直接忽略，此時，可以使用 <strong>INSERT IGNORE INTO …</strong> 語句：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">IGNORE</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="number">1</span>, <span class="string">'小明'</span>, <span class="string">'F'</span>, <span class="number">99</span>);</span><br></pre></td></tr></table></figure>
 
-<p>若 id=1 的記錄不存在，<code>INSERT</code>語句將插入新記錄，否則，不執行任何操作。</p>
-<h4 id="寫入查詢結果集"><a href="#寫入查詢結果集" class="headerlink" title="寫入查詢結果集"></a>寫入查詢結果集</h4><p>如果查詢結果集需要寫入到表中，可以結合<code>INSERT</code>和<code>SELECT</code>，將<code>SELECT</code>語句的結果集直接插入到指定表中。</p>
-<p>例如，創建一個統計成績的表<code>statistics</code>，記錄各班的平均成績：</p>
+<p>若 id=1 的記錄不存在，<strong>INSERT</strong> 語句將插入新記錄，否則，不執行任何操作。</p>
+<h4 id="寫入查詢結果集"><a href="#寫入查詢結果集" class="headerlink" title="寫入查詢結果集"></a>寫入查詢結果集</h4><p>如果查詢結果集需要寫入到表中，可以結合 <strong>INSERT</strong> 和 <strong>SELECT</strong>，將 <strong>SELECT</strong> 語句的結果集直接插入到指定表中。</p>
+<p>例如，創建一個統計成績的表 <strong>statistics</strong>，記錄各班的平均成績：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">statistics</span> (</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">BIGINT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">    class_id <span class="built_in">BIGINT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">    average <span class="keyword">DOUBLE</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">    PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
 <p>然後就可以用一條語句寫入各班的平均成績：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">statistics</span> (class_id, average) <span class="keyword">SELECT</span> class_id, <span class="keyword">AVG</span>(score) <span class="keyword">FROM</span> students <span class="keyword">GROUP</span> <span class="keyword">BY</span> class_id;</span><br></pre></td></tr></table></figure>
 
-<h3 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h3><p>如果要更新數據庫表中的記錄，就必須使用<code>UPDATE</code>語句。該語句的基本語法是：</p>
+<h3 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h3><p>如果要更新數據庫表中的記錄，就必須使用 <strong>UPDATE</strong> 語句。該語句的基本語法是：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> &lt;表名&gt; <span class="keyword">SET</span> 字段<span class="number">1</span>=值<span class="number">1</span>, 字段<span class="number">2</span>=值<span class="number">2</span>, ... <span class="keyword">WHERE</span> ...;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> students <span class="keyword">SET</span> <span class="keyword">name</span>=<span class="string">'你猜'</span>, score=<span class="number">66</span> <span class="keyword">WHERE</span> <span class="keyword">id</span>=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 
-<p>在<code>UPDATE</code>語句中，更新字段時可以使用表達式。例如，把所有 80 分以下的同學的成績加 10 分：</p>
+<p>在 <strong>UPDATE</strong> 語句中，更新字段時可以使用表達式。例如，把所有 80 分以下的同學的成績加 10 分：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> students <span class="keyword">SET</span> score=score+<span class="number">10</span> <span class="keyword">WHERE</span> score&lt;<span class="number">80</span>;</span><br></pre></td></tr></table></figure>
 
-<p>UPDATE 語句可以沒有<code>WHERE</code>條件，例如：</p>
+<p>UPDATE 語句可以沒有 <strong>WHERE</strong> 條件，例如：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> students <span class="keyword">SET</span> score=<span class="number">60</span>;</span><br></pre></td></tr></table></figure>
 
 <p>這時，整個表的所有記錄都會被更新。</p>
-<h3 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h3><p>如果要刪除數據庫表中的記錄，可以使用<code>DELETE</code>語句。該語句的基本語法是：</p>
+<h3 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h3><p>如果要刪除數據庫表中的記錄，可以使用 <strong>DELETE</strong> 語句。該語句的基本語法是：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> &lt;表名&gt; <span class="keyword">WHERE</span> ...;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> students <span class="keyword">WHERE</span> <span class="keyword">id</span>=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> students <span class="keyword">WHERE</span> <span class="keyword">id</span>&gt;=<span class="number">5</span> <span class="keyword">AND</span> <span class="keyword">id</span>&lt;=<span class="number">7</span>;</span><br></pre></td></tr></table></figure>
@@ -548,23 +548,23 @@
 <li>Duration，持久性，即事務完成後，對數據庫數據的修改被持久化存儲。</li>
 </ul>
 <p>對於單條 SQL 語句，數據庫系統自動將其作為一個事務執行，這種事務被稱為隱式事務。</p>
-<p>要手動把多條 SQL 語句作為一個事務執行，使用<code>BEGIN</code>開啟一個事務，使用<code>COMMIT</code>提交一個事務，這種事務被稱為顯式事務，例如，把上述的轉賬操作作為一個顯式事務：</p>
+<p>要手動把多條 SQL 語句作為一個事務執行，使用 <strong>BEGIN</strong> 開啟一個事務，使用 <strong>COMMIT</strong> 提交一個事務，這種事務被稱為顯式事務，例如，把上述的轉賬操作作為一個顯式事務：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> accounts <span class="keyword">SET</span> balance = balance - <span class="number">100</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> accounts <span class="keyword">SET</span> balance = balance + <span class="number">100</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></table></figure>
 
-<p>很顯然多條 SQL 語句要想作為一個事務執行，就必須使用顯式事務。<code>COMMIT</code>是指提交事務，即試圖把事務內的所有 SQL 所做的修改永久保存。如果<code>COMMIT</code>語句執行失敗了，整個事務也會失敗。</p>
-<p>有些時候，希望主動讓事務失敗，這時，可以用<code>ROLLBACK</code>回滾事務，整個事務會失敗：</p>
+<p>很顯然多條 SQL 語句要想作為一個事務執行，就必須使用顯式事務。<strong>COMMIT</strong> 是指提交事務，即試圖把事務內的所有 SQL 所做的修改永久保存。如果 <strong>COMMIT</strong> 語句執行失敗了，整個事務也會失敗。</p>
+<p>有些時候，希望主動讓事務失敗，這時，可以用 <strong>ROLLBACK</strong> 回滾事務，整個事務會失敗：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> accounts <span class="keyword">SET</span> balance = balance - <span class="number">100</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> accounts <span class="keyword">SET</span> balance = balance + <span class="number">100</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">ROLLBACK</span>;</span><br></pre></td></tr></table></figure>
 
 <p>數據庫事務是由數據庫系統保證的，開發者只需要根據業務邏輯使用它就可以。</p>
 <h3 id="隔離級別"><a href="#隔離級別" class="headerlink" title="隔離級別"></a>隔離級別</h3><p>對於兩個並發執行的事務，如果涉及到操作同一條記錄的時候，可能會發生問題。因為並發操作會帶來數據的不一致性，包括臟讀、不可重復讀、幻讀等。數據庫系統提供了隔離級別來讓開發者有針對性地選擇事務的隔離級別，避免數據不一致的問題。</p>
 <p>SQL 標準定義了 4 種隔離級別，分別對應可能出現的數據不一致的情況：</p>
-<h4 id="Read-Uncommitted"><a href="#Read-Uncommitted" class="headerlink" title="Read Uncommitted"></a>Read Uncommitted</h4><p><code>Read Uncommitted</code>是隔離級別最低的一種事務級別。在這種隔離級別下，一個事務會讀到另一個事務更新後但未提交的數據，如果另一個事務回滾，那麽當前事務讀到的數據就是臟數據，這就是臟讀（Dirty Read）。</p>
-<h4 id="Read-Committed"><a href="#Read-Committed" class="headerlink" title="Read Committed"></a>Read Committed</h4><p>在<code>Read Committed</code>隔離級別下，一個事務可能會遇到不可重復讀（Non Repeatable Read）的問題。</p>
+<h4 id="Read-Uncommitted"><a href="#Read-Uncommitted" class="headerlink" title="Read Uncommitted"></a>Read Uncommitted</h4><p><strong>Read Uncommitted</strong> 是隔離級別最低的一種事務級別。在這種隔離級別下，一個事務會讀到另一個事務更新後但未提交的數據，如果另一個事務回滾，那麽當前事務讀到的數據就是臟數據，這就是臟讀（Dirty Read）。</p>
+<h4 id="Read-Committed"><a href="#Read-Committed" class="headerlink" title="Read Committed"></a>Read Committed</h4><p>在 <strong>Read Committed</strong> 隔離級別下，一個事務可能會遇到不可重復讀（Non Repeatable Read）的問題。</p>
 <p>不可重復讀是指，在一個事務內，多次讀同一數據，在這個事務還沒有結束時，如果另一個事務恰好修改了這個數據，那麽，在第一個事務中，兩次讀取的數據就可能不一致。</p>
-<h4 id="Repeatable-Read"><a href="#Repeatable-Read" class="headerlink" title="Repeatable Read"></a>Repeatable Read</h4><p>在<code>Repeatable Read</code>隔離級別下，一個事務可能會遇到幻讀（Phantom Read）的問題。</p>
+<h4 id="Repeatable-Read"><a href="#Repeatable-Read" class="headerlink" title="Repeatable Read"></a>Repeatable Read</h4><p>在 <strong>Repeatable Read</strong> 隔離級別下，一個事務可能會遇到幻讀（Phantom Read）的問題。</p>
 <p>幻讀是指，在一個事務中，第一次查詢某條記錄，發現沒有，但是，當試圖更新這條不存在的記錄時，竟然能成功，並且，再次讀取同一條記錄，它就神奇地出現了。</p>
-<h4 id="Serializable"><a href="#Serializable" class="headerlink" title="Serializable"></a>Serializable</h4><p><code>Serializable</code>是最嚴格的隔離級別。在<code>Serializable</code>隔離級別下，所有事務按照次序依次執行，因此，臟讀、不可重復讀、幻讀都不會出現。</p>
-<p>雖然<code>Serializable</code>隔離級別下的事務具有最高的安全性，但是，由於事務是串行執行，所以效率會大大下降，應用程序的性能會急劇降低。如果沒有特別重要的情景，一般都不會使用 Serializable 隔離級別。</p>
+<h4 id="Serializable"><a href="#Serializable" class="headerlink" title="Serializable"></a>Serializable</h4><p><strong>Serializable</strong> 是最嚴格的隔離級別。在 <strong>Serializable</strong> 隔離級別下，所有事務按照次序依次執行，因此，臟讀、不可重復讀、幻讀都不會出現。</p>
+<p>雖然 <strong>Serializable</strong> 隔離級別下的事務具有最高的安全性，但是，由於事務是串行執行，所以效率會大大下降，應用程序的性能會急劇降低。如果沒有特別重要的情景，一般都不會使用 Serializable 隔離級別。</p>
 <p>（以上內容摘抄於網絡，僅作為個人學習筆記，不適合作為學習教程。）</p>
 
         </div>

@@ -214,10 +214,10 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>meta 標簽提供關於 html 文檔的元數據（元數據不會顯示在網頁上，但是對於機器是可讀的。），常用來描述一個 html 網頁的屬性（例如作者、網頁描述、關鍵詞等。）或者渲染方式等。meta 標簽有兩個屬性，分別是<strong>http-equiv</strong>屬性和<strong>name</strong>屬性，不同的屬性又有不同的屬性值，這些不同的屬性值就實現了網頁不同的功能。</p>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>meta 標簽提供關於 html 文檔的元數據（元數據不會顯示在網頁上，但是對於機器是可讀的。），常用來描述一個 html 網頁的屬性（例如作者、網頁描述、關鍵詞等。）或者渲染方式等。meta 標簽有兩個屬性，分別是 <strong>http-equiv</strong> 屬性和 <strong>name</strong> 屬性，不同的屬性又有不同的屬性值，這些不同的屬性值就實現了網頁不同的功能。</p>
 <p>name 屬性主要用於描述網頁，與之對應的屬性值為 content，content 中的內容主要是便於搜索引擎查找信息和分類信息用的。</p>
 <p><strong>格式為：</strong><code>&lt;meta name=&quot;屬性名&quot;content=&quot;屬性值&quot; /&gt;</code>。</p>
-<p>http-equiv（http-equivalent）屬性相當於<strong>http</strong>的文件頭作用，它可以向瀏覽器傳回一些有用的信息，以幫助精確地顯示網頁內容，與之對應的屬性值同樣為 content。</p>
+<p>http-equiv（http-equivalent）屬性相當於 <strong>http</strong> 的文件頭作用，它可以向瀏覽器傳回一些有用的信息，以幫助精確地顯示網頁內容，與之對應的屬性值同樣為 content。</p>
 <p><strong>格式為：</strong><code>&lt;meta http-equiv=&quot;屬性名&quot;content=&quot;屬性值&quot; /&gt;</code>。</p>
 <p>（以下按照 meta 標簽功能進行分類解釋。）</p>
 <h2 id="搜索引擎優化（SEO）"><a href="#搜索引擎優化（SEO）" class="headerlink" title="搜索引擎優化（SEO）"></a>搜索引擎優化（SEO）</h2><h3 id="keywords（關鍵詞）"><a href="#keywords（關鍵詞）" class="headerlink" title="keywords（關鍵詞）"></a>keywords（關鍵詞）</h3><p><strong>示例：</strong><code>&lt;meta name=&quot;keywords&quot; content=&quot;關鍵詞1, 關鍵詞2, 關鍵詞3, ...&quot; /&gt;</code>。</p>
@@ -295,15 +295,15 @@
 </tr>
 </tbody></table>
 <h3 id="X-UA-Compatible"><a href="#X-UA-Compatible" class="headerlink" title="X-UA-Compatible"></a>X-UA-Compatible</h3><p><strong>示例：</strong><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge, chrome=1&quot; /&gt;</code>。</p>
-<p>說明：這是<strong>IE8</strong>的一個專有 meta 屬性，用來兼容其它低版本 IE 瀏覽器。如果當前 IE 瀏覽器安裝了<strong>Google Chrome Frame</strong>插件，則以<strong>chrome</strong>內核渲染頁面，否則就以當前 IE 瀏覽器支持的最高版本模式來渲染。</p>
-<p>遵循&lt;!DOCTYPE&gt;指令文檔聲明的兼容設置：</p>
+<p>說明：這是 <strong>IE8</strong> 的一個專有 meta 屬性，用來兼容其它低版本 IE 瀏覽器。如果當前 IE 瀏覽器安裝了 <strong>Google Chrome Frame</strong> 插件，則以 <strong>chrome</strong> 內核渲染頁面，否則就以當前 IE 瀏覽器支持的最高版本模式來渲染。</p>
+<p>遵循 &lt;!DOCTYPE&gt; 指令文檔聲明的兼容設置：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=EmulateIE7"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 在標準模式指令下以IE7標準模式渲染頁面，在Quirks混雜模式指令下以IE5模式渲染頁面。 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=EmulateIE8"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 在標準模式指令下以IE8標準模式渲染頁面，在Quirks混雜模式指令下以IE5模式渲染頁面。 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=EmulateIE9"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 在標準模式指令下以IE9標準模式渲染頁面，在Quirks混雜模式指令下以IE5模式渲染頁面。 --&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>忽略&lt;!DOCTYPE&gt;指令文檔聲明的兼容設置：</p>
+<p>忽略 &lt;!DOCTYPE&gt; 指令文檔聲明的兼容設置：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=6"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 使用IE6標準模式渲染頁面 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=7"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 使用IE7標準模式渲染頁面 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=8"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 使用IE8標準模式渲染頁面 --&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="renderer"><a href="#renderer" class="headerlink" title="renderer"></a>renderer</h3><p><strong>示例：</strong><code>&lt;meta name=&quot;renderer&quot; content=&quot;webkit | ie-comp | ie-stand&quot; /&gt;</code>。</p>
-<p>說明：renderer 是為雙核瀏覽器（比如 360 瀏覽器）準備的，用於指定雙核瀏覽器默認以何種方式渲染頁面。<strong>webkit | ie-comp | ie-stand</strong>這種寫法表示瀏覽器將會按照從左到右的先後順序選擇其具備的渲染內核來渲染當前網頁。</p>
+<p>說明：renderer 是為雙核瀏覽器（比如 360 瀏覽器）準備的，用於指定雙核瀏覽器默認以何種方式渲染頁面。<strong>webkit | ie-comp | ie-stand</strong> 這種寫法表示瀏覽器將會按照從左到右的先後順序選擇其具備的渲染內核來渲染當前網頁。</p>
 <table>
 <thead>
 <tr>
@@ -324,10 +324,10 @@
 <td align="center">以 IE 標準模式渲染頁面。支持硬件加速及 IE9/IE10 全新的腳本渲染引擎。</td>
 </tr>
 </tbody></table>
-<p>國內的主流瀏覽器基本都是雙核（<strong>webkit</strong>和<strong>Trident</strong>）瀏覽器。基於 webkit 內核常用於網站的高速瀏覽，基於 IE 內核常用於兼容網銀、舊版網站。</p>
+<p>國內的主流瀏覽器基本都是雙核（<strong>webkit</strong> 和 <strong>Trident</strong>）瀏覽器。基於 webkit 內核常用於網站的高速瀏覽，基於 IE 內核常用於兼容網銀、舊版網站。</p>
 <h2 id="http-equiv"><a href="#http-equiv" class="headerlink" title="http-equiv"></a>http-equiv</h2><h3 id="expires（期限）"><a href="#expires（期限）" class="headerlink" title="expires（期限）"></a>expires（期限）</h3><p><strong>示例：</strong><code>&lt;meta http-equiv=&quot;expires&quot; content=&quot;Fri, 12Jan200118:18:18GMT&quot; /&gt;</code>。</p>
 <p>說明：expires 用於設定網頁的到期時間。一旦網頁過期，必須到服務器上重新請求。</p>
-<p><strong>註意：</strong>必須使用<strong>GMT</strong>時間格式。</p>
+<p><strong>註意：</strong>必須使用 <strong>GMT</strong> 時間格式。</p>
 <h3 id="pragma（緩存）"><a href="#pragma（緩存）" class="headerlink" title="pragma（緩存）"></a>pragma（緩存）</h3><p><strong>示例：</strong><code>&lt;meta http-equiv=&quot;pragma&quot; content=&quot;no-cache&quot; /&gt;</code>。</p>
 <p>說明：pragma 用於禁止瀏覽器從本地計算機的緩存中訪問頁面內容。</p>
 <p><strong>註意：</strong>這樣設定，用戶將無法離線瀏覽。</p>
@@ -393,7 +393,7 @@
 <h3 id="apple-touch-icon"><a href="#apple-touch-icon" class="headerlink" title="apple-touch-icon"></a>apple-touch-icon</h3><p><strong>示例：</strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-icon"</span> <span class="attr">href</span>=<span class="string">"touch-icon-iphone.png"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-icon"</span> <span class="attr">sizes</span>=<span class="string">"76×76"</span> <span class="attr">href</span>=<span class="string">"touch-icon-ipad.png"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span></span></span><br><span class="line"><span class="tag">  <span class="attr">rel</span>=<span class="string">"apple-touch-icon"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">sizes</span>=<span class="string">"120×120"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">href</span>=<span class="string">"touch-icon-iphone-retina.png"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span></span></span><br><span class="line"><span class="tag">  <span class="attr">rel</span>=<span class="string">"apple-touch-icon"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">sizes</span>=<span class="string">"152×152"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">href</span>=<span class="string">"touch-icon-ipad-retina.png"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 以上是針對不同蘋果設備選擇一個最優圖標。 --&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>說明：蘋果手機把網頁添加到主屏後的圖標（圖片自動處理成圓角和高光等效果）。如果更換為<code>apple-touch-icon-precomposed</code>則禁止系統自動添加效果，直接顯示設計原圖。</p>
+<p>說明：蘋果手機把網頁添加到主屏後的圖標（圖片自動處理成圓角和高光等效果）。如果更換為 <strong>apple-touch-icon-precomposed</strong> 則禁止系統自動添加效果，直接顯示設計原圖。</p>
 <figure class="image-box">
                 <a rel=深入淺出 meta 標簽 href="apple-mobile-web-app-icon.png" title="" data-fancybox="images"><img src="apple-mobile-web-app-icon.png" alt="" title="" class=""></a>
                 <p></p>

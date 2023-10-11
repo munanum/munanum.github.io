@@ -214,7 +214,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>「同源政策」（same-origin policy）是由<strong>Netscape</strong>公司引入瀏覽器的。其使得瀏覽器更加安全，現在所有瀏覽器都支持了這個策略。然而，安全的同時也使得開發過程中出現了一些麻煩。本文列出了一些常見的同源策略問題以及相對應的解決方案。</p>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>「同源政策」（same-origin policy）是由 <strong>Netscape</strong> 公司引入瀏覽器的。其使得瀏覽器更加安全，現在所有瀏覽器都支持了這個策略。然而，安全的同時也使得開發過程中出現了一些麻煩。本文列出了一些常見的同源策略問題以及相對應的解決方案。</p>
 <h2 id="常見問題"><a href="#常見問題" class="headerlink" title="常見問題"></a>常見問題</h2><p>「同源」指的是兩個地址之間<strong>協議相同</strong>、<strong>域名相同</strong>、<strong>端口相同</strong>，只要有一個不相同就會出現問題。</p>
 <p>目前，受到「同源政策」限製的有以下功能：</p>
 <ul>
@@ -222,19 +222,19 @@
 <li>AJAX 請求的響應被瀏覽器拒絕（瀏覽器雖然收到了響應，但是並不使用）；</li>
 <li>DOM 無法獲取（更不用說操作了）。</li>
 </ul>
-<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>Cookie 是由服務器寫入瀏覽器的，用來控製客戶端的狀態。雖然受到「同源政策」限製，但是並不苛刻。同源的頁面之間可以共享 Cookie，一級域名相同二級域名不同的頁面之間也可以通過設置<strong>document.domain</strong>共享 Cookie。</p>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>Cookie 是由服務器寫入瀏覽器的，用來控製客戶端的狀態。雖然受到「同源政策」限製，但是並不苛刻。同源的頁面之間可以共享 Cookie，一級域名相同二級域名不同的頁面之間也可以通過設置 <strong>document.domain</strong> 共享 Cookie。</p>
 <blockquote>
 <p>註意：該方法僅適用於 Cookie、iframe 窗口，LocalStorage、IndexDB 無法使用該方法解決「同源政策」問題。</p>
 </blockquote>
-<h3 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h3><p><strong>iframe</strong>標簽使得一個頁面中可以嵌入另一個頁面，如果兩個頁面不同源，就無法拿到對方的 DOM。這樣會造成父子頁面無法通信。</p>
+<h3 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h3><p><strong>iframe</strong> 標簽使得一個頁面中可以嵌入另一個頁面，如果兩個頁面不同源，就無法拿到對方的 DOM。這樣會造成父子頁面無法通信。</p>
 <p>對於不同源的父子頁面有以下方法解決通信問題：</p>
 <ol>
 <li>動態 hash</li>
 <li>window.name</li>
 <li>window.postMessage</li>
 </ol>
-<h4 id="動態-hash"><a href="#動態-hash" class="headerlink" title="動態 hash"></a>動態 hash</h4><p>在父頁面中，通過使用<code>&lt;iframe src=&quot;http://example.com/XXX.html#message&quot;&gt;&lt;/iframe&gt;</code>來嵌入子頁面。其中，<strong><a href="http://example.com/XXX.html" target="_blank" rel="noopener">http://example.com/XXX.html</a></strong>為子頁面地址，<strong>#</strong>後面的部分稱之為<strong>片段標識符（Fragment Identifier）</strong>，片段標識符改變頁面不會重新加載，父頁面傳遞給子頁面的數據可以放到此部分內。</p>
-<p>其過程是父頁面動態修改<strong>iframe</strong>標簽中<strong>src</strong>屬性值的片段標識符部分，子頁面通過<code>window.onhashchange</code>事件監聽片段標識符部分的變化。</p>
+<h4 id="動態-hash"><a href="#動態-hash" class="headerlink" title="動態 hash"></a>動態 hash</h4><p>在父頁面中，通過使用<code>&lt;iframe src=&quot;http://example.com/XXX.html#message&quot;&gt;&lt;/iframe&gt;</code>來嵌入子頁面。其中，<strong><a href="http://example.com/XXX.html" target="_blank" rel="noopener">http://example.com/XXX.html</a></strong> 為子頁面地址，<strong>#</strong> 後面的部分稱之為<strong>片段標識符（Fragment Identifier）</strong>，片段標識符改變頁面不會重新加載，父頁面傳遞給子頁面的數據可以放到此部分內。</p>
+<p>其過程是父頁面動態修改 <strong>iframe</strong> 標簽中 <strong>src</strong> 屬性值的片段標識符部分，子頁面通過 <strong>window.onhashchange</strong> 事件監聽片段標識符部分的變化。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父頁面代碼</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'iframe'</span>).src = url + <span class="string">'#'</span> + message</span><br><span class="line"><span class="comment">// url為子頁面地址</span></span><br><span class="line"><span class="comment">// message變量存放父頁面傳遞給子頁面的數據</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子頁面代碼</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onhashchange = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> message = <span class="built_in">window</span>.location.hash</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -244,7 +244,7 @@
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子頁面代碼</span></span><br><span class="line">parent.location.href = url + <span class="string">'#'</span> + message</span><br><span class="line"><span class="comment">// url為父頁面地址</span></span><br><span class="line"><span class="comment">// message變量存放子頁面傳遞給父頁面的數據</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="window-name"><a href="#window-name" class="headerlink" title="window.name"></a>window.name</h4><p><strong>window.name</strong>是一個特殊的屬性。無論頁面之間是否同源，只要在同一個窗口內，共享該屬性值（前一個頁面設置了該屬性，後一個頁面就可以獲取它。）。</p>
+<h4 id="window-name"><a href="#window-name" class="headerlink" title="window.name"></a>window.name</h4><p><strong>window.name</strong> 是一個特殊的屬性。無論頁面之間是否同源，只要在同一個窗口內，共享該屬性值（前一個頁面設置了該屬性，後一個頁面就可以獲取它。）。</p>
 <!-- 其過程是父頁面打開子頁面，子頁面將需要傳遞的數據寫入window.name屬性內，寫入後子頁面跳轉到一個與父頁面同域的頁面，此時父頁面就可以讀取子頁面存在window.name內的數據了。操作繁瑣且必須一直監聽子頁面window.name屬性值的變化，不建議使用。 -->
 
 <h4 id="window-postMessage"><a href="#window-postMessage" class="headerlink" title="window.postMessage"></a>window.postMessage</h4><p>這是 HTML5 新增加的 API，無論兩個窗口是否同源，都可以進行跨窗口通信。</p>
@@ -257,7 +257,7 @@
 <p><strong>因此，通過 window.postMessage 可以間接讀寫其他頁面的 LocalStorage、IndexDB。</strong></p>
 <p>參考鏈接：<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage</a></p>
 <h3 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h3><p>由於同源政策的影響，AJAX 請求只能發給同源的網址，否則報錯。解決方法有 JSONP、iframe、postMessage、window.name、代理服務器、CORS、WebSocket。</p>
-<h4 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h4><p>該方法是瀏覽器與服務器跨源通信的常用方法，對於前端簡單且兼容性好，對於後端服務器變動小。其原理是<strong>script</strong>、<strong>img</strong>等標簽中的<strong>src</strong>屬性請求非同源鏈接不受同源策略影響。</p>
+<h4 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h4><p>該方法是瀏覽器與服務器跨源通信的常用方法，對於前端簡單且兼容性好，對於後端服務器變動小。其原理是 <strong>script</strong>、<strong>img</strong> 等標簽中的 <strong>src</strong> 屬性請求非同源鏈接不受同源策略影響。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getData = <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 動態添加script標簽</span></span><br><span class="line"><span class="comment">// 向跨源網址發出請求</span></span><br><span class="line"><span class="keyword">let</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">script.setAttribute(<span class="string">'type'</span>, <span class="string">'text/javascript'</span>)</span><br><span class="line">script.src = <span class="string">'http://example.com/?callback=getData'</span></span><br><span class="line"><span class="comment">// callback參數用來指定回調函數的名字 服務器收到這個請求以後將數據放在回調函數的參數位置後一起返回</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(script)</span><br></pre></td></tr></table></figure>
 
 <h4 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h4><p>CORS 是跨域資源分享（Cross-Origin Resource Sharing）的縮寫。它使得瀏覽器能夠向非同源服務器發出 AJAX 請求，解決了 AJAX 請求只能向同源服務器發出請求的限製。</p>
@@ -268,9 +268,9 @@
 
 <p>（圖片來自網絡）</p>
 <p>1.簡單非同源請求：</p>
-<p>瀏覽器如果請求非同源服務器，會自動在請求頭中添加<strong>Origin</strong>（綠圈標註部分）字段，用來說明本次請求來自哪個源。服務器會根據這個字段值，決定是否同意這次非同源請求。如果<strong>Origin</strong>指定的源不在許可範圍內，服務器會返回一個常規的 HTTP 響應。瀏覽器檢測響應頭，發現沒有包含<strong>Access-Control-Allow-Origin</strong>（紅圈標註部分）字段，此時瀏覽器會拋出一個錯誤，請求失敗，<strong>此時狀態碼仍有可能是 200</strong>，響應數據雖然返回給了瀏覽器，但是被瀏覽器攔截了，無法在請求回調函數中獲取。相反，如果<strong>Origin</strong>指定的源在許可範圍內，則響應頭中包含<strong>Access-Control-Allow-Origin</strong>字段，可以收到數據。</p>
+<p>瀏覽器如果請求非同源服務器，會自動在請求頭中添加 <strong>Origin</strong>（綠圈標註部分）字段，用來說明本次請求來自哪個源。服務器會根據這個字段值，決定是否同意這次非同源請求。如果 <strong>Origin</strong> 指定的源不在許可範圍內，服務器會返回一個常規的 HTTP 響應。瀏覽器檢測響應頭，發現沒有包含 <strong>Access-Control-Allow-Origin</strong>（紅圈標註部分）字段，此時瀏覽器會拋出一個錯誤，請求失敗，<strong>此時狀態碼仍有可能是 200</strong>，響應數據雖然返回給了瀏覽器，但是被瀏覽器攔截了，無法在請求回調函數中獲取。相反，如果 <strong>Origin</strong> 指定的源在許可範圍內，則響應頭中包含 <strong>Access-Control-Allow-Origin</strong> 字段，可以收到數據。</p>
 <ul>
-<li><strong>Access-Control-Allow-Origin</strong>：該字段取值要麽是請求頭中<strong>Origin</strong>字段的值，要麽是一個星號（表示允許來自所有域的跨域請求）。</li>
+<li><strong>Access-Control-Allow-Origin</strong>：該字段取值要麽是請求頭中 <strong>Origin</strong> 字段的值，要麽是一個星號（表示允許來自所有域的跨域請求）。</li>
 </ul>
 <figure class="image-box">
                 <a rel=常見「同源策略」問題解決方案 href="simple_req.png" title="" data-fancybox="images"><img src="simple_req.png" alt="" title="" class=""></a>
@@ -279,18 +279,18 @@
 
 <p>（圖片來自網絡）</p>
 <p>2.含有「預檢請求」的非同源請求：</p>
-<p>這種請求會在正式請求發出之前提前發出一次 HTTP 查詢請求（稱之為「<strong>預檢請求</strong>」）。<strong>預檢請求</strong>是瀏覽器預先詢問服務器，當前頁面的域名是否在服務器的允許名單之中，以及可以使用哪些 HTTP<strong>請求方法</strong>和<strong>請求頭字段</strong>。當提出的要求被服務器完全「同意」後，瀏覽器才會發出真正的非同源請求，否則無法進行下一步或者報錯。</p>
-<p>「預檢請求」使用的請求方法是<strong>OPTIONS</strong>（紫圈標註部分），用來告訴服務器該請求是「預檢請求」，不是真正的請求。此外，”預檢請求”的請求頭中還包含<strong>Access-Control-Request-Method</strong>、<strong>Access-Control-Request-Headers</strong>（黃圈標註部分）兩個特殊字段。</p>
+<p>這種請求會在正式請求發出之前提前發出一次 HTTP 查詢請求（稱之為「<strong>預檢請求</strong>」）。<strong>預檢請求</strong>是瀏覽器預先詢問服務器，當前頁面的域名是否在服務器的允許名單之中，以及可以使用哪些 HTTP <strong>請求方法</strong>和<strong>請求頭字段</strong>。當提出的要求被服務器完全「同意」後，瀏覽器才會發出真正的非同源請求，否則無法進行下一步或者報錯。</p>
+<p>「預檢請求」使用的請求方法是 <strong>OPTIONS</strong>（紫圈標註部分），用來告訴服務器該請求是「預檢請求」，不是真正的請求。此外，”預檢請求”的請求頭中還包含 <strong>Access-Control-Request-Method</strong>、<strong>Access-Control-Request-Headers</strong>（黃圈標註部分）兩個特殊字段。</p>
 <ul>
 <li><strong>Access-Control-Request-Method</strong>：該字段是瀏覽器用來告訴服務器接下來的正式請求將要使用哪些 HTTP 請求方法。</li>
 <li><strong>Access-Control-Request-Headers</strong>：該字段取值是一個逗號分隔的字符串。該字段是瀏覽器用來告訴服務器接下來的正式請求在請求頭中將要附加額外的請求頭字段。</li>
 </ul>
-<p>與此同時，服務器對「預檢請求」做出響應，在響應頭中包含<strong>Access-Control-Allow-Methods</strong>、<strong>Access-Control-Allow-Headers</strong>（紅圈標註部分）等字段。</p>
+<p>與此同時，服務器對「預檢請求」做出響應，在響應頭中包含 <strong>Access-Control-Allow-Methods</strong>、<strong>Access-Control-Allow-Headers</strong>（紅圈標註部分）等字段。</p>
 <ul>
 <li><strong>Access-Control-Allow-Methods</strong>：該字段取值是一個逗號分隔的字符串。表明服務器支持的<strong>所有</strong>跨域請求的方法（避免多次「<strong>預檢請求</strong>」）。</li>
 <li><strong>Access-Control-Allow-Headers</strong>：該字段用來指定接下來的正式請求允許攜帶的請求頭字段。</li>
 <li><strong>Access-Control-Max-Age</strong>：該字段用來指定本次<strong>預檢請求</strong>的有效期（有效期內不用再發送<strong>預檢請求</strong>），單位為秒。</li>
-<li><strong>Access-Control-Expose-Headers</strong>：該字段取值是一個逗號分隔的字符串。在跨域請求時，<strong>XMLHttpRequest</strong>對象的<strong>getResponseHeader</strong>方法只能拿到一些最基本的響應頭字段（Cache-Control、Content-Language、Content-Type、Expires、Last-Modified、Pragma）。如果想拿到其他字段，就必須在<strong>Access-Control-Expose-Headers</strong>裏面指定。</li>
+<li><strong>Access-Control-Expose-Headers</strong>：該字段取值是一個逗號分隔的字符串。在跨域請求時，<strong>XMLHttpRequest</strong> 對象的 <strong>getResponseHeader</strong> 方法只能拿到一些最基本的響應頭字段（Cache-Control、Content-Language、Content-Type、Expires、Last-Modified、Pragma）。如果想拿到其他字段，就必須在 <strong>Access-Control-Expose-Headers</strong> 裏面指定。</li>
 </ul>
 <figure class="image-box">
                 <a rel=常見「同源策略」問題解決方案 href="prelight.png" title="" data-fancybox="images"><img src="prelight.png" alt="" title="" class=""></a>
@@ -301,15 +301,15 @@
 <p>滿足以下條件之一的請求在正式請求發出之前會提前發出「預檢請求」：</p>
 <ul>
 <li>一個請求在請求頭中包含了任何自定義請求頭字段。</li>
-<li>使用 HTTP 請求方式是<strong>GET</strong>、<strong>HEAD</strong>、<strong>POST</strong>之外的任何一種方式。</li>
-<li>請求方式是<strong>POST</strong>，但請求頭的<strong>Content-Type</strong>字段取值是<strong>application/x-www-form-urlencoded</strong>、<strong>multipart/form-data</strong>、<strong>text/plain</strong>之外的。</li>
+<li>使用 HTTP 請求方式是 <strong>GET</strong>、<strong>HEAD</strong>、<strong>POST</strong> 之外的任何一種方式。</li>
+<li>請求方式是 <strong>POST</strong>，但請求頭的 <strong>Content-Type</strong> 字段取值是 <strong>application/x-www-form-urlencoded</strong>、<strong>multipart/form-data</strong>、<strong>text/plain</strong> 之外的。</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> url = <span class="string">'http://example.com/'</span></span><br><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line"></span><br><span class="line">xhr.open(<span class="string">'PUT'</span>, url, <span class="literal">true</span>)</span><br><span class="line">xhr.setRequestHeader(<span class="string">'X-Custom-Header'</span>, <span class="string">'value'</span>)</span><br><span class="line">xhr.send()</span><br></pre></td></tr></table></figure>
 
-<p>上面的<strong>XMLHttpRequest</strong>請求中，請求方法是<strong>PUT</strong>，不是常規請求方式。且在生成的請求頭中，有一個用戶自定義的字段<strong>X-Custom-Header</strong>，瀏覽器發現這是個非正常字段自動發出一個”預檢請求”，詢問服務器是否可以接受這個非正常請求頭字段。如果服務器回絕則返回一個正常的響應頭，此時瀏覽器報錯；如果同意，則返回的響應頭中會有<strong>Access-Control-Allow-Headers: X-Custom-Header</strong>。</p>
+<p>上面的 <strong>XMLHttpRequest</strong> 請求中，請求方法是 <strong>PUT</strong>，不是常規請求方式。且在生成的請求頭中，有一個用戶自定義的字段 <strong>X-Custom-Header</strong>，瀏覽器發現這是個非正常字段自動發出一個”預檢請求”，詢問服務器是否可以接受這個非正常請求頭字段。如果服務器回絕則返回一個正常的響應頭，此時瀏覽器報錯；如果同意，則返回的響應頭中會有 <strong>Access-Control-Allow-Headers: X-Custom-Header</strong>。</p>
 <p>3.附帶身份憑證的非同源請求：</p>
 <p>該請求和前兩種請求類似，只不過在發送請求的時候，需要將用戶憑證包含在請求中。</p>
-<p>默認情況下，Cookie 不會包含在非同源請求之中，開發者需要在非同源請求中把<strong>withCredentials</strong>屬性的值設置為<strong>true</strong>，而且服務器響應頭中的<strong>Access-Control-Allow-Credentials</strong>字段取值也要設置為<strong>true</strong>，兩者缺一不可。只有這樣，瀏覽器才會把響應內容返回給請求的發起者。對於這種請求，響應頭中的<strong>Access-Control-Allow-Origin</strong>字段取值不能為星號。這是因為請求頭中攜帶了 Cookie 信息，如果<strong>Access-Control-Allow-Origin</strong>取值為星號請求將會失敗，而將<strong>Access-Control-Allow-Origin</strong>字段的值設置為請求發起者所在域名則請求成功執行。此外，這時響應頭中也攜帶了<strong>Set-Cookie</strong>字段。</p>
+<p>默認情況下，Cookie 不會包含在非同源請求之中，開發者需要在非同源請求中把 <strong>withCredentials</strong> 屬性的值設置為 <strong>true</strong>，而且服務器響應頭中的 <strong>Access-Control-Allow-Credentials</strong> 字段取值也要設置為 <strong>true</strong>，兩者缺一不可。只有這樣，瀏覽器才會把響應內容返回給請求的發起者。對於這種請求，響應頭中的 <strong>Access-Control-Allow-Origin</strong> 字段取值不能為星號。這是因為請求頭中攜帶了 Cookie 信息，如果 <strong>Access-Control-Allow-Origin</strong> 取值為星號請求將會失敗，而將 <strong>Access-Control-Allow-Origin</strong> 字段的值設置為請求發起者所在域名則請求成功執行。此外，這時響應頭中也攜帶了 <strong>Set-Cookie</strong> 字段。</p>
 <figure class="image-box">
                 <a rel=常見「同源策略」問題解決方案 href="cred-req.png" title="" data-fancybox="images"><img src="cred-req.png" alt="" title="" class=""></a>
                 <p></p>
@@ -319,7 +319,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> url = <span class="string">'http://example.com/'</span></span><br><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line"></span><br><span class="line">xhr.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>)</span><br><span class="line">xhr.withCredentials = <span class="literal">true</span></span><br><span class="line"><span class="comment">// XMLHttpRequest的withCredentials設置為true從而向服務器發送Cookie</span></span><br><span class="line">xhr.send()</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>註意：有的瀏覽器不用設置<strong>withCredentials</strong>為<strong>true</strong>也可以向服務器發送 Cookie，可以通過<code>xhr.withCredentials = false;</code>顯式關閉。</p>
+<p>註意：有的瀏覽器不用設置 <strong>withCredentials</strong> 為 <strong>true</strong> 也可以向服務器發送 Cookie，可以通過 <strong>xhr.withCredentials = false</strong> 顯式關閉。</p>
 </blockquote>
 <style>
   h4 {
